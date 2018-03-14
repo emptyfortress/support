@@ -1,7 +1,9 @@
 <template>
+	<transition name="layout">
 	<div class="dark">
 		<nuxt/>
 	</div>
+	</transition>
 </template>
 
 <style lang="scss">

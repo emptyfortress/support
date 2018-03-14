@@ -1,48 +1,7 @@
 <template>
-	<section class="container">
-		<div>
-				<h1 class="title">support</h1>
-				<h2 class="subtitle"> DV support site </h2>
-
-				<div class="links"> 
-					<nuxt-link to="/test">test</nuxt-link>
-				</div>
-		</div>
-	</section>
+  <div class="container">
+    <h1>Home page</h1>
+    <p><nuxt-link to="/about">About page</nuxt-link></p>
+    <p><nuxt-link to="/users">Lists of users</nuxt-link></p>
+  </div>
 </template>
-
-<script>
-
-</script>
-
-<style lang = "scss">
-.container {
-	min-height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-}
-
-.title {
-	font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-	display: block;
-	font-weight: 300;
-	font-size: 100px;
-	color: #35495e;
-	/* color: #f00; */
-	letter-spacing: 1px;
-}
-
-.subtitle {
-	font-weight: 300;
-	font-size: 42px;
-	color: #526488;
-	word-spacing: 5px;
-	padding-bottom: 15px;
-}
-
-.links {
-	/* padding-top: 15px; */
-}
-</style>
