@@ -15,13 +15,16 @@ export default {
 	data: function() {
 		return {
 			sections: [
-				{ id: 1, name: 'one' },
-				{ id: 2, name: 'two' },
-				{ id: 3, name: 'three' },
-				{ id: 4, name: 'one' },
-				{ id: 5, name: 'one' },
-				{ id: 6, name: 'one' },
-				{ id: 7, name: 'one' },
+				{ id:  1, name: 'Условия' },
+				{ id:  2, name: 'Путеводитель' },
+				{ id:  3, name: 'Загрузить' },
+				{ id:  4, name: 'Документация' },
+				{ id:  5, name: 'Техподдержка' },
+				{ id:  6, name: 'Отправить запрос' },
+				{ id:  7, name: 'Мои запросы' },
+				{ id:  8, name: 'Разработчикам' },
+				{ id:  9, name: 'ЧаВо' },
+				{ id: 10, name: 'Контакты' },
 			]
 		}
 	},
