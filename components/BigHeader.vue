@@ -5,9 +5,6 @@
 			<Logo />
 			<div>lsak</div>
 		</div>
-		<!-- <div class="logo"> -->
-		<!-- 	<img src="~assets/img/logo.svg" alt=""> -->
-		<!-- </div> -->
 		<div class="search">bottom</div>
 
 	</div>
