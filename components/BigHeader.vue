@@ -1,7 +1,7 @@
 <template>
 	<div class="big-header">
 		<div class="topBar">
-			<div>lsak</div>
+			<Ham />
 			<Logo />
 			<div>lsak</div>
 		</div>
@@ -15,10 +15,12 @@
 
 <script>
 	import Logo from '@/components/Logo'
+	import Ham from '@/components/Ham'
 
 	export default {
 		components: {
-			Logo
+			Logo,
+			Ham
 		}
 	}
 </script>
@@ -29,6 +31,7 @@
 .big-header {
 	display: grid;
 	grid-template-rows: 30% 70%; 
+	padding: 0 1rem;
 	background: linear-gradient(white, var(--dv-gray2));
 	border-bottom: 1px solid var(--dv-gray3);
 }

@@ -22,6 +22,7 @@ export default {
 		font-size: .9rem;
 		color: #666;
 		font-family: Tahoma;
+		cursor: pointer;
 		img {
 			margin: 0 10px;
 		}
