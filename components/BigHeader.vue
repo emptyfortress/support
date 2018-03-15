@@ -68,9 +68,12 @@
 		text-transform: uppercase;
 	}
 	.input {
-		width: 780px;
+		max-width: 780px;
+		min-width: 250px;
+		height: 50px;
 		margin: 0 auto;
 		position: relative;
+		/* background: red; */
 		img {
 			position: absolute;
 			top: 36px;
@@ -81,7 +84,7 @@
 	}
 	input {
 		height: 50px;
-		width: 780px;
+		width: 100%;
 		margin-top: 20px;
 		font-size: 1.3rem;
 		padding-left: 1rem;

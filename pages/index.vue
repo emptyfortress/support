@@ -2,28 +2,34 @@
 	.container-main
 		BigHeader/
 		.navgrid
-			.item
-			.item
-			.item
-			.item
-			.item
-			.item
-			.item
-			.item
-			.item
-			.item
+			Section(v-for="section in sections" :key="section.id" :name="section.name")
 		Footer/
 </template>
 
 <script>
 	import Footer from '@/components/Footer';
 	import BigHeader from '@/components/BigHeader';
+	import Section from '@/components/Section';
 
 export default {
+	data: function() {
+		return {
+			sections: [
+				{ id: 1, name: 'one' },
+				{ id: 2, name: 'two' },
+				{ id: 3, name: 'three' },
+				{ id: 4, name: 'one' },
+				{ id: 5, name: 'one' },
+				{ id: 6, name: 'one' },
+				{ id: 7, name: 'one' },
+			]
+		}
+	},
 
 	components: {
 		Footer,
-		BigHeader
+		BigHeader,
+		Section
 	}
 }
 
@@ -37,19 +43,12 @@ export default {
 	display: grid;
 	grid-template-rows: 230px auto;
 	.navgrid {
-		width: 780px;
+		max-width: 780px;
 		height: auto;
 		margin: 2rem auto;
 		background: #eee;
 		display: flex;
 		flex-flow: row wrap;
-		.item {
-			width: 20%;
-			height: 130px;
-			background: #fff;
-			border: 1px solid #333;
-
-		}
 	}
 }
 
