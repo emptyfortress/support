@@ -1,23 +1,23 @@
-<template>
-	<div class="big-header">
-		<div class="topBar">
-			<Ham />
-			<Logo />
-			<div>lsak</div>
-		</div>
-		<div class="search">bottom</div>
+<template lang="pug">
+	.big-header
+		.topBar
+			Ham/
+			Logo/
+			Loud/
+		.search Bottom
 
-	</div>
 </template>
 
 <script>
-	import Logo from '@/components/Logo'
-	import Ham from '@/components/Ham'
+	import Logo from '@/components/Logo';
+	import Ham from '@/components/Ham';
+	import Loud from '@/components/Loud';
 
 	export default {
 		components: {
 			Logo,
-			Ham
+			Ham,
+			Loud
 		}
 	}
 </script>
