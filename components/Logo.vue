@@ -1,6 +1,6 @@
 <template>
 	<div class="logo">
-		<div>Техподдержка</div>
+		<div>Поддержка</div>
 		<img src="~assets/img/logo.svg" alt="">
 		<div>Доксвижн</div>
 	</div>
