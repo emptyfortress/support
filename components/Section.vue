@@ -27,10 +27,12 @@ export default {
 	cursor: pointer;
 	&:hover {
 		border: 1px solid var(--dv-gray2);
+		img { opacity: 1; }
 	}
 	p {
 		margin-top: 0.7rem;
 	}
+	img { opacity: .2; }
 }
 
 
