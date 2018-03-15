@@ -1,5 +1,8 @@
 <template>
-	<div class="footer">© 1998 — 2018, ООО «ДоксВижн»</div>
+	<div class="footer">
+		<div>© 1998 — 2018, ООО «ДоксВижн»</div>
+		<div>Портал технической поддержки</div>
+	</div>
 </template>
 
 <script>
@@ -13,12 +16,12 @@ export default {
 	@import '~assets/css/colors';
 
 	.footer {
-		/* background: var(--dv-gray2); */
+		display: flex;
+		justify-content: space-between;
 		padding: 1em;
 		font-size: .86rem;
 		border-top: 1px solid var(--dv-gray2);
 		color: #aaa;
-		/* color: var(--dv-gray3); */
 	}
 
 </style>
