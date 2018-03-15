@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+div {
+	width: 70px;
+}
 .navTrigger {
   cursor: pointer;
   width: 30px; 

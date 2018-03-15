@@ -14,6 +14,7 @@ export default {
 	@import '~assets/css/colors';
 
 	.loud {
+		cursor: pointer;
 		position: relative;
 		.dot {
 			width: 12px;
