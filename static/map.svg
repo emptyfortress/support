@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>map</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="map" fill-rule="nonzero" fill="#4A4A4A">
+            <path d="M24,0 C17.704,0 12,5.106 12,11.404 C12,20.768 21.566,21.758 24,36 C26.434,21.758 36,20.768 36,11.404 C36,5.106 30.298,0 24,0 Z M24,16 C21.79,16 20,14.21 20,12 C20,9.79 21.79,8 24,8 C26.21,8 28,9.79 28,12 C28,14.21 26.21,16 24,16 Z M48,48 L34.586,43.146 L24,48 L12.838,43.146 L0,48 L8,30 L15.92,26.832 C16.68,27.864 17.402,28.992 18.042,30.29 L10.996,33.11 L7.546,40.87 L12.89,38.85 L15.902,33.476 L14.632,39.564 L23.01,43.142 L24,39.1 L24.93,43.148 L33.23,39.368 L31.994,33.302 L35.138,39.094 L40.602,41.072 L37.124,33.116 L29.962,30.286 C30.6,28.986 31.324,27.856 32.086,26.824 L40.128,30 L48,48 L48,48 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

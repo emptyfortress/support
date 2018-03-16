@@ -59,7 +59,6 @@
 
 .search {
 	text-align: center;
-	/* align-items: center; */
 	p {
 		font-size: 2.5rem;
 		font-weight: 300;

@@ -1,8 +1,10 @@
-<template lang="pug">
-	.item
-		img(src='~assets/img/book.svg')
-		p {{name}}
+<template>
+	<div class="item">
+		<img :src="icon + '.svg'" alt="" >
+		<p>{{name}}</p>
+	</div>
 </template>
+
 
 <script>
 
@@ -25,8 +27,9 @@ export default {
 	font-size: 1rem;
 	cursor: pointer;
 	&:hover {
+		/* background: $dv-gray1; */
 		border: 1px solid $dv-gray2;
-		img { opacity: 1; }
+		/* img { opacity: .4; } */
 	}
 	p {
 		margin-top: 0.7rem;

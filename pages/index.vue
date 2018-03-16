@@ -2,7 +2,7 @@
 	.container-main
 		BigHeader/
 		.navgrid
-			Section(v-for="section in sections" :key="section.id" :name="section.name")
+			Section(v-for="section in sections" :key="section.id" :icon="section.icon" :name="section.name")
 		Footer/
 </template>
 
@@ -14,17 +14,18 @@
 export default {
 	data: function() {
 		return {
+
 			sections: [
-				{ id:  1, name: 'Условия' },
-				{ id:  2, name: 'Путеводитель' },
-				{ id:  3, name: 'Загрузить' },
-				{ id:  4, name: 'Документация' },
-				{ id:  5, name: 'Техподдержка' },
-				{ id:  6, name: 'Отправить запрос' },
-				{ id:  7, name: 'Мои запросы' },
-				{ id:  8, name: 'Разработчикам' },
-				{ id:  9, name: 'ЧаВо' },
-				{ id: 10, name: 'Контакты' },
+				{ id:  1, icon: 'book', name: 'Условия' },
+				{ id:  2, icon: 'map',       name: 'Путеводитель' },
+				{ id:  3, icon: 'download',  name: 'Загрузить' },
+				{ id:  4, icon: 'book',      name: 'Документация' },
+				{ id:  5, icon: 'lifering',  name: 'Техподдержка' },
+				{ id:  6, icon: 'send',      name: 'Отправить запрос' },
+				{ id:  7, icon: 'bookmark',  name: 'Мои запросы' },
+				{ id:  8, icon: 'code',      name: 'Разработчикам' },
+				{ id:  9, icon: 'faq',       name: 'ЧаВо' },
+				{ id: 10, icon: 'mail',      name: 'Контакты' },
 			]
 		}
 	},
@@ -48,9 +49,10 @@ export default {
 		max-width: 780px;
 		height: auto;
 		margin: 2rem auto;
-		background: #eee;
 		display: flex;
 		flex-flow: row wrap;
+		align-items: center;
+		justify-content: center;
 	}
 }
 
