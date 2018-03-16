@@ -16,6 +16,9 @@ module.exports = {
 	link: [
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,900&amp;subset=cyrillic' }
     ],
+	modules: [
+    ['nuxt-sass-resources-loader', '~assets/css/settings.scss']
+  ],
 	css: [
 		'~assets/css/main.scss'
 	],

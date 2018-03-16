@@ -11,7 +11,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-	@import '~assets/css/colors';
 
 	.loud {
 		cursor: pointer;
@@ -21,7 +20,7 @@ export default {
 			height: 12px;
 			border-radius: 10px;
 			border: 1px solid #fff;
-			background: var(--red);
+			background: $red;
 			position: absolute;
 			top: -5px;
 			right: -5px;

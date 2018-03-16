@@ -39,12 +39,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~assets/css/colors';
 
 .container-main {
-	height: 100%;
-	display: grid;
-	grid-template-rows: 230px auto;
+	/* height: 100%; *
+	/* display: grid; */
+	/* grid-template-rows: 230px auto; */
 	.navgrid {
 		max-width: 780px;
 		height: auto;
@@ -54,7 +53,5 @@ export default {
 		flex-flow: row wrap;
 	}
 }
-
-
 
 </style>

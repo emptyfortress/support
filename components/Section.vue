@@ -13,7 +13,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '~assets/css/colors';
 
 .item {
 	display: flex;
@@ -26,7 +25,7 @@ export default {
 	font-size: 1rem;
 	cursor: pointer;
 	&:hover {
-		border: 1px solid var(--dv-gray2);
+		border: 1px solid $dv-gray2;
 		img { opacity: 1; }
 	}
 	p {

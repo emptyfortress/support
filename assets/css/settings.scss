@@ -1,0 +1,31 @@
+///////////////////////
+//  DV brand colors  //
+///////////////////////
+
+$dv-blue:   #133C60;
+$dv-yellow: #FEC01E;
+$dv-green:  #8AC140;
+$dv-gray1:  #FAFAFA;
+$dv-gray2:  #E6E7E8;
+$dv-gray3:  #BDBEBF;
+$blue:      #0096DC;
+$red:       #D0021B;
+$black:     #4A4A4A;
+
+/////////////////////////////
+//  redefind bulma colors  //
+/////////////////////////////
+
+$primary: $dv-green;
+@import '~bulma/sass/utilities/_all';
+//  TODO: remove next line // 
+@import '~bulma/sass/elements/button';
+
+/////////////////////
+//  font settings  //
+/////////////////////
+
+$font: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$small: Tahoma, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif: Georgia, "Times New Roman";
+

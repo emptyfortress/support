@@ -32,22 +32,21 @@
 </script>
 
 <style scoped lang="scss">
-@import '~assets/css/colors';
 
 .big-header {
+	height: 230px;
 	display: grid;
 	grid-template-rows: 30% 70%; 
 	align-items: center;
 	padding: 0 1rem;
-	background: linear-gradient(white, var(--dv-gray2));
-	border-bottom: 1px solid var(--dv-gray3);
+	background: linear-gradient(white, $dv-gray2);
+	border-bottom: 1px solid $dv-gray3;
 }
 
 .topBar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	/* background: red; */
 }
 
 .right {
@@ -62,7 +61,7 @@
 	text-align: center;
 	/* align-items: center; */
 	p {
-		font-size: 32px;
+		font-size: 2.5rem;
 		font-weight: 300;
 		color: #000;
 		text-transform: uppercase;
@@ -76,7 +75,7 @@
 		/* background: red; */
 		img {
 			position: absolute;
-			top: 36px;
+			top: 24px;
 			right: 10px;
 			opacity: .2;
 			cursor: pointer;
@@ -85,7 +84,7 @@
 	input {
 		height: 50px;
 		width: 100%;
-		margin-top: 20px;
+		margin-top: .5rem;
 		font-size: 1.3rem;
 		padding-left: 1rem;
 		border: 1px solid #dedede;
