@@ -20,7 +20,7 @@
 // import axios from 'axios'
 
 export default {
-	layout: 'dark',
+	layout: 'main',
 	transition: {
 		name: 'slide-right',
 		mode: 'out-in'

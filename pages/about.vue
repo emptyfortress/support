@@ -1,15 +1,14 @@
-<template>
-  <div class="container">
-    <h1>Нужна помощь?</h1>
-		<nuxt-link to="/">Home page</nuxt-link><br><br>
-    <nuxt-link to="/users">user</nuxt-link>
-		<p>lorem alsdkj laskjd laskjd laskjd lkasjd laksjd alksdj laksdgj </p>
-  </div>
+<template lang="pug">
+	div
+		p test
+		<nuxt-link to="/">back</nuxt-link><br><br>
+		<nuxt-link to="/users">users</nuxt-link><br><br>
+
 </template>
 
 <script>
 export default {
-	layout: 'dark',
+	layout: 'main',
 	transition: {
 		name: 'slide-left',
 		mode: 'out-in'
@@ -19,7 +18,4 @@ export default {
 
 <style scoped lang="scss">
 
-p {
-	/* color: var(--dv-blue); */
-}
 </style>
