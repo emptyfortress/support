@@ -1,8 +1,8 @@
 <template>
-	<transition name="layout">
-	<div class="dark">
-		<nuxt/>
-	</div>
+	<transition name="zoomin">
+		<div class="dark">
+			<nuxt/>
+		</div>
 	</transition>
 </template>
 

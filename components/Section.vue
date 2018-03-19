@@ -1,8 +1,10 @@
 <template>
-	<div class="item">
-		<img :src="icon + '.svg'" alt="" height=40>
-		<p>{{name}}</p>
-	</div>
+	<nuxt-link to="/about">
+		<div class="item">
+			<img :src="icon + '.svg'" alt="" height=40>
+			<p>{{name}}</p>
+		</div>
+	</nuxt-link>
 </template>
 
 

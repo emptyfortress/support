@@ -10,12 +10,10 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'DV support site' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,900&amp;subset=cyrillic' }
     ]
   },
-	link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,900&amp;subset=cyrillic' }
-    ],
 	modules: [
     ['nuxt-sass-resources-loader', '~assets/css/settings.scss']
   ],

@@ -4,6 +4,11 @@
 		TheSign/
 		.navgrid
 			Section(v-for="section in sections" :key="section.id" :icon="section.icon" :name="section.name")
+		section.lastlist
+			h2 Последние действия
+			<section v-for="n in 10">
+				Last/
+			</section>
 		Footer/
 </template>
 
@@ -12,13 +17,14 @@
 	import BigHeader from '@/components/BigHeader';
 	import Section from '@/components/Section';
 	import TheSign from '@/components/TheSign';
+	import Last from '@/components/lists/Last';
 
 export default {
 	data: function() {
 		return {
 
 			sections: [
-				{ id:  1, icon: 'book', name: 'Условия' },
+				{ id:  1, icon: 'condition', name: 'Условия' },
 				{ id:  2, icon: 'map',       name: 'Путеводитель' },
 				{ id:  3, icon: 'download',  name: 'Загрузить' },
 				{ id:  4, icon: 'book',      name: 'Документация' },
@@ -36,7 +42,8 @@ export default {
 		Footer,
 		BigHeader,
 		Section,
-		TheSign
+		TheSign,
+		Last
 	}
 }
 
@@ -45,6 +52,21 @@ export default {
 <style scoped lang="scss">
 
 .container-main {
+	.lastlist {
+		width: 780px;
+		margin: 1rem auto;
+		margin-top: 3rem;
+		/* background: #eee; */
+		h2 {
+			font-weight: 300;
+			/* color: $dv-gray3; */
+			color: #aaa;
+			margin-bottom: 1rem;
+			/* margin-top: 2.5rem; */
+			border-bottom: 1px solid $dv-gray2;
+		}
+	}
+	
 	.navgrid {
 		max-width: 780px;
 		height: auto;
