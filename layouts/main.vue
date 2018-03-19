@@ -8,6 +8,12 @@
 					Loud/
 					div
 						Enter
+			.search
+				div
+					img(src="~assets/img/search.svg")
+					input
+					.place Поиск
+					img(src="")
 			<nuxt/>
 	</transition>
 </template>
@@ -47,4 +53,34 @@
 	}
 }
 
+.search {
+	height: 40px;
+	border-bottom: 1px solid $dv-gray2;
+	div {
+		position: relative;
+		width: 780px;
+		margin: 0 auto;
+		img {
+			position: absolute;
+			top: 10px;
+			right: .5rem;
+			opacity: .3;
+		}
+		input {
+			width: 100%;
+			height: 40px;
+			display: block;
+			border: none;
+			background: transparent;
+			font-size: 1.5rem;
+			padding-left: 1rem;
+		}
+		.place {
+			position: absolute;
+			top: 12px;
+			left: 48%;
+			color: $dv-gray3;
+		}
+	}
+}
 </style>

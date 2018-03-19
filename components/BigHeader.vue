@@ -1,7 +1,7 @@
 <template lang="pug">
 	.big-header
 		.topBar
-			Ham/
+			.ham
 			Logo/
 			.right
 				Loud/
@@ -17,14 +17,12 @@
 
 <script>
 	import Logo from '@/components/Logo';
-	import Ham from '@/components/Ham';
 	import Loud from '@/components/Loud';
 	import Enter from '@/components/Enter';
 
 	export default {
 		components: {
 			Logo,
-			Ham,
 			Loud,
 			Enter
 		}
@@ -32,6 +30,9 @@
 </script>
 
 <style scoped lang="scss">
+.ham {
+	width: 80px;
+}
 
 .big-header {
 	height: 230px;

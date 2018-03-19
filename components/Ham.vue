@@ -1,15 +1,14 @@
-<template>
-	<div>
-		<div class="navTrigger" v-bind:class="{active : isActive}" v-on:click="activate">
+<template lang="pug">
+	.all(v-on:click="activate")
+		.navTrigger(:class="{active : isActive}")
 			<i></i><i></i><i></i>
-		</div>
-	</div>
+		.txt Разделы
 </template>
 
 <script>
 export default {
 	// props: [ 'isVisible' ],
-	data: function(){
+	data() {
 		return {
 			isActive: false,
 		}
@@ -23,8 +22,17 @@ export default {
 </script>
 
 <style scoped lang="scss">
-div {
-	width: 70px;
+.all {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	.txt {
+		font-family: $small;
+		color: #666;
+		font-size: .9rem;
+		margin-left: .5rem;
+	}
+	/* width: 70px; */
 }
 .navTrigger {
   cursor: pointer;
