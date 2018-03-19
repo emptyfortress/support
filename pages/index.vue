@@ -1,6 +1,7 @@
 <template lang="pug">
 	.container-main
 		BigHeader/
+		TheSign/
 		.navgrid
 			Section(v-for="section in sections" :key="section.id" :icon="section.icon" :name="section.name")
 		Footer/
@@ -10,6 +11,7 @@
 	import Footer from '@/components/Footer';
 	import BigHeader from '@/components/BigHeader';
 	import Section from '@/components/Section';
+	import TheSign from '@/components/TheSign';
 
 export default {
 	data: function() {
@@ -33,7 +35,8 @@ export default {
 	components: {
 		Footer,
 		BigHeader,
-		Section
+		Section,
+		TheSign
 	}
 }
 
@@ -42,9 +45,6 @@ export default {
 <style scoped lang="scss">
 
 .container-main {
-	/* height: 100%; *
-	/* display: grid; */
-	/* grid-template-rows: 230px auto; */
 	.navgrid {
 		max-width: 780px;
 		height: auto;

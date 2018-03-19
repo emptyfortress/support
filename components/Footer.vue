@@ -4,7 +4,6 @@
 			<div>© 1998 — 2018, ООО «ДоксВижн»</div>
 			<div>Портал технической поддержки компании Доксвижн</div>
 		</div>
-		<a class="button is-primary">alskdjalh</a>
 	</div>
 </template>
 
