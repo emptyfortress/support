@@ -1,23 +1,14 @@
 <template lang="pug">
-	.all(v-on:click="activate")
-		.navTrigger(:class="{active : isActive}")
+	<!-- .all(@click="$store.state.navigation = !$store.state.navigation") -->
+	.all(@click="toggleNav")
+		.navTrigger(:class="{active : $store.state.navigation}")
 			<i></i><i></i><i></i>
 		.txt Разделы
 </template>
 
 <script>
 export default {
-	// props: [ 'isVisible' ],
-	data() {
-		return {
-			isActive: false,
-		}
-	},
-	methods: {
-		activate() {
-			this.isActive = !this.isActive;
-		}
-	}
+	props: [ 'navigation' ]
 }
 </script>
 

@@ -56,13 +56,10 @@ export default {
 		width: 780px;
 		margin: 1rem auto;
 		margin-top: 3rem;
-		/* background: #eee; */
 		h2 {
 			font-weight: 300;
-			/* color: $dv-gray3; */
 			color: #aaa;
 			margin-bottom: 1rem;
-			/* margin-top: 2.5rem; */
 			border-bottom: 1px solid $dv-gray2;
 		}
 	}

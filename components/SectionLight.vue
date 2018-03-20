@@ -27,16 +27,17 @@ a {
 	flex-flow: column;
 	width: 156px;
 	height: 130px;
-	background: #fff;
 	text-align: center;
 	justify-content: center;
 	font-size: 1rem;
 	cursor: pointer;
 	&:hover {
-		border: 1px solid $dv-gray2;
+		border: 1px solid $blue;
+		/* background: #0E2B45; */
 	}
 	p {
 		margin-top: 0.7rem;
+		color: #fff;
 	}
 	img { opacity: .2; }
 }
