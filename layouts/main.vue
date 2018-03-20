@@ -16,8 +16,7 @@
 					SectionLight(v-for="section in sections" :key="section.id" :icon="section.icon" :name="section.name")
 			.search
 				div
-					img(src="~assets/img/search.svg")
-					img(src="")
+					<i class="icon-search"></i>
 					input(placeholder="Поиск")
 					.autocomplete
 			<nuxt/>
@@ -87,13 +86,14 @@
 	border-bottom: 1px solid $dv-gray2;
 	div {
 		position: relative;
-		width: 780px;
+		max-width: 780px;
 		margin: 0 auto;
-		img {
+		i {
 			position: absolute;
 			top: 10px;
 			right: .5rem;
-			opacity: .3;
+			font-size: 1.2rem;
+			color: $main;
 		}
 		input {
 			width: 100%;
@@ -104,15 +104,17 @@
 			font-size: 1.5rem;
 			padding-left: 1rem;
 		}
-		.place {
-			position: absolute;
-			top: 12px;
-			left: 48%;
-			color: $dv-gray3;
-		}
 		::placeholder {
 			color: $dv-gray3;
 			font-size: 1.1rem;
+		}
+		.autocomplete {
+			width: 100%;
+			height: 200px;
+			border: 1px solid #eee;
+			box-shadow: 0 3px 5px #ccc;
+			position: relative;
+			top: -1px;
 		}
 	}
 }
@@ -139,6 +141,7 @@
 	align-items: center;
 	justify-content: center;
 }
+
 /* this is styles for ham */
 
 .all {

@@ -1,7 +1,7 @@
 <template>
 	<nuxt-link to="/about">
 		<div class="item">
-			<img :src="icon + '.svg'" alt="" height=40>
+			<i :class="'icon-' + icon"></i>
 			<p>{{name}}</p>
 		</div>
 	</nuxt-link>
@@ -38,7 +38,10 @@ a {
 	p {
 		margin-top: 0.7rem;
 	}
-	img { opacity: .2; }
+	i { 
+		color: #A6A6A6;
+		font-size: 2rem;
+	}
 }
 
 

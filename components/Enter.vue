@@ -1,6 +1,6 @@
 <template lang="pug">
 	.enter 
-		img(src='~assets/img/enter.svg')
+		<i class="icon-signin"></i>
 </template>
 
 
@@ -13,6 +13,11 @@ export default {
 
 	.enter {
 		cursor: pointer;
+		font-size: 1.35rem;
+		color: $main;
+		&:hover {
+			color: $dv-blue;
+		}
 	}
 
 </style>

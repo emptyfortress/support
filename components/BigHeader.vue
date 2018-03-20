@@ -10,7 +10,7 @@
 		.search
 			p Нужна помощь?
 			.input
-				img(src="~assets/img/search.svg")
+				<i class="icon-search"></i>
 				input(placeholder="Поиск по всем разделам")
 
 </template>
@@ -72,13 +72,13 @@
 		height: 50px;
 		margin: 0 auto;
 		position: relative;
-		/* background: red; */
-		img {
+		i {
 			position: absolute;
 			top: 24px;
 			right: 10px;
-			opacity: .2;
 			cursor: pointer;
+			color: $main;
+			font-size: 1.2rem;
 		}
 	}
 	input {

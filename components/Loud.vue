@@ -1,6 +1,6 @@
 <template lang="pug">
 	.loud 
-		img(src='~assets/img/loud.svg')
+		<i class="icon-loud"></i>
 		.dot
 </template>
 
@@ -15,6 +15,10 @@ export default {
 	.loud {
 		cursor: pointer;
 		position: relative;
+		i {
+			font-size: 1.3rem;
+			color: $main;
+		}
 		.dot {
 			width: 12px;
 			height: 12px;
@@ -24,6 +28,11 @@ export default {
 			position: absolute;
 			top: -5px;
 			right: -5px;
+		}
+		&:hover {
+			i {
+				color: $dv-blue;
+			}
 		}
 	}
 
