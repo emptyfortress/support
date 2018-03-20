@@ -11,10 +11,8 @@ html, body {
 }
 
 h1 {
-	// font-family: Verdana;
 	font-weight: 300;
 	text-transform: uppercase;
-	// color: #aaa;
 	color: $primary;
 }
 
@@ -24,16 +22,15 @@ h1 {
 
 .zoomin-enter, .zoomin-leave-active {
 	opacity: 0;
-	transform: scale(.95);
+	transform: scale(.9);
 }
 
 .zoomout-enter-active, .zoomout-leave-active {
 	transition: all .3s;
 }
-
 .zoomout-enter, .zoomout-leave-active {
 	opacity: 0;
-	transform: scale(1.1);
+	transform: scale(1.07);
 }
 
 .slide-right-enter-active, .slide-right-leave-active {

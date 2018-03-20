@@ -1,5 +1,5 @@
 <template>
-	<transition name="zoomout">
+	<transition name="zoomout" mode="out-in">
 		<div>
 			<nuxt/>
 		</div>

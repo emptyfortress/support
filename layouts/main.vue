@@ -1,5 +1,5 @@
 <template lang="pug">
-	<transition name="zoomin">
+	<transition name="zoomin" mode="out-in">
 		.main
 			.header
 				Ham/
@@ -8,6 +8,7 @@
 					Loud/
 					div
 						Enter
+			.nav
 			.search
 				div
 					img(src="~assets/img/search.svg")
@@ -87,4 +88,14 @@
 		}
 	}
 }
+
+.nav {
+	height: 0;
+	background: $dv-blue;
+	.active {
+		height: 320px;
+	}
+
+}
+
 </style>
