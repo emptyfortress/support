@@ -1,9 +1,9 @@
 <template>
-	<div class="logo">
+	<nuxt-link class="logo" to="/">
 		<div>Поддержка</div>
 		<img src="~assets/img/logo.svg" alt="">
 		<div>Доксвижн</div>
-	</div>
+	</nuxt-link>
 </template>
 
 <script>
@@ -21,7 +21,7 @@ export default {
 		font-size: .9rem;
 		color: #666;
 		font-family: Tahoma;
-		cursor: pointer;
+		text-decoration: none;
 		img {
 			margin: 0 10px;
 		}

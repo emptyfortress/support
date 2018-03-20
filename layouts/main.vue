@@ -11,9 +11,9 @@
 			.search
 				div
 					img(src="~assets/img/search.svg")
-					input
-					.place Поиск
+					<!-- .place Поиск -->
 					img(src="")
+					input(placeholder="Поиск")
 			<nuxt/>
 	</transition>
 </template>
@@ -80,6 +80,10 @@
 			top: 12px;
 			left: 48%;
 			color: $dv-gray3;
+		}
+		::placeholder {
+			color: $dv-gray3;
+			font-size: 1.1rem;
 		}
 	}
 }
