@@ -1,18 +1,21 @@
 <template lang="pug">
 	.search
 		div
-			<i class="icon-search"></i>
-			input(v-model="search" placeholder="Поиск" @focus="complete = true" @blur="complete = false")
+			<i class="icon-close" v-if="!showPop" @click="clearSearch"></i>
+			<i class="icon-search" v-else></i>
+			input#search(v-model="search" placeholder="Поиск" @focus="complete = true" @blur="complete = false")
 			.autocomplete(v-show="complete")
 				div(v-show="showPop")
 					Autocomplete/
-					<!-- h3 Популярные статьи -->
-					<!-- ul -->
-					<!-- 	li(v&#45;for="article in articles") {{ article }} -->
+				div(v-if="hint")
+					.hint Enter для поиска, Esc для отмены
+				div(v-if="hint1")
+					Hint/
 </template>
 
 <script>
 import Autocomplete from '@/components/Autocomplete';
+import Hint from '@/components/Hint';
 
 	export default {
 		data() {
@@ -24,12 +27,25 @@ import Autocomplete from '@/components/Autocomplete';
 		computed: {
 			showPop() {
 				return this.search.length == 0 ? true : false
-			}
+			},
+			hint() {
+				return this.search.length > 2 && this.search.length <=4 ? true : false
+			},
+			hint1() {
+				return this.search.length > 4 ? true : false
+			},
 		},
 		components: {
-			Autocomplete
-		}
+			Autocomplete,
+			Hint
+		},
+		methods: {
+			clearSearch() {
+				this.search = '';
+				document.querySelector('#search').focus();
+			}
 	}
+}
 </script>
 
 <style scoped lang="scss">
@@ -46,6 +62,7 @@ import Autocomplete from '@/components/Autocomplete';
 			right: .5rem;
 			font-size: 1.2rem;
 			color: $main;
+			cursor: pointer;
 		}
 		input {
 			width: 100%;
@@ -62,13 +79,18 @@ import Autocomplete from '@/components/Autocomplete';
 		}
 		.autocomplete {
 			width: 100%;
-			min-height: 100px;
+			/* min-height: 100px; */
 			border: 1px solid #eee;
 			box-shadow: 0 2px 3px #ccc;
 			position: relative;
 			top: 0px;
 			border-radius: 0 0 5px 5px;
 		}
+	}
+	.hint {
+		color: $dv-green;
+		font-size: 1.1rem;
+		margin: 1rem;
 	}
 }
 

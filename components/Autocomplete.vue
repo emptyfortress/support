@@ -27,7 +27,7 @@ h3 {
 	text-transform: uppercase;
 	font-family: $font;
 	font-weight: 300;
-	font-size: 1rem;
+	font-size: .9rem;
 	color: $main;
 	margin: 1rem;
 }

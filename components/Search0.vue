@@ -2,16 +2,19 @@
 	div
 		<i class="icon-close" v-if="!showPop" @click="clearSearch"></i>
 		<i class="icon-search" v-else></i>
-		input(v-model="search" placeholder="Поиск по всем разделам" @focus="complete = true" @blur="complete = false")
+		input#search(v-model="search" placeholder="Поиск по всем разделам" @focus="complete = true" @blur="complete = false")
 		.autocomplete(v-show="complete")
 			div(v-show="showPop")
 				Autocomplete/
-			div(v-show="hint")
+			div(v-if="hint")
 				.hint Enter для поиска, Esc для отмены
+			div(v-if="hint1")
+				Hint/
 </template>
 
 <script>
 	import Autocomplete from '@/components/Autocomplete';
+	import Hint from '@/components/Hint';
 	
 	export default {
 		data() {
@@ -25,16 +28,20 @@
 				return this.search.length == 0 ? true : false
 			},
 			hint() {
-				return this.search.length > 2 ? true : false
+				return this.search.length > 2 && this.search.length <=4 ? true : false
+			},
+			hint1() {
+				return this.search.length > 4 ? true : false
 			},
 		},
 		components: {
-			Autocomplete
+			Autocomplete,
+			Hint
 		},
 		methods: {
 			clearSearch() {
 				this.search = '';
-				this.complete = true;
+				document.querySelector('#search').focus();
 			}
 
 		}
