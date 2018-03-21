@@ -38,6 +38,7 @@ a {
 	}
 	i { 
 		color: #A6A6A6;
+		/* color: $dv-green; */
 		font-size: 2rem;
 	}
 }
