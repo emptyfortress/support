@@ -29,16 +29,16 @@ h3 {
 	font-weight: 300;
 	font-size: 1rem;
 	color: $main;
+	margin: 1rem;
 }
 ul {
 	list-style: none;
 	margin: 0;
-	margin-left: 1rem;
 	padding: 0;
 	li {
 		margin: 0;
 		color: $dv-blue;
-		padding: .5rem;
+		padding: 1rem;
 		cursor: pointer;
 		&:hover {
 			background: $dv-gray1;

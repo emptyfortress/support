@@ -1,13 +1,13 @@
 <template lang="pug">
 	div
-		<i class="icon-search"></i>
+		<i class="icon-close" v-if="!showPop" @click="clearSearch"></i>
+		<i class="icon-search" v-else></i>
 		input(v-model="search" placeholder="Поиск по всем разделам" @focus="complete = true" @blur="complete = false")
 		.autocomplete(v-show="complete")
 			div(v-show="showPop")
 				Autocomplete/
-				<!-- h3 Популярные статьи -->
-				<!-- ul -->
-				<!-- 	li(v&#45;for="article in articles") {{ article }} -->
+			div(v-show="hint")
+				.hint Enter для поиска, Esc для отмены
 </template>
 
 <script>
@@ -23,10 +23,20 @@
 		computed: {
 			showPop() {
 				return this.search.length == 0 ? true : false
-			}
+			},
+			hint() {
+				return this.search.length > 2 ? true : false
+			},
 		},
 		components: {
 			Autocomplete
+		},
+		methods: {
+			clearSearch() {
+				this.search = '';
+				this.complete = true;
+			}
+
 		}
 	}
 </script>
@@ -42,6 +52,7 @@ div {
 		right: .5rem;
 		font-size: 1.2rem;
 		color: $main;
+		cursor: pointer;
 	}
 	input {
 		width: 100%;
@@ -59,15 +70,19 @@ div {
 	}
 	.autocomplete {
 		width: 100%;
-		min-height: 100px;
+		/* min-height: 100px; */
 		background: #fff;
 		border: 1px solid #eee;
 		box-shadow: 0 2px 3px #ccc;
 		position: absolute;
 		top: 50px;
 		border-radius: 0 0 5px 5px;
-		padding: 1rem;
 		z-index: 10;
+	}
+	.hint {
+		color: $dv-green;
+		font-size: 1.1rem;
+		margin: 1rem;
 	}
 }
 

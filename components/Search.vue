@@ -19,14 +19,6 @@ import Autocomplete from '@/components/Autocomplete';
 			return {
 				complete: false,
 				search: '',
-				articles: [
-					'Это первая популярная статья',
-					'Основание, в силу третьего закона Ньютона, заставляет перейти к более сложной системе дифференциальных уравнений',
-					'Будем также считать, что маховик горизонтально характеризует астатический альтиметр',
-					'Максимальное отклонение астатически заставляет',
-					'Момент сил, как можно показать с помощью не совсем тривиальных вычислений',
-					'Это вторая популярная статья',
-				]
 			}
 		},
 		computed: {
@@ -61,7 +53,6 @@ import Autocomplete from '@/components/Autocomplete';
 			display: block;
 			border: none;
 			outline: none;
-			/* background: transparent; */
 			font-size: 1.5rem;
 			padding-left: 1rem;
 		}
@@ -77,7 +68,6 @@ import Autocomplete from '@/components/Autocomplete';
 			position: relative;
 			top: 0px;
 			border-radius: 0 0 5px 5px;
-			padding: 1rem;
 		}
 	}
 }
