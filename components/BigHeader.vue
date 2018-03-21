@@ -7,11 +7,12 @@
 				Loud/
 				div
 					Enter/
-		.search
+		.center
 			p Нужна помощь?
-			.input
-				<i class="icon-search"></i>
-				input(placeholder="Поиск по всем разделам")
+			Search0/
+			<!-- .input -->
+			<!-- 	<i class="icon&#45;search"></i> -->
+			<!-- 	input(placeholder="Поиск по всем разделам") -->
 
 </template>
 
@@ -19,12 +20,14 @@
 	import Logo from '@/components/Logo';
 	import Loud from '@/components/Loud';
 	import Enter from '@/components/Enter';
+	import Search0 from '@/components/Search0';
 
 	export default {
 		components: {
 			Logo,
 			Loud,
 			Enter,
+			Search0
 		}
 	}
 </script>
@@ -58,39 +61,13 @@
 	}
 }
 
-.search {
-	text-align: center;
+.center {
 	p {
+		text-align: center;
 		font-size: 2.5rem;
 		font-weight: 300;
 		color: #000;
 		text-transform: uppercase;
-	}
-	.input {
-		max-width: 780px;
-		min-width: 250px;
-		height: 50px;
-		margin: 0 auto;
-		position: relative;
-		i {
-			position: absolute;
-			top: 24px;
-			right: 10px;
-			cursor: pointer;
-			color: $main;
-			font-size: 1.2rem;
-		}
-	}
-	input {
-		height: 50px;
-		width: 100%;
-		margin-top: .5rem;
-		font-size: 1.3rem;
-		padding-left: 1rem;
-		border: 1px solid #dedede;
-	}
-	::placeholder {
-		opacity: .5;
 	}
 }
 

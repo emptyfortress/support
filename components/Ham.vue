@@ -21,6 +21,10 @@ export default {
 		font-size: .9rem;
 		margin-left: .5rem;
 	}
+	&:hover {
+		i { background: $dv-blue; }
+		.txt { color: $dv-blue; }
+	}
 	/* width: 70px; */
 }
 .navTrigger {
