@@ -24,7 +24,7 @@
 		components: {
 			Logo,
 			Loud,
-			Enter
+			Enter,
 		}
 	}
 </script>

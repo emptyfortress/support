@@ -1,10 +1,8 @@
-<template>
-	<nuxt-link to="/about">
-		<div class="item">
-			<i :class="'icon-' + icon"></i>
-			<p>{{name}}</p>
-		</div>
-	</nuxt-link>
+<template lang="pug">
+	nuxt-link(to="/about")
+		.item(@click="$store.commit('hideNav')" )
+			i(:class="'icon-' + icon")
+			p {{name}}
 </template>
 
 

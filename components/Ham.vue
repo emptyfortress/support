@@ -1,6 +1,5 @@
 <template lang="pug">
-	<!-- .all(@click="$store.state.navigation = !$store.state.navigation") -->
-	.all(@click="toggleNav")
+	.all(@click="$store.commit( 'toggleNav' )")
 		.navTrigger(:class="{active : $store.state.navigation}")
 			<i></i><i></i><i></i>
 		.txt Разделы
@@ -8,7 +7,6 @@
 
 <script>
 export default {
-	props: [ 'navigation' ]
 }
 </script>
 

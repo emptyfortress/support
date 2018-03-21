@@ -1,9 +1,11 @@
-<template>
-	<nuxt-link class="logo" to="/">
-		<div>Поддержка</div>
-		<img src="~assets/img/logo.svg" alt="">
-		<div>Доксвижн</div>
-	</nuxt-link>
+<template >
+		<span @click="$store.commit('hideNav')">
+			<nuxt-link class="logo" to="/" >
+				<div>Поддержка</div>
+				<img src="~assets/img/logo.svg" alt="">
+				<div>Доксвижн</div>
+			</nuxt-link>
+		</span>
 </template>
 
 <script>

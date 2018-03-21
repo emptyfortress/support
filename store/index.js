@@ -6,12 +6,9 @@ const createStore = () => {
 			navigation: false
 		},
 		mutations: {
-			showNav() {state.navigation = true},
-			hideNav() {
-				state.navigation = false;
-				console.log('testttt');
-			},
-			toggleNav() {state.navigation = !state.navigation}
+			showNav(state) {state.navigation = true},
+			hideNav(state) { state.navigation = false },
+			toggleNav(state) {state.navigation = !state.navigation}
 		}
 	})
 }
