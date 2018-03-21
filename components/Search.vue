@@ -5,12 +5,15 @@
 			input(v-model="search" placeholder="Поиск" @focus="complete = true" @blur="complete = false")
 			.autocomplete(v-show="complete")
 				div(v-show="showPop")
-					h3 Популярные статьи
-					ul
-						li(v-for="article in articles") {{ article }}
+					Autocomplete/
+					<!-- h3 Популярные статьи -->
+					<!-- ul -->
+					<!-- 	li(v&#45;for="article in articles") {{ article }} -->
 </template>
 
 <script>
+import Autocomplete from '@/components/Autocomplete';
+
 	export default {
 		data() {
 			return {
@@ -31,6 +34,9 @@
 				return this.search.length == 0 ? true : false
 			}
 		},
+		components: {
+			Autocomplete
+		}
 	}
 </script>
 
@@ -72,28 +78,6 @@
 			top: 0px;
 			border-radius: 0 0 5px 5px;
 			padding: 1rem;
-			h3 {
-				text-transform: uppercase;
-				font-family: $font;
-				font-weight: 300;
-				font-size: 1rem;
-				color: $main;
-			}
-			ul {
-				list-style: none;
-				margin: 0;
-				margin-left: 1rem;
-				padding: 0;
-				li {
-					margin: 0;
-					color: $dv-blue;
-					padding: .5rem;
-					cursor: pointer;
-					&:hover {
-						background: $dv-gray1;
-					}
-				}
-			}
 		}
 	}
 }
