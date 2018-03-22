@@ -1,5 +1,5 @@
 <template lang="pug">
-	nuxt-link(to="/about")
+	nuxt-link(:to="to")
 		.item(@click="$store.commit('hideNav')" )
 			i(:class="'icon-' + icon")
 			p {{name}}
@@ -9,7 +9,7 @@
 <script>
 
 export default {
-	props: ['name', 'icon']
+	props: ['name', 'icon', 'to']
 }
 
 </script>
@@ -38,7 +38,6 @@ a {
 	}
 	i { 
 		color: #A6A6A6;
-		/* color: $dv-green; */
 		font-size: 2rem;
 	}
 }

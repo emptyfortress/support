@@ -1,4 +1,5 @@
 <template lang="pug">
+transition(name="zoomout")
 	.container
 		.yellow
 		.flex

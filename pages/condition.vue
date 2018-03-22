@@ -1,4 +1,5 @@
 <template lang="pug">
+.container
 	div
 		p test
 		<nuxt-link to="/">back</nuxt-link><br><br>
@@ -17,5 +18,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '~bulma/sass/components/breadcrumb';
+
+.container {
+	max-width: 780px;
+	margin: 0 auto;
+}
 
 </style>
