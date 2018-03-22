@@ -2,7 +2,7 @@
 	.container
 		.breadcrumb.has-bullet-separator
 			ul
-				li <nuxt-link to="/">Главная</nuxt-link>
+				<!-- li <nuxt&#45;link to="/">Главная</nuxt&#45;link> -->
 				<!-- <!&#45;&#45; li <nuxt&#38;#45;link to="/users">Главная</nuxt&#38;#45;link> &#45;&#45;> -->
 				<!-- li.is&#45;active <nuxt&#45;link to="/">Условия</nuxt&#45;link> -->
 				li(v-for="(item, index) in $route.matched" :key='index') <nuxt-link :to="{path: item.path}">{{routeName(item.name)}}</nuxt-link>
@@ -19,7 +19,7 @@
 				var routeNames = {
 					index: 'Home',
 					condition: 'Условия',
-					urgent: 'Экстренная техподдержка',
+					'condition-urgent': 'Экстренная техподдержка',
 					map: 'Путеводитель',
 					load: 'Загрузить',
 					docs: 'Документация',
