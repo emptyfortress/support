@@ -5,7 +5,8 @@
 				<!-- li <nuxt&#45;link to="/">Главная</nuxt&#45;link> -->
 				<!-- <!&#45;&#45; li <nuxt&#38;#45;link to="/users">Главная</nuxt&#38;#45;link> &#45;&#45;> -->
 				<!-- li.is&#45;active <nuxt&#45;link to="/">Условия</nuxt&#45;link> -->
-				li(v-for="(item, index) in $route.matched" :key='index') <nuxt-link :to="{path: item.path}">{{routeName(item.name)}}</nuxt-link>
+				<!-- li(v&#45;for="(item, index) in $route.matched" :key='index') <nuxt&#45;link :to="{path: item.path}">{{routeName(item.name)}}</nuxt&#45;link> -->
+				<li v-for="(item, index) in $route.matched" :key='index'> <nuxt-link :to="{path: item.path}">{{routeName(item.name)}}</nuxt-link></li>
 </template>
 
 <script>
@@ -25,7 +26,6 @@
 					docs: 'Документация',
 				}
 				return routeNames[name]
-				console.log($route.matched);
 			}
 		}
 	}
