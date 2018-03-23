@@ -19,11 +19,8 @@
 			routeName (name) {
 				var routeNames = {
 					index: 'Home',
-					condition: 'Условия',
+					'condition': 'Условия',
 					'condition-urgent': 'Экстренная техподдержка',
-					map: 'Путеводитель',
-					load: 'Загрузить',
-					docs: 'Документация',
 				}
 				return routeNames[name]
 			}

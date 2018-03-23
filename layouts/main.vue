@@ -12,6 +12,7 @@
 				.navgrid
 					SectionLight(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name")
 			Search/
+			Breadcrumb/
 			<nuxt/>
 	</transition>
 </template>
@@ -23,6 +24,7 @@
 	import Ham from '@/components/Ham';
 	import SectionLight from '@/components/SectionLight';
 	import Search from '@/components/Search';
+	import Breadcrumb from '@/components/Breadcrumb';
 
 	export default {
 
@@ -37,7 +39,8 @@
 			Enter,
 			Ham,
 			Search,
-			SectionLight
+			SectionLight,
+			Breadcrumb
 		}
 	}
 </script>
