@@ -8,7 +8,7 @@
 			.header {{ doc.name }}
 			i.icon-arrow-down/
 		transition(name='fade')
-			ul.list(v-if="doc.expand")
+			ul.list(v-show="doc.expand")
 				li this is cool
 
 </template>
@@ -27,7 +27,8 @@ export default {
 				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»' },
 				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
 				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
-			]
+			],
+			show: false
 		}
 	},
 }
