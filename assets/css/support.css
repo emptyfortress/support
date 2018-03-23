@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'support';
-  src: url('../font/support.eot?44008366');
-  src: url('../font/support.eot?44008366#iefix') format('embedded-opentype'),
-       url('../font/support.woff2?44008366') format('woff2'),
-       url('../font/support.woff?44008366') format('woff'),
-       url('../font/support.ttf?44008366') format('truetype'),
-       url('../font/support.svg?44008366#support') format('svg');
+  src: url('../font/support.eot?12291007');
+  src: url('../font/support.eot?12291007#iefix') format('embedded-opentype'),
+       url('../font/support.woff2?12291007') format('woff2'),
+       url('../font/support.woff?12291007') format('woff'),
+       url('../font/support.ttf?12291007') format('truetype'),
+       url('../font/support.svg?12291007#support') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'support';
-    src: url('../font/support.svg?44008366#support') format('svg');
+    src: url('../font/support.svg?12291007#support') format('svg');
   }
 }
 */
@@ -70,3 +70,4 @@
 .icon-close:before { content: '\e80e'; } /* '' */
 .icon-faq:before { content: '\e80f'; } /* '' */
 .icon-forum:before { content: '\e810'; } /* '' */
+.icon-arrow-down:before { content: '\e811'; } /* '' */

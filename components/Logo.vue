@@ -1,9 +1,9 @@
 <template >
 		<span @click="$store.commit('hideNav')">
 			<nuxt-link class="logo" to="/" >
-				<div>Поддержка</div>
+				<div>Docvision</div>
 				<img src="~assets/img/logo.svg" alt="">
-				<div>Доксвижн</div>
+				<div>Support</div>
 			</nuxt-link>
 		</span>
 </template>
@@ -17,16 +17,22 @@ export default {
 
 <style scoped lang="scss">
 
-	.logo {
-		display: flex;
-		align-items: center;
-		font-size: .9rem;
-		color: #666;
-		font-family: Tahoma;
-		text-decoration: none;
+.logo {
+	display: flex;
+	align-items: center;
+	font-size: .9rem;
+	color: #666;
+	font-family: Tahoma;
+	text-decoration: none;
+	img {
+		transition: all .4s cubic-bezier(.55,0,.1,1);
+		margin: 0 10px;
+	}
+	&:hover {
 		img {
-			margin: 0 10px;
+			transform: rotate(-30deg);
 		}
 	}
+}
 
 </style>

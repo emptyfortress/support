@@ -1,6 +1,7 @@
 <template lang="pug">
 	.container
-		.breadcrumb.has-bullet-separator
+		<!-- .breadcrumb.has&#45;bullet&#45;separator -->
+		.breadcrumb
 			ul
 				li <nuxt-link to="/">Главная</nuxt-link>
 				<li v-for="item in crumbs"> <nuxt-link :to="item.path" >{{item.breadcrumb}}</nuxt-link></li>
@@ -37,6 +38,10 @@ export default {
 	margin-left: 0;
 	font-size: .8rem;
 	font-family: $small;
+	ul {
+		margin: 0;
+		padding: 0;
+	}
 	li a {
 		text-decoration: none;
 		/* color: $dv-green; */

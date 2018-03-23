@@ -15,7 +15,20 @@ const createStore = () => {
 				{ id:  8, icon: 'code',      to: '/code',      name: 'Разработчикам' },
 				{ id:  9, icon: 'faq',       to: '/faq',       name: 'ЧаВо' },
 				{ id: 10, icon: 'mail',      to: '/mail',      name: 'Контакты' },
+			],
+
+			docs: [
+				{ id: 1, to: '', expand: false, name: 'Платформа' },
+				{ id: 2, to: '', expand: false, name: 'Web-client' },
+				{ id: 3, to: '', expand: false, name: 'Пульс' },
+				{ id: 4, to: '', expand: false, name: 'Накопительные обновления' },
+				{ id: 5, to: '', expand: false, name: 'Приложение «Договоры»' },
+				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»' },
+				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
+				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
+
 			]
+
 		},
 		mutations: {
 			showNav(state) {state.navigation = true},
@@ -24,5 +37,6 @@ const createStore = () => {
 		}
 	})
 }
+
 
 export default createStore
