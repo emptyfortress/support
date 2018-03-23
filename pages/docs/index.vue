@@ -6,7 +6,7 @@
 	section(v-for="(doc, index) in docs" @click="toggle(index)")
 		.flex
 			.header {{ doc.name }} 
-			i.icon-arrow-down/
+			i.icon-arrow-down(:class="{active: doc.expand}")/
 		ul.list(:class="{active: doc.expand}")
 			li this is cool {{index}}
 
@@ -59,16 +59,21 @@ export default {
 		color: $dv-blue;
 		font-size: 1.4rem;
 	}
-
 	.icon-arrow-down {
-		width: 10%;
+		/* width: 10%; */
 		text-align: right;
 		font-size: .7rem;
 		line-height: 1.5rem;
 		margin-right: .5rem;
+		transition: all .3s cubic-bezier(.77,.06,.46,.97);
+		&.active {
+			transform: rotate(180deg);
+			transform-origin: 50% 50%;
+			margin-right: 0rem;
+		}
 	}
-
 }
+
 .list {
 	max-height: 0;
 	background: #eee;
