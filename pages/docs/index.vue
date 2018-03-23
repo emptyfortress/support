@@ -3,13 +3,12 @@
 	h1
 		i.icon-book/ Документация
 	
-	section(v-for="(doc, index) in docs" @click="doc.expand = !doc.expand")
+	section(v-for="(doc, index) in docs" @click="toggle(index)")
 		.flex
-			.header {{ doc.name }}
+			.header {{ doc.name }} 
 			i.icon-arrow-down/
-		transition(name='fade')
-			ul.list(v-show="doc.expand")
-				li this is cool
+		ul.list(:class="{active: doc.expand}")
+			li this is cool {{index}}
 
 </template>
 
@@ -28,9 +27,14 @@ export default {
 				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
 				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
 			],
-			show: false
+			showList: false
 		}
 	},
+	methods: {
+		toggle(index) {
+			this.docs[index].expand = !this.docs[index].expand;
+		}
+	}
 }
 </script>
 
@@ -63,7 +67,18 @@ export default {
 		line-height: 1.5rem;
 		margin-right: .5rem;
 	}
+
 }
+.list {
+	max-height: 0;
+	background: #eee;
+	overflow: hidden;
+	transition: all .3s cubic-bezier(.77,.06,.46,.97);
+	&.active {
+		max-height: 200px;
+	}
+}
+
 </style>
 
 
