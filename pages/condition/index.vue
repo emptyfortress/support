@@ -9,4 +9,16 @@ export default {
 }
 </script>
 
+<style scoped lang="scss">
+
+.container {
+	margin-top: 2rem;
+	/* background: #eee; */
+}
+
+h1 {
+	/* font-size: 1.5rem; */
+}
+</style>
+
 

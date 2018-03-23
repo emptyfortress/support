@@ -9,7 +9,8 @@
 <script>
 const breadcrumbs = {
 	'/condition': 'Условия',
-	'condition-urgent': 'Экстренная техподдержка'
+	'condition-urgent': 'Экстренная техподдержка',
+	'/docs': 'Документация'
 
 }
 export default {
@@ -31,8 +32,6 @@ export default {
 @import '~bulma/sass/components/breadcrumb';
 
 .container {
-	/* margin: 0 auto; */
-	/* max-width: 780px; */
 }
 .breadcrumb {
 	margin-left: 0;
