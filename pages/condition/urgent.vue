@@ -13,11 +13,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-/* @import '~bulma/sass/components/breadcrumb'; */
 
 .container {
-	max-width: 780px;
-	margin: 0 auto;
+	/* max-width: 780px; */
+	/* margin: 0 auto; */
 }
 
 </style>

@@ -10,10 +10,11 @@
 						Enter
 			.nav(:class="{active : $store.state.navigation}")
 				.navgrid
-					SectionLight(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name")
+					SectionLight(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
 			Search/
 			Breadcrumb/
-			<nuxt/>
+			.container
+				<nuxt/>
 	</transition>
 </template>
 
@@ -85,5 +86,10 @@
 	flex-flow: row wrap;
 	align-items: center;
 	justify-content: center;
+}
+
+.container {
+	/* max-width: 780px; */
+	/* margin: 0 auto; */
 }
 </style>

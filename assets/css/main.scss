@@ -9,6 +9,8 @@ html, body {
 
 .container {
   transition: all .5s cubic-bezier(.55,0,.1,1);
+	max-width: 780px;
+	margin: 0 auto;
 }
 
 h1 {

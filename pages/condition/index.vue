@@ -1,15 +1,11 @@
 <template lang="pug">
-	<!-- <nuxt&#45;child /> -->
+.container
+	h1 Условия предоставления технической поддержки
+	nuxt-link(to="/condition/urgent") urgent
 </template>
 
 <script>
 export default {
-	// name: 'condition',
-	// layout: 'main',
-	transition: {
-		name: 'slide-left',
-		mode: 'out-in'
-	},
 }
 </script>
 

@@ -39,8 +39,7 @@ export default {
 <style scoped lang="scss">
 
 .container-main {
-	.lastlist {
-		width: 780px;
+	.lastlist { width: 780px;
 		margin: 1rem auto;
 		margin-top: 3rem;
 		h2 {

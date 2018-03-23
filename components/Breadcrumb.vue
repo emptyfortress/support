@@ -8,8 +8,8 @@
 
 <script>
 const breadcrumbs = {
-	'/condition': 'Condition',
-	'condition-urgent': 'Urgent'
+	'/condition': 'Условия',
+	'condition-urgent': 'Экстренная техподдержка'
 
 }
 export default {
@@ -31,8 +31,8 @@ export default {
 @import '~bulma/sass/components/breadcrumb';
 
 .container {
-	margin: 0 auto;
-	max-width: 780px;
+	/* margin: 0 auto; */
+	/* max-width: 780px; */
 }
 .breadcrumb {
 	margin-left: 0;

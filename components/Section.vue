@@ -4,8 +4,6 @@
 			i(:class="'icon-' + icon")
 			p {{name}}
 </template>
-
-
 <script>
 
 export default {
