@@ -9,7 +9,9 @@
 			i.icon-arrow-down(:class="{active: doc.expand}")/
 		ul.list(:class="{active: doc.expand}")
 			li(v-for="item in doc.childs")
-				nuxt-link(to='/') {{item.name}}
+				.under(v-if="item.underconstruction")
+					img(src='~assets/img/vlc.svg')/ Раздел в разработке
+				nuxt-link(to='/' v-else ) {{item.name}}
 			
 
 </template>
@@ -39,14 +41,37 @@ export default {
 				{
 					id: 3, to: '', expand: false, name: 'Пульс',
 					childs: [
-						{ id: 1, to: '', name: 'Раздел в разработке' },
+						{ id: 1, underconstruction: true,},
 					]
 				},
-				{ id: 4, to: '', expand: false, name: 'Накопительные обновления' },
-				{ id: 5, to: '', expand: false, name: 'Приложение «Договоры»' },
-				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»' },
-				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
-				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
+				{ id: 4, to: '', expand: false, name: 'Накопительные обновления',
+					childs: [
+						{ id: 1, underconstruction: true,},
+					]
+				},
+				{ id: 5, to: '', expand: false, name: 'Приложение «Договоры»',
+					childs: [
+						{ id: 1, to: '', name: 'Приложение «Договоры» v.5.4.3' },
+					]
+				},
+				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»',
+					childs: [
+						{ id: 1, to: '', name: 'Модуль «Почтовый клиент»' },
+					]
+				},
+				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»',
+					childs: [
+						{ id: 1, to: '', name: 'Приложение «Делопроизводство» v.5.4.4' },
+					] 
+				}, 
+				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»',
+					childs: [
+						{ id: 1, to: '', name: 'Приложение «Управление документами» Docsvision 5.4.2642' },
+						{ id: 1, to: '', name: 'Приложение «Управление документами» Docsvision 5.3.2559' },
+						{ id: 2, to: '', name: 'Приложение «Управление документами» Docsvision 5.3.2529' },
+						{ id: 3, to: '', name: 'Приложение «Управление документами» Docsvision 5.2.2450' },
+					]
+				},
 			],
 		}
 	},
@@ -99,13 +124,20 @@ export default {
 	margin-left: 2rem;
 	overflow: hidden;
 	font-size: 1.07rem;
-	transition: all .5s cubic-bezier(.77,.06,.46,.97);
+	transition: all .3s cubic-bezier(.77,.06,.46,.97);
 	&.active {
-		max-height: 300px;
+		max-height: 200px;
 		margin-bottom: 2rem;
 	}
 	li {
 		padding: .5rem 0;
+	}
+}
+
+.under {
+	img {
+		width: 28px;
+		margin-right: 1rem;
 	}
 }
 
