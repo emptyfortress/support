@@ -54,7 +54,7 @@ import Hint from '@/components/Hint';
 	border-bottom: 1px solid $dv-gray2;
 	div {
 		position: relative;
-		max-width: 780px;
+		max-width: 960px;
 		margin: 0 auto;
 		i {
 			position: absolute;

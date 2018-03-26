@@ -13,9 +13,9 @@ const breadcrumbs = {
 	'condition-urgent': 'Экстренная техподдержка',
 	'/docs': 'Документация',
 	'/docs/platform': 'Платформа',
-	'/docs/platform/id': 'id',
-
+	'docs-platform-id': 'Руководства'
 }
+
 export default {
 	computed: {
 		crumbs() {
@@ -26,7 +26,7 @@ export default {
 					crumbs.push(item)
 				}
 			})
-			return crumbs
+			return crumbs 
 		}
 	}
 }

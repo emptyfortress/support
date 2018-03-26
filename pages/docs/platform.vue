@@ -1,6 +1,5 @@
 <template lang="pug">
 .container
-	p this is platform parent page
 	<nuxt-child />
 </template>
 
@@ -13,7 +12,6 @@
 
 <style scoped lang="scss">
 .container {
-	background: #eee;
 	margin-top: 4rem;
 }
 
