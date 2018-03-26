@@ -26,6 +26,23 @@ h1 {
 	}
 }
 
+a {
+	color: $dv-blue;
+	text-decoration: none;
+	&:active {
+		color: $dv-green;
+	}
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 .zoomin-enter-active, .zoomin-leave-active {
 	transition: all .3s;
 }

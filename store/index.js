@@ -26,8 +26,8 @@ const createStore = () => {
 				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»' },
 				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
 				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
+			],
 
-			]
 
 		},
 		mutations: {

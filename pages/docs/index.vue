@@ -8,7 +8,9 @@
 			.header {{ doc.name }} 
 			i.icon-arrow-down(:class="{active: doc.expand}")/
 		ul.list(:class="{active: doc.expand}")
-			li this is cool {{index}}
+			li(v-for="item in doc.childs")
+				nuxt-link(to='/') {{item.name}}
+			
 
 </template>
 
@@ -18,16 +20,34 @@ export default {
 	data() {
 		return {
 			docs: [
-				{ id: 1, to: '', expand: false, name: 'Платформа' },
-				{ id: 2, to: '', expand: false, name: 'Web-client' },
-				{ id: 3, to: '', expand: false, name: 'Пульс' },
+				{
+					id: 1, to: '', expand: false, name: 'Платформа',
+					childs: [
+						{ id: 1, to: '', name: 'Docsvision 5.4.2642' },
+						{ id: 2, to: '', name: 'Конструктор согласований Docsvision 5.4.2642' },
+						{ id: 3, to: '', name: 'Установка и администрирование Docsvision 5.3.2542' },
+						{ id: 4, to: '', name: 'Установка и администрирование Docsvision 5.2.2542' },
+					]
+				},
+				{ 
+					id: 2, to: '', expand: false, name: 'Web-client',
+					childs: [
+						{ id: 1, to: '', name: 'Web-client, версия 9' },
+						{ id: 1, to: '', name: 'Web-client, версия 10' },
+					]
+				},
+				{
+					id: 3, to: '', expand: false, name: 'Пульс',
+					childs: [
+						{ id: 1, to: '', name: 'Раздел в разработке' },
+					]
+				},
 				{ id: 4, to: '', expand: false, name: 'Накопительные обновления' },
 				{ id: 5, to: '', expand: false, name: 'Приложение «Договоры»' },
 				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»' },
 				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
 				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
 			],
-			showList: false
 		}
 	},
 	methods: {
@@ -76,11 +96,16 @@ export default {
 
 .list {
 	max-height: 0;
-	background: #eee;
+	margin-left: 2rem;
 	overflow: hidden;
-	transition: all .3s cubic-bezier(.77,.06,.46,.97);
+	font-size: 1.07rem;
+	transition: all .5s cubic-bezier(.77,.06,.46,.97);
 	&.active {
-		max-height: 200px;
+		max-height: 300px;
+		margin-bottom: 2rem;
+	}
+	li {
+		padding: .5rem 0;
 	}
 }
 
