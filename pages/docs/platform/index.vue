@@ -5,7 +5,10 @@ div
 </template>
 
 <script>
-	export default {
-		name: 'fooooo'
-	}
+export default {
+	transition: {
+		name: 'slide-left',
+		mode: 'out-in'
+	},
+}
 </script>
