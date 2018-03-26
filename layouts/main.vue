@@ -15,10 +15,13 @@
 			Breadcrumb/
 			.container
 				<nuxt/>
+			Footer/
+
 	</transition>
 </template>
 
 <script>
+	import Footer from '@/components/Footer';
 	import Logo from '@/components/Logo';
 	import Loud from '@/components/Loud';
 	import Enter from '@/components/Enter';
@@ -35,6 +38,7 @@
 		},
 
 		components: {
+			Footer,
 			Logo,
 			Loud,
 			Enter,
