@@ -11,7 +11,7 @@
 			li(v-for="item in doc.childs")
 				.under(v-if="item.underconstruction")
 					img(src='~assets/img/vlc.svg')/ Раздел в разработке
-				nuxt-link(to='/' v-else ) {{item.name}}
+				nuxt-link(:to='item.to' v-else ) {{item.name}}
 			
 
 </template>
@@ -23,48 +23,48 @@ export default {
 		return {
 			docs: [
 				{
-					id: 1, to: '', expand: false, name: 'Платформа',
+					id: 1, expand: false, name: 'Платформа',
 					childs: [
-						{ id: 1, to: '', name: 'Docsvision 5.4.2642' },
-						{ id: 2, to: '', name: 'Конструктор согласований Docsvision 5.4.2642' },
-						{ id: 3, to: '', name: 'Установка и администрирование Docsvision 5.3.2542' },
-						{ id: 4, to: '', name: 'Установка и администрирование Docsvision 5.2.2542' },
+						{ id: 1, to: '/docs/platform', name: 'Docsvision 5.4.2642' },
+						{ id: 2, to: '/docs/platform', name: 'Конструктор согласований Docsvision 5.4.2642' },
+						{ id: 3, to: '/docs/platform', name: 'Установка и администрирование Docsvision 5.3.2542' },
+						{ id: 4, to: '/docs/platform', name: 'Установка и администрирование Docsvision 5.2.2542' },
 					]
 				},
 				{ 
-					id: 2, to: '', expand: false, name: 'Web-client',
+					id: 2, expand: false, name: 'Web-client',
 					childs: [
 						{ id: 1, to: '', name: 'Web-client, версия 9' },
 						{ id: 1, to: '', name: 'Web-client, версия 10' },
 					]
 				},
 				{
-					id: 3, to: '', expand: false, name: 'Пульс',
+					id: 3, expand: false, name: 'Пульс',
 					childs: [
 						{ id: 1, underconstruction: true,},
 					]
 				},
-				{ id: 4, to: '', expand: false, name: 'Накопительные обновления',
+				{ id: 4, expand: false, name: 'Накопительные обновления',
 					childs: [
 						{ id: 1, underconstruction: true,},
 					]
 				},
-				{ id: 5, to: '', expand: false, name: 'Приложение «Договоры»',
+				{ id: 5, expand: false, name: 'Приложение «Договоры»',
 					childs: [
 						{ id: 1, to: '', name: 'Приложение «Договоры» v.5.4.3' },
 					]
 				},
-				{ id: 6, to: '', expand: false, name: 'Приложение «Почтовый клиент»',
+				{ id: 6, expand: false, name: 'Приложение «Почтовый клиент»',
 					childs: [
 						{ id: 1, to: '', name: 'Модуль «Почтовый клиент»' },
 					]
 				},
-				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»',
+				{ id: 7, expand: false, name: 'Приложение «Делопроизводство»',
 					childs: [
 						{ id: 1, to: '', name: 'Приложение «Делопроизводство» v.5.4.4' },
 					] 
 				}, 
-				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»',
+				{ id: 8, expand: false, name: 'Приложение «Управление документами»',
 					childs: [
 						{ id: 1, to: '', name: 'Приложение «Управление документами» Docsvision 5.4.2642' },
 						{ id: 1, to: '', name: 'Приложение «Управление документами» Docsvision 5.3.2559' },

@@ -80,6 +80,7 @@ import Hint from '@/components/Hint';
 		.autocomplete {
 			width: 100%;
 			background: #fff;
+			z-index: 5;
 			/* min-height: 100px; */
 			border: 1px solid #eee;
 			box-shadow: 0 2px 3px #ccc;

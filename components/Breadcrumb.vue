@@ -11,7 +11,8 @@
 const breadcrumbs = {
 	'/condition': 'Условия',
 	'condition-urgent': 'Экстренная техподдержка',
-	'/docs': 'Документация'
+	'/docs': 'Документация',
+	'docs-platform': 'Платформа',
 
 }
 export default {

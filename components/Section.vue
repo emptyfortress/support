@@ -16,6 +16,12 @@ export default {
 a {
 	text-decoration: none;
 	color: $black;
+	&:active {
+		color: $dv-green;
+		i {
+			color: $dv-green;
+		}
+	}
 }
 
 .item {
