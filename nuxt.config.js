@@ -28,6 +28,10 @@ module.exports = {
 	router: {
     linkExactActiveClass: 'is-active'
   },
+	mode: 'universal',
+	// router: {
+	// 	base: '/support/'
+	// },
   /*
   ** Build configuration
   */

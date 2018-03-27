@@ -6,7 +6,7 @@
 export default {
 	// layout: 'main',
 	transition: {
-		name: 'slide-left',
+		name: 'slide-right',
 		mode: 'out-in'
 	},
 }

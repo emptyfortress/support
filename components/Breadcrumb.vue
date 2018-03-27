@@ -1,6 +1,5 @@
 <template lang="pug">
 	.container
-		<!-- .breadcrumb.has&#45;bullet&#45;separator -->
 		.breadcrumb
 			ul
 				li <nuxt-link to="/">Главная</nuxt-link>
@@ -13,7 +12,7 @@ const breadcrumbs = {
 	'condition-urgent': 'Экстренная техподдержка',
 	'/docs': 'Документация',
 	'/docs/platform': 'Платформа',
-	'docs-platform-id': 'Руководства'
+	'/docs/platform/:id': 'Руководства'
 }
 
 export default {
@@ -27,6 +26,9 @@ export default {
 				}
 			})
 			return crumbs 
+		},
+		last() {
+			return 'test'
 		}
 	}
 }

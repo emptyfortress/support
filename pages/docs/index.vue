@@ -25,7 +25,7 @@ export default {
 				{
 					id: 1, expand: false, name: 'Платформа',
 					childs: [
-						{ id: 1, to: '/docs/platform/:Docsvision_5.4.2642', name: 'Docsvision 5.4.2642' },
+						{ id: 1, to: '/docs/platform/:Docsvision_5.4.2642', name: 'Установка и администрирование Docsvision 5.2.2450' },
 						{ id: 2, to: '/docs/platform', name: 'Конструктор согласований Docsvision 5.4.2642' },
 						{ id: 3, to: '/docs/platform', name: 'Установка и администрирование Docsvision 5.3.2542' },
 						{ id: 4, to: '/docs/platform', name: 'Установка и администрирование Docsvision 5.2.2542' },
