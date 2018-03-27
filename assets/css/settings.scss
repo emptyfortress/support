@@ -19,9 +19,10 @@ $main:      #8A8A8A;
 
 $primary: $dv-green;
 $link: $dv-blue;
+$column-gap: 2rem;
 @import '~bulma/sass/utilities/_all';
 @import '~bulma/sass/elements/button';
-
+@import '~bulma/sass/components/level';
 
 /////////////////////
 //  font settings  //

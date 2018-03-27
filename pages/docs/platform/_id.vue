@@ -1,23 +1,27 @@
 <template lang="pug">
-.flex
-	.article-list
+.columns
+	.column.is-one-quarter.article-list
 		h3 Статьи в разделе
 		ul
 			li.current Установка и администрирование Docsvision 5.2.2450
 			li(v-for="item in articles")
 				nuxt-link(to="/") {{ item.title }} 
-	.content
+	.column
 		h2 {{ articles[0].title }}
 		.flex
-			.user
-				i.icon-user/
-				.fio Екатерина
-					br/
-					span Обновлено 2 мес. назад
+			User( name="Екатерина" ago="2 мес." )
 			button.button.is-light.is-rounded + Подписаться
+		.content
+			ul
+				li(v-for="item in list")
+					a(:href="url" target="_blank") {{item.title}}
+			.comments
+				a(href="")
+					i.icon-bubble 12
 </template>
 
 <script>
+import User from '@/components/User';
 export default {
 	transition: {
 		name: 'slide-right',
@@ -27,25 +31,34 @@ export default {
 		return {
 			articles: [
 				{ title: 'Установка и администрирование Docsvision 5.2.2450', to: '' },
-				{ title: 'Руководства по конструктору согласований Docsvision 5.4.2642', to: '' },
-				{ title: 'Руководство по установке и администрированию Docsvision 5.3.2559', to: '' },
-				{ title: 'Руководство по установке и администрированию Docsvision 5.2.2450', to: '' },
+				{ title: 'Конструктор согласований Docsvision 5.4.2642', to: '' },
+				{ title: 'Установка и администрирование Docsvision 5.3.2559', to: '' },
+				{ title: 'Установка и администрирование Docsvision 5.2.2450', to: '' },
+			],
+			url: "http://www.docsvision.com/docs/542642/Platform/InstallationAdministrationGuide/index.html",
+			list: [
+				{title: "Руководство по установке и администрированию Docsvision 5.4.2642"},
+				{title: "Руководство по настройке Docsvision 5.4.2642"},
+				{title: "Справка DV Docsvision 5.4.2642" }
 			]
 		}
-
+	},
+	components: {
+		User
 	}
 }
 </script>
 
 
 <style scoped lang="scss">
+@import '~bulma/sass/grid/columns';
+
 .flex {
 	display: flex;
 	justify-content: space-between;
 }
 .article-list {
-	width: 30%;
-	margin-right: 3rem;
+	/* margin-right: 3rem; */
 	h3 {
 		font-size: .9rem;
 		font-weight: normal;
@@ -61,10 +74,6 @@ export default {
 		}
 	}
 }
-.content {
-	/* background: #ccc; */
-	width: 100%;
-}
 h2 {
 	font-weight: 300;
 	text-transform: uppercase;
@@ -72,21 +81,23 @@ h2 {
 	margin-bottom: 2rem;
 	/* color: $black; */
 }
-.user {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	span {
-		font-size: .95rem;
-		font-family: $small;
-		color: #ccc;
+
+.content {
+	font-size: 1.1rem;
+	ul {
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+		list-style: circle;
+		list-style-position: inside;
+		li {
+			line-height: 150%;
+			margin-bottom: .5rem;
+		}
 	}
-
-	i.icon-user {
-		font-size: 2.5rem;
-		color: $dv-gray2;
-		vertical-align: middle;
-
+	.comments {
+		/* margin-top: 3rem; */
+		/* color: $dv-blue; */
+		/* cursor: pointer; */
 	}
 }
 
