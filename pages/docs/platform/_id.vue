@@ -15,8 +15,12 @@
 			ul
 				li(v-for="item in list")
 					a(:href="url" target="_blank") {{item.title}}
-			.comments
-				a(href="")
+			.level
+				a(href="" class="level-left")
+					i.level-item.icon-share 8
+					i.level-item.icon-eye1
+						span 20
+				a(href="" class="level-right")
 					i.icon-bubble 12
 </template>
 
@@ -79,7 +83,6 @@ h2 {
 	text-transform: uppercase;
 	color: #666;
 	margin-bottom: 2rem;
-	/* color: $black; */
 }
 
 .content {
