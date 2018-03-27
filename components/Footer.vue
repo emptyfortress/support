@@ -12,16 +12,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
-section {
+.footer {
 	margin-top: 5rem;
 	margin-bottom: 5rem;
+	font-family: $small;
+	padding: 1em;
+	font-size: .82rem;
+	border-top: 1px solid $dv-gray2;
+	color: #aaa;
 }
-
-	.footer {
-		font-family: $small;
-		padding: 1em;
-		font-size: .82rem;
-		border-top: 1px solid $dv-gray2;
-		color: #aaa;
-	}
 </style>

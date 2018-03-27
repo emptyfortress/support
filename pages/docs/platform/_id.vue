@@ -7,10 +7,13 @@
 			li(v-for="item in articles")
 				nuxt-link(to="/") {{ item.title }} 
 	.column
-		h2 {{ articles[0].title }}
-		.flex
-			User( name="Екатерина" ago="2 мес." )
-			button.button.is-light.is-rounded + Подписаться
+		.zag
+			.counter
+			div
+				h2 {{ articles[0].title }}
+				.flex
+					User( name="Екатерина" ago="2 мес." )
+					button.button.is-light.is-rounded + Подписаться
 		.content
 			ul
 				li(v-for="item in list")
@@ -22,6 +25,9 @@
 						span 20
 				a(href="" class="level-right")
 					i.icon-bubble 12
+			.send.level
+				p.level-left Не нашли то, что искали?
+				.button.is-outlined.is-primary Отправить запрос
 </template>
 
 <script>
@@ -97,10 +103,33 @@ h2 {
 			margin-bottom: .5rem;
 		}
 	}
-	.comments {
-		/* margin-top: 3rem; */
-		/* color: $dv-blue; */
-		/* cursor: pointer; */
+	.level a {
+		color: #ccc;
+		&:hover {
+			text-decoration: none;
+			color: $dv-blue;
+		}
+		&:active {
+			color: $dv-green;
+		}
+	}
+	.send {
+		height: 64px;
+		background: $dv-gray1;
+		width: 100%;
+		border-top: 1px solid $dv-gray2;
+		border-bottom: 1px solid $dv-gray2;
+		padding: 0 1rem;
+		font-size: .95rem;
+		color: #999;
+	}
+}
+.zag {
+	display: flex;
+	.counter {
+		width: 50px;
+		height: 50px;
+		background: #eee;
 	}
 }
 
