@@ -92,8 +92,4 @@
 	justify-content: center;
 }
 
-.container {
-	/* max-width: 780px; */
-	/* margin: 0 auto; */
-}
 </style>

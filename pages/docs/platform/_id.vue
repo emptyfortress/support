@@ -1,11 +1,11 @@
 <template lang="pug">
 .columns
-	.column.is-one-quarter.article-list
+	.column.is-one-quarter.article-list.gray
 		h3 Статьи в разделе
 		ul
 			li(v-for="item in $store.state.platforma")
 				nuxt-link(:to="item.to") {{ item.title }} 
-	.column
+	.column.white
 		<nuxt-child :key="$route.params.id"/>
 </template>
 

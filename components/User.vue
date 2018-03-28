@@ -1,9 +1,10 @@
 <template lang="pug">
 .user
 	i.icon-user/
-	.fio {{ name }}
+	.fio
+		nuxt-link(to="/") {{ name }}
 		br/
-		span Обновлено {{ ago }} назад
+		span {{ ago }}
 </template>
 
 <script>

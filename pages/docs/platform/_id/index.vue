@@ -11,7 +11,7 @@ div
 				i.icon-star(v-bind:class='{active: subscribe}')
 				span(v-show="subscribe") Подписка
 		.level-item
-			User( :name="articles[ ($route.params.id - 1) ].name" ago="2 мес." )
+			User( :name="articles[ ($route.params.id - 1) ].name" ago="Обновлено 2 мес. назад" )
 	.content
 		ul
 			li(v-for="item in list")
@@ -22,7 +22,7 @@ div
 				i.level-item.icon-eye1
 					span 20
 			a(href="" class="level-right")
-				i.icon-bubble 12
+				i.icon-bubble 4
 		.send.level
 			p.level-left Не нашли то, что искали?
 			.button.is-outlined.is-primary Отправить запрос
@@ -31,6 +31,11 @@ div
 			ul
 				li(v-for="item in related")
 					a(:href="url" target="_blank") {{item}}
+		.comments
+			h3 Комментарии (4)
+			.level.comment
+				.level-left
+					User( name="John" ago="1 ytl" )
 </template>
 
 <script>
@@ -46,10 +51,10 @@ export default {
 			subscribe: false,
 			counter: 11,
 			articles: [
-				{ id: 1, to: '/docs/platform/1', name: 'Екатерина', title: 'Установка и администрирование Docsvision 5.2.2450' },
-				{ id: 2, to: '/docs/platform/2', name: 'Василий', title: 'Конструктор согласований Docsvision 5.4.2642' },
-				{ id: 3, to: '/docs/platform/3', name: 'Петр', title: 'Установка и администрирование Docsvision 5.3.2559' },
-				{ id: 4, to: '/docs/platform/4', name: 'Никодим', title: 'Установка и администрирование Docsvision 5.2.2542' },
+				{ id: 1, to: '/docs/platform/1', name: 'Екатерина Петровна', title: 'Установка и администрирование Docsvision 5.2.2450' },
+				{ id: 2, to: '/docs/platform/2', name: 'Василий Иванович', title: 'Конструктор согласований Docsvision 5.4.2642' },
+				{ id: 3, to: '/docs/platform/3', name: 'Петр Петрович', title: 'Установка и администрирование Docsvision 5.3.2559' },
+				{ id: 4, to: '/docs/platform/4', name: 'Никодим Афанасьевич', title: 'Установка и администрирование Docsvision 5.2.2542' },
 			],
 			url: "http://www.docsvision.com/docs/542642/Platform/InstallationAdministrationGuide/index.html",
 			list: [
@@ -206,5 +211,12 @@ h3, h4 {
 .related ul {
 	margin: 0;
 	list-style: none;
+	margin-bottom: 4rem;
+	/* border-bottom: 1px dotted #333; */
+}
+
+.comments {
+	/* border-top: 1px dotted #333; */
+
 }
 </style>
