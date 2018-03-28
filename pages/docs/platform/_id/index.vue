@@ -1,17 +1,17 @@
 <template lang="pug">
 div
-	.zag
-		.counter
-			div
-				i.icon-up
-				.num 11
-				i.icon-down
-			<!-- i.icon&#45;star -->
-		div
-			h2 {{ articles[ ($route.params.id - 1) ].title }}
-			.flex
-				User( :name="articles[ ($route.params.id - 1) ].name" ago="2 мес." )
-				button.button.is-light.is-rounded + Подписаться
+	h2 {{ articles[ ($route.params.id - 1) ].title }}
+	.level
+		.level-item
+			.level-item.counter
+				i.icon-up(@click="counter++")
+				.num {{counter}}
+				i.icon-down(@click="counter--")
+			.level-item.subs( @click="show" )
+				i.icon-star(v-bind:class='{active: subscribe}')
+				span(v-show="subscribe") Подписка
+		.level-item
+			User( :name="articles[ ($route.params.id - 1) ].name" ago="2 мес." )
 	.content
 		ul
 			li(v-for="item in list")
@@ -26,6 +26,11 @@ div
 		.send.level
 			p.level-left Не нашли то, что искали?
 			.button.is-outlined.is-primary Отправить запрос
+		.related
+			h3 Похожие статьи
+			ul
+				li(v-for="item in related")
+					a(:href="url" target="_blank") {{item}}
 </template>
 
 <script>
@@ -38,6 +43,8 @@ export default {
 	props: [ 'title', 'user' ],
 	data() {
 		return {
+			subscribe: false,
+			counter: 11,
 			articles: [
 				{ id: 1, to: '/docs/platform/1', name: 'Екатерина', title: 'Установка и администрирование Docsvision 5.2.2450' },
 				{ id: 2, to: '/docs/platform/2', name: 'Василий', title: 'Конструктор согласований Docsvision 5.4.2642' },
@@ -49,7 +56,20 @@ export default {
 				{title: "Руководство по установке и администрированию Docsvision 5.4.2642"},
 				{title: "Руководство по настройке Docsvision 5.4.2642"},
 				{title: "Справка DV Docsvision 5.4.2642" }
+			],
+			related: [
+'Руководства по платформе Docsvision 5.4.2642',
+'Руководство разработчика на платформе DocsVision 5',
+'Приложение "Управление документами" Docsvision 5.4.2642',
+'Модуль "Почтовый клиент 5.4.5"',
+'Накопительное обновление №11 для версии Docsvision 5.4.2642'
+
 			]
+		}
+	},
+	methods: {
+		show() {
+			this.subscribe = !this.subscribe
 		}
 	},
 	components: {
@@ -85,8 +105,9 @@ export default {
 a.is-active {
 	color: $dv-green;
 }
-h2 {
-	font-weight: 300;
+h2,h3,h4 {
+	/* font-weight: 300; */
+	font-weight: 400;
 	text-transform: uppercase;
 	color: #666;
 	margin-bottom: 2rem;
@@ -135,18 +156,11 @@ h2 {
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
-	margin-right: 2rem;
-	div {
-		display: flex;
-		flex-flow: column;
-	}
+	margin-right: 1rem;
 	.num {
 		font-weight: 900;
 		margin: .5rem auto;
-	}
-	span {
-		font-size: 2rem;
-		vertical-align: bottom;
+		text-align: center;
 	}
 	i {
 		font-size: .9rem;
@@ -158,12 +172,39 @@ h2 {
 		&:hover {
 			color: $dv-blue;
 		}
-		&.icon-star {
-			display: block;
-			font-size: 1.5rem;
-			margin-bottom: 1rem;
+		&:active {
+			color: $dv-green;
 		}
+	}
 }
+.icon-star {
+	color: $dv-gray2;
+	font-size: 2rem;
+	cursor: pointer;
+	&.active {
+		color: $dv-green;
+	}
+	&:hover {
+		color: $dv-blue;
+	}
+	&:active {
+		color: $dv-green;
+	}
 }
-
+.subs {
+	cursor: pointer;
+	span { 
+		color: $dv-green;
+	}
+}
+h2 {
+	font-size: 2rem;
+}
+h3, h4 {
+	margin-bottom: 1rem;
+}
+.related ul {
+	margin: 0;
+	list-style: none;
+}
 </style>
