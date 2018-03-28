@@ -2,10 +2,15 @@
 div
 	.zag
 		.counter
+			div
+				i.icon-up
+				.num 11
+				i.icon-down
+			<!-- i.icon&#45;star -->
 		div
-			h2 {{ articles[0].title }}
+			h2 {{ articles[ ($route.params.id - 1) ].title }}
 			.flex
-				User( name="Екатерина" ago="2 мес." )
+				User( :name="articles[ ($route.params.id - 1) ].name" ago="2 мес." )
 				button.button.is-light.is-rounded + Подписаться
 	.content
 		ul
@@ -21,7 +26,6 @@ div
 		.send.level
 			p.level-left Не нашли то, что искали?
 			.button.is-outlined.is-primary Отправить запрос
-	p this is id: {{ $route.params.id }}
 </template>
 
 <script>
@@ -31,13 +35,14 @@ export default {
     if (!from) return 'slide-left'
     return +to.params.id > +from.params.id ? 'slide-right' : 'slide-left'
   },
+	props: [ 'title', 'user' ],
 	data() {
 		return {
 			articles: [
-				{ title: 'Установка и администрирование Docsvision 5.2.2450', to: '' },
-				{ title: 'Конструктор согласований Docsvision 5.4.2642', to: '' },
-				{ title: 'Установка и администрирование Docsvision 5.3.2559', to: '' },
-				{ title: 'Установка и администрирование Docsvision 5.2.2450', to: '' },
+				{ id: 1, to: '/docs/platform/1', name: 'Екатерина', title: 'Установка и администрирование Docsvision 5.2.2450' },
+				{ id: 2, to: '/docs/platform/2', name: 'Василий', title: 'Конструктор согласований Docsvision 5.4.2642' },
+				{ id: 3, to: '/docs/platform/3', name: 'Петр', title: 'Установка и администрирование Docsvision 5.3.2559' },
+				{ id: 4, to: '/docs/platform/4', name: 'Никодим', title: 'Установка и администрирование Docsvision 5.2.2542' },
 			],
 			url: "http://www.docsvision.com/docs/542642/Platform/InstallationAdministrationGuide/index.html",
 			list: [
@@ -62,7 +67,6 @@ export default {
 	justify-content: space-between;
 }
 .article-list {
-	/* margin-right: 3rem; */
 	h3 {
 		font-size: .9rem;
 		font-weight: normal;
@@ -123,11 +127,43 @@ h2 {
 }
 .zag {
 	display: flex;
-	.counter {
-		width: 50px;
-		height: 50px;
-		background: #eee;
+}
+
+.counter {
+	text-align: center;
+	width: 2rem;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	margin-right: 2rem;
+	div {
+		display: flex;
+		flex-flow: column;
 	}
+	.num {
+		font-weight: 900;
+		margin: .5rem auto;
+	}
+	span {
+		font-size: 2rem;
+		vertical-align: bottom;
+	}
+	i {
+		font-size: .9rem;
+		color: $dv-gray2;
+		cursor: pointer;
+		&::before {
+			display: inline;
+		}
+		&:hover {
+			color: $dv-blue;
+		}
+		&.icon-star {
+			display: block;
+			font-size: 1.5rem;
+			margin-bottom: 1rem;
+		}
+}
 }
 
 </style>
