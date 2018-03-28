@@ -12,7 +12,7 @@ const breadcrumbs = {
 	'condition-urgent': 'Экстренная техподдержка',
 	'/docs': 'Документация',
 	'/docs/platform': 'Платформа',
-	'/docs/platform/:id': 'Руководства'
+	'/docs/platform/:id': 'some id here'
 }
 
 export default {
@@ -27,8 +27,8 @@ export default {
 			})
 			return crumbs 
 		},
-		last() {
-			return 'test'
+		id() {
+			return $route.params.id
 		}
 	}
 }
