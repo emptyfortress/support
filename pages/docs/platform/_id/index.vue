@@ -33,15 +33,14 @@ div
 			template(v-for="item in comments")
 				.listComments
 					Comment(:user='item.user' :text='item.text')/
-			.write
-				i.icon-user
-				<textarea class="textarea" placeholder="Комментировать"></textarea>
+			Addcomment/
 </template>
 
 <script>
 import User from '@/components/User';
 import Counter from '@/components/Counter';
 import Comment from '@/components/Comment';
+import Addcomment from '@/components/Addcomment';
 
 export default {
 	transition(to, from) {
@@ -87,7 +86,8 @@ export default {
 	components: {
 		User,
 		Counter,
-		Comment
+		Comment,
+		Addcomment
 	}
 };
 
@@ -201,22 +201,4 @@ h3, h4 {
 	margin-top: 1rem;
 }
 
-.write {
-	display: flex;
-	margin-top: 1rem;
-	.icon-user {
-		font-size: 2.5rem;
-		color: $dv-gray2;
-		vertical-align: top;
-	}
-	.textarea {
-		width: 100%;
-		-webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-		border: none;
-		font-size: 1.0rem;
-		padding: .7rem;
-	}
-}
 </style>
