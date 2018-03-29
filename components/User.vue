@@ -1,6 +1,6 @@
 <template lang="pug">
 .user
-	.link.tooltip(data-tooltip='Скопировать постоянную ссылку')
+	.link.tooltip(data-tooltip='Скопировать постоянную ссылку' v-show="view")
 		i.icon-link/
 	i.icon-user/
 	.fio
@@ -12,7 +12,12 @@
 <script>
 	
 	export default {
-		props: ['name', 'ago']
+		props: ['name', 'ago', 'view'],
+		methods: {
+			showLink() {
+				return this.view ? true : false
+			}
+		}
 		
 	}
 </script>

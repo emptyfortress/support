@@ -32,7 +32,7 @@ div
 			h3 Комментарии (4)
 			.level.comment
 				.level-left
-					User( name="Семен Семенович" ago="24 авг 2017" )
+					User( name="Семен Семенович" ago="24 авг 2017" view="true" )
 				.level-right
 					Counter/
 </template>
