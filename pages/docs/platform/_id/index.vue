@@ -3,12 +3,9 @@ div
 	h2 {{ articles[ ($route.params.id - 1) ].title }}
 	.level
 		.level-item
-			.level-item.counter
-				i.icon-up(@click="counter++")
-				.num {{counter}}
-				i.icon-down(@click="counter--")
+			Counter/
 			.level-item.subs( @click="show" )
-				i.icon-star(v-bind:class='{active: subscribe}')
+				i.icon-star(v-bind:class='{active: subscribe}' title="Подписка")
 				span(v-show="subscribe") Подписка
 		.level-item
 			User( :name="articles[ ($route.params.id - 1) ].name" ago="Обновлено 2 мес. назад" )
@@ -35,11 +32,15 @@ div
 			h3 Комментарии (4)
 			.level.comment
 				.level-left
-					User( name="John" ago="1 ytl" )
+					User( name="Семен Семенович" ago="24 авг 2017" )
+				.level-right
+					Counter/
 </template>
 
 <script>
 import User from '@/components/User';
+import Counter from '@/components/Counter';
+
 export default {
 	transition(to, from) {
     if (!from) return 'slide-left'
@@ -49,7 +50,6 @@ export default {
 	data() {
 		return {
 			subscribe: false,
-			counter: 11,
 			articles: [
 				{ id: 1, to: '/docs/platform/1', name: 'Екатерина Петровна', title: 'Установка и администрирование Docsvision 5.2.2450' },
 				{ id: 2, to: '/docs/platform/2', name: 'Василий Иванович', title: 'Конструктор согласований Docsvision 5.4.2642' },
@@ -63,12 +63,11 @@ export default {
 				{title: "Справка DV Docsvision 5.4.2642" }
 			],
 			related: [
-'Руководства по платформе Docsvision 5.4.2642',
-'Руководство разработчика на платформе DocsVision 5',
-'Приложение "Управление документами" Docsvision 5.4.2642',
-'Модуль "Почтовый клиент 5.4.5"',
-'Накопительное обновление №11 для версии Docsvision 5.4.2642'
-
+				'Руководства по платформе Docsvision 5.4.2642',
+				'Руководство разработчика на платформе DocsVision 5',
+				'Приложение "Управление документами" Docsvision 5.4.2642',
+				'Модуль "Почтовый клиент 5.4.5"',
+				'Накопительное обновление №11 для версии Docsvision 5.4.2642'
 			]
 		}
 	},
@@ -78,7 +77,8 @@ export default {
 		}
 	},
 	components: {
-		User
+		User,
+		Counter
 	}
 }
 </script>
@@ -155,33 +155,6 @@ h2,h3,h4 {
 	display: flex;
 }
 
-.counter {
-	text-align: center;
-	width: 2rem;
-	display: flex;
-	flex-flow: column;
-	justify-content: space-between;
-	margin-right: 1rem;
-	.num {
-		font-weight: 900;
-		margin: .5rem auto;
-		text-align: center;
-	}
-	i {
-		font-size: .9rem;
-		color: $dv-gray2;
-		cursor: pointer;
-		&::before {
-			display: inline;
-		}
-		&:hover {
-			color: $dv-blue;
-		}
-		&:active {
-			color: $dv-green;
-		}
-	}
-}
 .icon-star {
 	color: $dv-gray2;
 	font-size: 2rem;

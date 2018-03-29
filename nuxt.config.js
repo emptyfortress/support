@@ -26,7 +26,8 @@ module.exports = {
   loading: { color: '#8AC140' },
 	// change active link class
 	router: {
-    linkExactActiveClass: 'is-active'
+		linkExactActiveClass: 'is-active',
+		// base: '/support/'
   },
 	mode: 'universal',
 	// router: {
