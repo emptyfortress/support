@@ -30,16 +30,18 @@ div
 					a(:href="url" target="_blank") {{item}}
 		#comments.comments
 			h3 Комментарии (4)
-			ul
-				li(v-for="n in 4")
-					Comment/
+			template(v-for="item in comments")
+				.listComments
+					Comment(:user='item.user' :text='item.text')/
+			.write
+				i.icon-user
+				<textarea class="textarea" placeholder="Комментировать"></textarea>
 </template>
 
 <script>
 import User from '@/components/User';
 import Counter from '@/components/Counter';
 import Comment from '@/components/Comment';
-// import smoothscroll from 'smoothscroll-polyfill';
 
 export default {
 	transition(to, from) {
@@ -68,6 +70,12 @@ export default {
 				'Приложение "Управление документами" Docsvision 5.4.2642',
 				'Модуль "Почтовый клиент 5.4.5"',
 				'Накопительное обновление №11 для версии Docsvision 5.4.2642'
+			],
+			comments: [
+				{ user: 'Семен Семенович', text: 'В условиях очагового земледелия лессиваж достоверно окисляет лёсс. Потенциал почвенной влаги пространственно увлажняет неоднородный тензиометр. Однако, при увеличении выборки кристаллическая решетка минералов поглощает гистерезис ОГХ.' },
+				{ user: 'Аристарх Сигизмундович', text: 'Белоглазка эволюционирует в удельный водоупор.' },
+				{ user: 'Марфа Степановна', text: 'Фронт, по данным почвенной съемки, вымывает в пахотный эксикатор только в отсутствие тепло- и массообмена с окружающей средой.' },
+				{ user: 'Барак Обамович', text: 'Если принять во внимание физическую неоднородность почвенного индивидуума, можно прийти к выводу о том, что осушение нагревает фингер-эффект. Пескование снижает бурозём даже в том случае, если непосредственное наблюдение этого явления затруднительно. Чизелевание перманентно нейтрализует мозаичный ил.' },
 			]
 		}
 	},
@@ -189,8 +197,26 @@ h3, h4 {
 	margin-bottom: 4rem;
 }
 
-.comments ul {
-	list-style: none;
-	margin: 0;
+.listComments {
+	margin-top: 1rem;
+}
+
+.write {
+	display: flex;
+	margin-top: 1rem;
+	.icon-user {
+		font-size: 2.5rem;
+		color: $dv-gray2;
+		vertical-align: top;
+	}
+	.textarea {
+		width: 100%;
+		-webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+		border: none;
+		font-size: 1.0rem;
+		padding: .7rem;
+	}
 }
 </style>

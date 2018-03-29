@@ -1,16 +1,16 @@
 <template lang="pug">
 div
-	.level
+	.level.small
 		.level-left
 			.level-item
-				User( name="Семен Семенович" ago="24 авг 2017" link="true" )
+				User( :name="user" ago="24 авг 2017" )
 		.level-right
 			.level-item
 				Counter/
 			.level-item
 				.link.tooltip(data-tooltip='Скопировать постоянную ссылку')
 					i.icon-link
-	.comment Исправлена ошибка, из-за которой у Согласующего при выборе варианта завершения Согласовано на экране появлялось сообщение о невозможности выполнить данную операцию в связи с ограничением прав доступа».
+	.comment {{ text }}
 
 </template>
 
@@ -18,9 +18,9 @@ div
 import User from '@/components/User';
 import Counter from '@/components/Counter';
 
-props: [ 'user', 'text' ]
 
 export default {
+	props: [ 'user', 'text' ],
 	components: {
 		User,
 		Counter,
@@ -44,6 +44,9 @@ export default {
 	&:hover {
 		color: $dv-blue;
 	}
+}
+.level.small {
+	/* margin-bottom: 1rem; */
 }
 
 </style>
