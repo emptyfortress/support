@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-	h1
+	h2
 		i.icon-book/ Платформа
 	ul.list
 		li(v-for="item in childs")
@@ -10,10 +10,10 @@ div
 
 <script>
 export default {
-	transition: {
-		name: 'slide-right',
-		mode: 'out-in'
-	},
+	transition(to, from) {
+    if (!from) return 'slide-right'
+		return +to.matched.length < +from.matched.length ? 'slide-left' : 'slide-right'
+  },
 	data() {
 		return {
 			childs: [
