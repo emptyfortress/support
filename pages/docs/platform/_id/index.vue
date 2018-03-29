@@ -1,6 +1,6 @@
 <template lang="pug">
 div
-	h2 {{ articles[ ($route.params.id - 1) ].title }}
+	h1 {{ articles[ ($route.params.id - 1) ].title }}
 	.level
 		.level-item
 			Counter/
@@ -120,13 +120,6 @@ export default {
 a.is-active {
 	color: $dv-green;
 }
-h2,h3,h4 {
-	/* font-weight: 300; */
-	font-weight: 400;
-	text-transform: uppercase;
-	color: #666;
-	margin-bottom: 2rem;
-}
 
 .content {
 	font-size: 1.1rem;
@@ -184,12 +177,6 @@ h2,h3,h4 {
 	span { 
 		color: $dv-green;
 	}
-}
-h2 {
-	font-size: 2rem;
-}
-h3, h4 {
-	margin-bottom: 1rem;
 }
 .related ul {
 	margin: 0;

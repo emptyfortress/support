@@ -21,10 +21,14 @@ i {
 	}
 }
 
-h1 {
-	font-weight: normal;
+h1,h2,h3,h4 {
+	font-weight: 400;
 	text-transform: uppercase;
-	color: $black;
+	color: #666;
+	margin-bottom: 2rem;
+}
+
+h2 {
 	font-size: 1.5rem;
 	margin-bottom: 1rem;
 	margin-bottom: 1rem;
@@ -34,6 +38,12 @@ h1 {
 	}
 }
 
+h1 {
+	font-size: 2rem;
+}
+h3, h4 {
+	margin-bottom: 1rem;
+}
 a {
 	color: $dv-blue;
 	text-decoration: none;

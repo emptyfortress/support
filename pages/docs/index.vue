@@ -1,6 +1,6 @@
 <template lang="pug">
 .container
-	h1
+	h2
 		i.icon-book/ Документация
 	
 	section(v-for="(doc, index) in docs" @click="toggle(index)")
