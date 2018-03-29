@@ -1,8 +1,8 @@
 <template lang="pug">
 .level-item.counter
-	i.icon-up(@click="counter++")
+	i.icon-arrow-up(@click="counter++")
 	.num {{counter}}
-	i.icon-down(@click="counter--")
+	i.icon-arrow-down(@click="counter--")
 </template>
 
 <script>
@@ -25,13 +25,12 @@
 	justify-content: space-between;
 	margin-right: 1rem;
 	.num {
-		font-weight: 900;
 		margin: .3rem auto;
 		text-align: center;
 	}
 	i {
 		font-size: .9rem;
-		color: $dv-gray2;
+		color: $dv-gray3;
 		cursor: pointer;
 		&::before {
 			display: inline;
