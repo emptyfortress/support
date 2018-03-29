@@ -26,7 +26,7 @@
 	margin-right: 1rem;
 	.num {
 		font-weight: 900;
-		margin: .5rem auto;
+		margin: .3rem auto;
 		text-align: center;
 	}
 	i {

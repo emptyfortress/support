@@ -14,11 +14,11 @@ div
 			li(v-for="item in list")
 				a(:href="url" target="_blank") {{item.title}}
 		.level
-			a(href="" class="level-left")
+			a(href="#" class="level-left")
 				i.level-item.icon-share 8
 				i.level-item.icon-eye1
 					span 20
-			a(href="" class="level-right")
+			a(href="#comments" class="level-right")
 				i.icon-bubble 4
 		.send.level
 			p.level-left Не нашли то, что искали?
@@ -28,18 +28,18 @@ div
 			ul
 				li(v-for="item in related")
 					a(:href="url" target="_blank") {{item}}
-		.comments
+		#comments.comments
 			h3 Комментарии (4)
-			.level.comment
-				.level-left
-					User( name="Семен Семенович" ago="24 авг 2017" link="true" )
-				.level-right
-					Counter/
+			ul
+				li(v-for="n in 4")
+					Comment/
 </template>
 
 <script>
 import User from '@/components/User';
 import Counter from '@/components/Counter';
+import Comment from '@/components/Comment';
+// import smoothscroll from 'smoothscroll-polyfill';
 
 export default {
 	transition(to, from) {
@@ -78,9 +78,11 @@ export default {
 	},
 	components: {
 		User,
-		Counter
+		Counter,
+		Comment
 	}
-}
+};
+
 </script>
 
 
@@ -185,11 +187,10 @@ h3, h4 {
 	margin: 0;
 	list-style: none;
 	margin-bottom: 4rem;
-	/* border-bottom: 1px dotted #333; */
 }
 
-.comments {
-	/* border-top: 1px dotted #333; */
-
+.comments ul {
+	list-style: none;
+	margin: 0;
 }
 </style>
