@@ -20,6 +20,9 @@ module.exports = {
 	css: [
 		'~assets/css/main.scss'
 	],
+	// build: {
+	// 	vendor: ['bulma-extensions/bulma-quickview']
+	// },
   /*
   ** Customize the progress bar color
   */

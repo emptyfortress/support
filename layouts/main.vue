@@ -16,19 +16,19 @@
 			.container
 				<nuxt/>
 			Footer/
-
 	</transition>
 </template>
 
 <script>
-	import Footer from '@/components/Footer';
-	import Logo from '@/components/Logo';
-	import Loud from '@/components/Loud';
-	import Enter from '@/components/Enter';
-	import Ham from '@/components/Ham';
-	import SectionLight from '@/components/SectionLight';
-	import Search from '@/components/Search';
-	import Breadcrumb from '@/components/Breadcrumb';
+import Footer from '@/components/Footer';
+import Logo from '@/components/Logo';
+import Loud from '@/components/Loud';
+import Enter from '@/components/Enter';
+import Ham from '@/components/Ham';
+import SectionLight from '@/components/SectionLight';
+import Search from '@/components/Search';
+import Breadcrumb from '@/components/Breadcrumb';
+
 
 	export default {
 
@@ -48,6 +48,7 @@
 			Breadcrumb
 		}
 	}
+
 </script>
 
 <style scoped lang="scss">
