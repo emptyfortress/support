@@ -13,7 +13,6 @@
 					img(src='~assets/img/vlc.svg')/ Раздел в разработке
 				nuxt-link(:to='item.to' v-else ) {{item.name}}
 			
-
 </template>
 
 <script>

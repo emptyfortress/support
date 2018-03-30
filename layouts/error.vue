@@ -31,6 +31,7 @@ transition(name="zoomout")
 .container {
 	background: $dv-gray1;
 	height: 100vh;
+	max-width: none;
 	padding-top: .5rem;
 	position: relative;
 	div {

@@ -1,6 +1,7 @@
 <template lang="pug">
 		.footer.level
-			.level-left © 1998 — 2018, ООО «ДоксВижн»
+			.level-left
+				a(href="http://docsvision.com" target="_blank") © 1998 — 2018, ООО «ДоксВижн»
 			.level-right Портал технической поддержки компании Доксвижн
 			
 		</div>
@@ -20,5 +21,8 @@ export default {
 	font-size: .82rem;
 	border-top: 1px solid $dv-gray2;
 	color: #aaa;
+	a {
+		color: #aaa;
+	}
 }
 </style>

@@ -9,10 +9,6 @@ export default {
     if (!from) return 'slide-right'
 		return +to.matched.length < +from.matched.length ? 'slide-left' : 'slide-right'
   },
-	// transition: {
-	// 	name: 'slide-right',
-	// 	mode: 'out-in'
-	// },
 }
 </script>
 
