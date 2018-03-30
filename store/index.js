@@ -4,6 +4,7 @@ const createStore = () => {
 	return new Vuex.Store({
 		state: {
 			navigation: false,
+			notifications: false,
 			sections: [
 				{ id:  1, icon: 'condition', to: '/condition', name: 'Условия' },
 				{ id:  2, icon: 'map',       to: '/map',       name: 'Путеводитель' },
@@ -40,7 +41,8 @@ const createStore = () => {
 		mutations: {
 			showNav(state) {state.navigation = true},
 			hideNav(state) { state.navigation = false },
-			toggleNav(state) {state.navigation = !state.navigation}
+			toggleNav(state) {state.navigation = !state.navigation},
+			toggleNotifications(state) {state.notifications = !state.notifications},
 		}
 	})
 }

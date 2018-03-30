@@ -1,10 +1,10 @@
 <template lang="pug">
 	.rel
 		.loud 
-			i.icon-loud(@click="toggleNotifications")
+			i.icon-loud(@click="$store.commit( 'toggleNotifications' )")
 			.dot
-		<transition name="fade">
-			.panel(v-if="notifications")
+		transition(name="fade")
+			.panel(v-if="$store.state.notifications")
 				.tabs.is-toggle.is-fullwidth
 					ul
 						li(:class="current == 1 ? 'is-active' : ''" @click="curTab(1)")
@@ -36,7 +36,6 @@
 								template(v-if="item.important")
 									i.is-pulled-left.icon-energy
 								span {{ item.title }} 
-		</transition>
 
 </template>
 
@@ -74,7 +73,6 @@ export default {
 
 			],
 			current: 1,
-			notifications: false
 		}
 	},
 	computed: {
@@ -90,9 +88,6 @@ export default {
 		curTab(e) {
 			return this.current = e;
 		},
-		toggleNotifications() {
-			return this.notifications = !this.notifications
-		}
 	}
 }
 </script>

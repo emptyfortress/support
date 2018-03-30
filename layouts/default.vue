@@ -1,8 +1,7 @@
-<template>
+<template lang="pug">
 	<transition name="zoomout" mode="out-in">
-		<div>
+		div(@click="$store.commit( 'closeNotifications' )")
 			<nuxt/>
-		</div>
 	</transition>
 </template>
 
