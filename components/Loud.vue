@@ -15,14 +15,16 @@
 							a Все
 				#one(v-if="current == 1")
 					.scroll
-						.list(v-for="item in newList")
-							a.panel-block
-								i.is-pulled-left(:class="item.important == true ? 'icon-energy' : 'icon-bell'")
-								span {{ item.title }}
+						.list(v-for="(item, key) in note")
+							transition(name="slide-left")
+								a.panel-block(v-if="item.new")
+									i.is-pulled-left(:class="item.important == true ? 'icon-energy' : 'icon-bell'" @click="item.new = !item.new")
+									span {{ item.title }}
 					.panel-block
-						p.small Кликните по иконке, чтобы пометить сообщение, как прочитанное
-					.panel-block
-						.button.is-link.is-outlined.is-fullwidth Прочитать все
+						p.small(v-if="!empty") Кликните по иконке, чтобы пометить сообщение, как прочитанное
+						.big(v-if="empty") <span>&empty;</span><br> Нет непрочитанных объявлений
+					.panel-block(v-if="!empty")
+						.button.is-link.is-outlined.is-fullwidth(@click="readAll") Прочитать все
 				#two(v-if="current == 2")
 					.scroll
 						.list(v-for="item in importantList")
@@ -74,6 +76,7 @@ export default {
 
 			],
 			current: 1,
+			empty: false
 		}
 	},
 	computed: {
@@ -91,10 +94,12 @@ export default {
 		},
 		close() {
 			this.$store.commit( 'closeNotifications' )
+		},
+		readAll() {
+			this.note.map( item => item.new = false );
+			this.empty = true;
 		}
 	},
-
-	// mixins: [onClickOutside]
 }
 </script>
 
@@ -175,7 +180,7 @@ i.is-pulled-left {
 
 .scroll {
 	max-height: 70vh;
-	min-height: 300px;
+	/* min-height: 300px; */
 	overflow: auto;
 }
 
@@ -187,6 +192,19 @@ p.small {
 	color: #999;
 	font-size: .8rem;
 	font-style: italic;
+}
+.big {
+	font-family: $small;
+	color: #999;
+	font-size: .8rem;
+	font-style: italic;
+	text-align: center;
+	margin: 0 auto;
+	span {
+		font-style: normal;
+		font-size: 3rem;
+	}
+
 }
 
 
