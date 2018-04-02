@@ -14,15 +14,14 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,900&amp;subset=cyrillic' }
     ]
   },
+
 	modules: [
     ['nuxt-sass-resources-loader', '~assets/css/settings.scss']
   ],
+
 	css: [
 		'~assets/css/main.scss'
 	],
-	// build: {
-	// 	vendor: ['bulma-extensions/bulma-quickview']
-	// },
   /*
   ** Customize the progress bar color
   */
@@ -31,11 +30,16 @@ module.exports = {
 		linkExactActiveClass: 'is-active',
 		// base: '/support/'
   },
+
+
+
 	mode: 'universal',
   /*
   ** Build configuration
   */
+	plugins: [ '~/plugins/click-outside.js' ],
   build: {
+		// vendor: ['click-outside'],
     /*
     ** Run ESLint on save
     */

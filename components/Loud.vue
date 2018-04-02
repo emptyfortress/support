@@ -1,10 +1,10 @@
 <template lang="pug">
-	.rel
-		.loud 
+	.rel(v-on-click-outside="close")
+		.loud
 			i.icon-loud(@click="$store.commit( 'toggleNotifications' )")
 			.dot
 		transition(name="fade")
-			.panel(v-if="$store.state.notifications")
+			.panel(v-if="$store.state.notifications" )
 				.tabs.is-toggle.is-fullwidth
 					ul
 						li(:class="current == 1 ? 'is-active' : ''" @click="curTab(1)")
@@ -42,6 +42,7 @@
 
 <script>
 export default {
+
 	data() {
 		return {
 			note: [
@@ -88,7 +89,12 @@ export default {
 		curTab(e) {
 			return this.current = e;
 		},
-	}
+		close() {
+			this.$store.commit( 'closeNotifications' )
+		}
+	},
+
+	// mixins: [onClickOutside]
 }
 </script>
 

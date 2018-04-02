@@ -17,7 +17,8 @@
     "bulma": "^0.6.2",
     "bulma-extensions": "^1.0.13",
     "nuxt": "^1.0.0",
-    "nuxt-sass-resources-loader": "^1.2.0"
+    "nuxt-sass-resources-loader": "^1.2.0",
+    "vue-on-click-outside": "^1.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
