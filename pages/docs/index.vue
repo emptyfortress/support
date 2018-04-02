@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import BlockList from '@/components/lists/BlockList';
 		
 export default {
 	data() {
