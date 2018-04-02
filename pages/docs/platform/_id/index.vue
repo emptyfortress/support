@@ -34,6 +34,9 @@ div
 				.listComments
 					Comment(:user='item.user' :text='item.text')/
 			Addcomment/
+		br
+		br
+		a.button.is-light.is-fullwidth(href="#top") Наверх
 </template>
 
 <script>

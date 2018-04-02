@@ -1,4 +1,4 @@
-<template >
+<template id="top" >
 		<span @click="$store.commit('hideNav')">
 			<nuxt-link class="logo" to="/" >
 				<div>Docvision</div>

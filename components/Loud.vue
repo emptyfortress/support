@@ -41,7 +41,6 @@
 					.panel-block
 						.button.is-link.is-outlined.is-fullwidth Еще
 
-
 </template>
 
 
@@ -171,7 +170,6 @@ a {
 
 .panel-block {
 	border-bottom: none;
-	/* border-left: 5px solid $info; */
 }
 .list:last-child {
  border-bottom: 1px solid $border;
