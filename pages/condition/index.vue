@@ -1,24 +1,79 @@
 <template lang="pug">
 .container
-	h1 Условия предоставления технической поддержки
-	nuxt-link(to="/condition/urgent") urgent
+	h2
+		i.icon-condition/ Условия предоставления технической поддержки
+
+	section(v-for="(term, index) in terms" @click="toggle(index)")
+		.flex
+			.header {{ term.name }} 
+			i.icon-arrow-down(:class="{active: term.expand}")/
+		ul.list(:class="{active: term.expand}")
+			li(v-for="item in term.childs")
+				.under(v-if="item.underconstruction")
+					img(src='~assets/img/vlc.svg')/ Раздел в разработке
+				nuxt-link(:to='item.to' v-else ) {{item.name}}
 </template>
 
 <script>
 export default {
+	data() {
+		return {
+			terms: [
+				{
+					id: 1, expand: false, name: 'Положения об оказании услуг',
+					childs: [
+
+						{ id: 1,  to: '', name: 'Поддерживаемые версии' },
+						{ id: 2,  to: '', name: 'Экстренная поддержка' },
+						{ id: 3,  to: '', name: 'Базовая поддержка' },
+						{ id: 4,  to: '', name: 'Расширенная поддержка' },
+						{ id: 5,  to: '', name: 'Корпоративная поддержка' },
+						{ id: 6,  to: '', name: 'Сроки и виды исправления ошибок' },
+						{ id: 7,  to: '', name: 'Таблица определения приоритета ошибок' },
+						{ id: 8,  to: '', name: 'Срок регистрации ошибки' },
+						{ id: 9,  to: '', name: 'Время реакции на обращение' },
+						{ id: 10,  to: '', name: 'Квалификационные требования к специалистам для взаимодействия с службой ТП Доксвижн' },
+						{ id: 11, to: '', name: 'Термины и определения' },
+
+					]
+				},
+				{
+					id: 2, expand: false, name: 'Условия предоставления технической поддержки',
+					childs: [
+						{ id: 1,  to: '', name: 'Условия предоставления технической поддержки' },
+						{ id: 2,  to: '', name: 'Экстренная поддержка' },
+					]
+				},
+				{
+					id: 3, expand: false, name: 'Правила работы с порталом',
+					childs: [
+						{ id: 1,  to: '', name: 'Работа с инцидентами на портале' },
+						{ id: 2,  to: '', name: 'Регистрация доступа на портал' },
+						{ id: 3,  to: '', name: 'Путеводитель по порталу' },
+					]
+				},
+			]
+		}
+	},
+
+	methods: {
+		toggle(index) {
+			this.terms[index].expand = !this.terms[index].expand;
+		}
+	},
 }
 </script>
 
 <style scoped lang="scss">
 
 .container {
-	margin-top: 2rem;
-	/* background: #eee; */
+	margin-top: 4rem;
 }
 
-h1 {
-	/* font-size: 1.5rem; */
+.list.active {
+	max-height: 400px;
 }
+
 </style>
 
 

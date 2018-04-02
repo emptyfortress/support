@@ -2,7 +2,7 @@
 transition(name="zoomout")
 	.container
 		.yellow
-		.flex
+		.flex1
 			.one Ошибка 404
 			.center
 				div
@@ -48,7 +48,7 @@ transition(name="zoomout")
 	border-bottom: 3px solid $dv-blue;
 }
 
-.flex {
+.flex1 {
 	width: 100%;
 	position: relative;
 	display: flex;

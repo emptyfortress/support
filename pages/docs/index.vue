@@ -16,7 +16,8 @@
 </template>
 
 <script>
-	
+import BlockList from '@/components/lists/BlockList';
+		
 export default {
 	data() {
 		return {
@@ -78,7 +79,7 @@ export default {
 		toggle(index) {
 			this.docs[index].expand = !this.docs[index].expand;
 		}
-	}
+	},
 }
 </script>
 
@@ -86,57 +87,6 @@ export default {
 
 .container {
 	margin-top: 4rem;
-}
-
-.flex {
-	margin-bottom: 1px;
-	padding: 1rem .5rem;
-	border-top: 1px solid #fff;
-	cursor: pointer;
-	display: flex;
-	&:hover {
-		background: $dv-gray1;
-		border-top: 1px dotted $dv-gray2;
-	}
-	.header {
-		flex-grow: 1;
-		color: $dv-blue;
-		font-size: 1.4rem;
-	}
-	.icon-arrow-down {
-		text-align: right;
-		font-size: .7rem;
-		line-height: 1.5rem;
-		margin-right: .5rem;
-		transition: all .3s cubic-bezier(.77,.06,.46,.97);
-		&.active {
-			transform: rotate(180deg);
-			transform-origin: 50% 50%;
-			margin-right: 0rem;
-		}
-	}
-}
-
-.list {
-	max-height: 0;
-	margin-left: 2rem;
-	overflow: hidden;
-	font-size: 1.07rem;
-	transition: all .3s cubic-bezier(.77,.06,.46,.97);
-	&.active {
-		max-height: 200px;
-		margin-bottom: 2rem;
-	}
-	li {
-		padding: .5rem 0;
-	}
-}
-
-.under {
-	img {
-		width: 28px;
-		margin-right: 1rem;
-	}
 }
 
 </style>

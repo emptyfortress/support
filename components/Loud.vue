@@ -15,7 +15,7 @@
 							a Все
 				#one(v-if="current == 1")
 					.scroll
-						.list(v-for="(item, key) in note")
+						.ntf-list(v-for="(item, key) in note")
 							transition(name="slide-left")
 								a.panel-block(v-if="item.new")
 									i.is-pulled-left(:class="item.important == true ? 'icon-energy' : 'icon-bell'" @click="item.new = !item.new")
@@ -27,13 +27,13 @@
 						.button.is-link.is-outlined.is-fullwidth(@click="readAll") Прочитать все
 				#two(v-if="current == 2")
 					.scroll
-						.list(v-for="item in importantList")
+						.ntf-list(v-for="item in importantList")
 							a.panel-block
 								i.is-pulled-left.icon-energy
 								span {{ item.title }}
 				#three(v-if="current == 3")
 					.scroll
-						.list(v-for="item in note")
+						.ntf-list(v-for="item in note")
 							a.panel-block
 								template(v-if="item.important")
 									i.is-pulled-left.icon-energy
@@ -171,7 +171,7 @@ a {
 .panel-block {
 	border-bottom: none;
 }
-.list:last-child {
+.ntf-list:last-child {
  border-bottom: 1px solid $border;
 }
 i.is-pulled-left {
@@ -207,7 +207,6 @@ p.small {
 	}
 
 }
-
 
 .fade-enter-active, .fade-leave-active {
   transition: all .3s;
