@@ -38,6 +38,9 @@
 								template(v-if="item.important")
 									i.is-pulled-left.icon-energy
 								span {{ item.title }} 
+					.panel-block
+						.button.is-link.is-outlined.is-fullwidth Еще
+
 
 </template>
 
