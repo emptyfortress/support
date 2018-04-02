@@ -2,7 +2,7 @@
 	.rel(v-on-click-outside="close")
 		.loud
 			i.icon-loud(@click="$store.commit( 'toggleNotifications' )")
-			.dot
+			.dot(v-if="!empty")
 		transition(name="fade")
 			.panel(v-if="$store.state.notifications" )
 				.tabs.is-toggle.is-fullwidth
