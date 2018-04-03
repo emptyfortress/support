@@ -2,7 +2,7 @@
 	.signin
 		input(placeholder="E-mail")
 		.buttons
-			.button.is-primary Вход
+			nuxt-link.button.is-primary(to="login") Вход
 			.button.is-light Регистрация
 </template>
 

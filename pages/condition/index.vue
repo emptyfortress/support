@@ -2,19 +2,15 @@
 .container
 	h2
 		i.icon-condition/ Условия предоставления технической поддержки
+	BlockList(v-bind:list="terms")/
+	br
+	a.button.is-light Показать все статьи (21)
 
-	section(v-for="(term, index) in terms" @click="toggle(index)")
-		.flex
-			.header {{ term.name }} 
-			i.icon-arrow-down(:class="{active: term.expand}")/
-		ul.list(:class="{active: term.expand}")
-			li(v-for="item in term.childs")
-				.under(v-if="item.underconstruction")
-					img(src='~assets/img/vlc.svg')/ Раздел в разработке
-				nuxt-link(:to='item.to' v-else ) {{item.name}}
 </template>
 
 <script>
+import BlockList from '@/components/lists/BlockList';
+
 export default {
 	data() {
 		return {
@@ -22,7 +18,6 @@ export default {
 				{
 					id: 1, expand: false, name: 'Положения об оказании услуг',
 					childs: [
-
 						{ id: 1,  to: '', name: 'Поддерживаемые версии' },
 						{ id: 2,  to: '', name: 'Экстренная поддержка' },
 						{ id: 3,  to: '', name: 'Базовая поддержка' },
@@ -34,7 +29,6 @@ export default {
 						{ id: 9,  to: '', name: 'Время реакции на обращение' },
 						{ id: 10,  to: '', name: 'Квалификационные требования к специалистам для взаимодействия с службой ТП Доксвижн' },
 						{ id: 11, to: '', name: 'Термины и определения' },
-
 					]
 				},
 				{
@@ -55,25 +49,11 @@ export default {
 			]
 		}
 	},
-
-	methods: {
-		toggle(index) {
-			this.terms[index].expand = !this.terms[index].expand;
-		}
-	},
+	components: {
+		BlockList
+	}
 }
 </script>
 
-<style scoped lang="scss">
-
-.container {
-	margin-top: 4rem;
-}
-
-.list.active {
-	max-height: 400px;
-}
-
-</style>
 
 

@@ -11,9 +11,6 @@
 </script>
 
 <style scoped lang="scss">
-.container {
-	margin-top: 4rem;
-}
 
 </style>
 

@@ -22,7 +22,7 @@
 									span {{ item.title }}
 					.panel-block
 						p.small(v-if="!empty") Кликните по иконке, чтобы пометить сообщение, как прочитанное
-						.big(v-if="empty") <span>&empty;</span><br> Нет непрочитанных объявлений
+						.big(v-if="empty") <span>&empty;</span><br> Непрочитанных объявлений нет
 					.panel-block(v-if="!empty")
 						.button.is-link.is-outlined.is-fullwidth(@click="readAll") Прочитать все
 				#two(v-if="current == 2")

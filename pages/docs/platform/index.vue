@@ -2,7 +2,7 @@
 div
 	h2
 		i.icon-book/ Платформа
-	ul.list
+	ul.listP
 		li(v-for="item in childs")
 			nuxt-link(:to='item.to') {{item.name}}
 	<nuxt-child />
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.list {
+.listP {
 	font-size: 1.07rem;
 	li {
 		padding: .5rem 0;

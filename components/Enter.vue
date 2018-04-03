@@ -1,6 +1,7 @@
 <template lang="pug">
 	.enter 
-		<i class="icon-signin"></i>
+		nuxt-link(to="login")
+			i.icon-signin
 </template>
 
 
@@ -11,13 +12,12 @@ export default {
 
 <style scoped lang="scss">
 
-	.enter {
-		cursor: pointer;
-		font-size: 1.35rem;
-		color: $main;
-		&:hover {
-			color: $dv-blue;
-		}
+.enter a {
+	font-size: 1.35rem;
+	color: $main;
+	&:hover {
+		color: $dv-blue;
 	}
+}
 
 </style>

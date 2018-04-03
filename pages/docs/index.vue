@@ -3,19 +3,13 @@
 	h2
 		i.icon-book/ Документация
 	
-	section(v-for="(doc, index) in docs" @click="toggle(index)")
-		.flex
-			.header {{ doc.name }} 
-			i.icon-arrow-down(:class="{active: doc.expand}")/
-		ul.list(:class="{active: doc.expand}")
-			li(v-for="item in doc.childs")
-				.under(v-if="item.underconstruction")
-					img(src='~assets/img/vlc.svg')/ Раздел в разработке
-				nuxt-link(:to='item.to' v-else ) {{item.name}}
-			
+	BlockList(v-bind:list="docs")/
+	br
+	a.button.is-light Показать все статьи (60)
 </template>
 
 <script>
+import BlockList from '@/components/lists/BlockList';
 		
 export default {
 	data() {
@@ -74,20 +68,9 @@ export default {
 			],
 		}
 	},
-	methods: {
-		toggle(index) {
-			this.docs[index].expand = !this.docs[index].expand;
-		}
-	},
+	components: {
+		BlockList
+	}
 }
 </script>
-
-<style scoped lang="scss">
-
-.container {
-	margin-top: 4rem;
-}
-
-</style>
-
 

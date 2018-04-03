@@ -36,8 +36,6 @@ export default {
 <style scoped lang="scss">
 @import '~bulma/sass/components/breadcrumb';
 
-.container {
-}
 .breadcrumb {
 	margin-left: 0;
 	font-size: .8rem;
