@@ -20,6 +20,11 @@
 	import Last from '@/components/lists/Last';
 
 export default {
+	layout: 'default',
+	transition: {
+		name: 'zoomout',
+		mode: 'in-out'
+	},
 	data: function() {
 		return {
 		}

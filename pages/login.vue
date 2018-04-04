@@ -1,26 +1,26 @@
 <template lang="pug">
-.card
-	.logo
-		img(src="~assets/img/logo.svg")
-	<!-- .level&#45;left -->
-	h2 Привет, Ольга!
-	.mail(contenteditable="true")
-		i.icon-user TrachukO@docsvision.com
-	form
-		input(placeholder="Пароль")
-		br
-		br
-		br
-		.level
-			.level-left
-				nuxt-link(to="/") Напомнить пароль
-			.level-right
-				.level-item.button.is-light(@click="back") Назад
-				.level-item.button.is-primary Вход
-	.alien
-		label
-			input(type="checkbox")
-			span Чужой компьютер
+.sign
+	.card
+		.logo
+			img(src="~assets/img/logo.svg")
+		h2 Привет, Ольга!
+		.mail(contenteditable="true")
+			i.icon-user TrachukO@docsvision.com
+		form
+			input(type="password" placeholder="Пароль")
+			br
+			br
+			br
+			.level
+				.level-left
+					nuxt-link(to="/") Напомнить пароль
+				.level-right
+					.level-item.button.is-light(@click="back") Назад
+					.level-item.button.is-primary Вход
+		.alien
+			label
+				input(type="checkbox")
+				span Чужой компьютер
 </label>
 
 
@@ -30,6 +30,10 @@
 	
 	export default {
 		layout: 'sign',
+		transition: {
+			name: 'move',
+			mode: 'out-in'
+		},
 		data() {
 			return {
 				
@@ -44,8 +48,18 @@
 </script>
 
 <style scoped lang="scss">
+.sign {
+	width: 100%;
+	height: 100vh;
+	background-color: #dedede;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23f2f2f2' stroke-width='3.1' %3E%3Cpath d='M-500%2C75c0%2C0%2C125-30%2C250-30S0%2C75%2C0%2C75s125%2C30%2C250%2C30s250-30%2C250-30s125-30%2C250-30s250%2C30%2C250%2C30s125%2C30%2C250%2C30s250-30%2C250-30'/%3E%3Cpath d='M-500%2C45c0%2C0%2C125-30%2C250-30S0%2C45%2C0%2C45s125%2C30%2C250%2C30s250-30%2C250-30s125-30%2C250-30s250%2C30%2C250%2C30s125%2C30%2C250%2C30s250-30%2C250-30'/%3E%3Cpath d='M-500%2C105c0%2C0%2C125-30%2C250-30S0%2C105%2C0%2C105s125%2C30%2C250%2C30s250-30%2C250-30s125-30%2C250-30s250%2C30%2C250%2C30s125%2C30%2C250%2C30s250-30%2C250-30'/%3E%3Cpath d='M-500%2C15c0%2C0%2C125-30%2C250-30S0%2C15%2C0%2C15s125%2C30%2C250%2C30s250-30%2C250-30s125-30%2C250-30s250%2C30%2C250%2C30s125%2C30%2C250%2C30s250-30%2C250-30'/%3E%3Cpath d='M-500-15c0%2C0%2C125-30%2C250-30S0-15%2C0-15s125%2C30%2C250%2C30s250-30%2C250-30s125-30%2C250-30s250%2C30%2C250%2C30s125%2C30%2C250%2C30s250-30%2C250-30'/%3E%3Cpath d='M-500%2C135c0%2C0%2C125-30%2C250-30S0%2C135%2C0%2C135s125%2C30%2C250%2C30s250-30%2C250-30s125-30%2C250-30s250%2C30%2C250%2C30s125%2C30%2C250%2C30s250-30%2C250-30'/%3E%3C/g%3E%3C/svg%3E");
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .card {
+	margin-top: -3rem;
 	box-sizing: border-box;
 	width: 450px;
 	background: #fff;

@@ -43,6 +43,10 @@ const createStore = () => {
 			hideNav(state) { state.navigation = false },
 			toggleNav(state) {state.navigation = !state.navigation},
 			toggleNotifications(state) {state.notifications = !state.notifications},
+			// toggleNotifications(state) {
+			// 	state.notifications = !state.notifications;
+			// 	console.log(123);
+			// },
 			closeNotifications(state) {state.notifications = false},
 		}
 	})

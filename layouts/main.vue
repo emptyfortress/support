@@ -1,22 +1,21 @@
 <template lang="pug">
-	<transition name="zoomin" mode="out-in">
-		.main
-			.header
-				Ham/
-				Logo/
-				.right
-					Loud/
-					div
-						Enter
-			.nav(:class="{active : $store.state.navigation}")
-				.navgrid
-					SectionLight(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
-			Search/
-			Breadcrumb/
-			.container
-				<nuxt/>
-			Footer/
-	</transition>
+transition(name='zoomin', mode='out-in')
+	.main
+		.header
+			Ham/
+			Logo/
+			.right
+				Loud/
+				div
+					Enter
+		.nav(:class="{active : $store.state.navigation}")
+			.navgrid
+				SectionLight(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
+		Search/
+		Breadcrumb/
+		.container
+			<nuxt/>
+		Footer/
 </template>
 
 <script>
@@ -30,24 +29,23 @@ import Search from '@/components/Search';
 import Breadcrumb from '@/components/Breadcrumb';
 
 
-	export default {
-
-		data() {
-			return {
-			}
-		},
-
-		components: {
-			Footer,
-			Logo,
-			Loud,
-			Enter,
-			Ham,
-			Search,
-			SectionLight,
-			Breadcrumb
+export default {
+	data() {
+		return {
 		}
+	},
+
+	components: {
+		Footer,
+		Logo,
+		Loud,
+		Enter,
+		Ham,
+		Search,
+		SectionLight,
+		Breadcrumb
 	}
+}
 
 </script>
 

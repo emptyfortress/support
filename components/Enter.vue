@@ -1,6 +1,6 @@
 <template lang="pug">
 	.enter 
-		nuxt-link(to="login")
+		nuxt-link(to="/login")
 			i.icon-signin
 </template>
 

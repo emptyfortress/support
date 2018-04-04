@@ -1,10 +1,10 @@
 <template lang="pug">
-	.rel(v-on-click-outside="close")
+	.rel
 		.loud
 			i.icon-loud(@click="$store.commit( 'toggleNotifications' )")
 			.dot(v-if="!empty")
 		transition(name="fade")
-			.panel(v-if="$store.state.notifications" )
+			.panel(v-if="$store.state.notifications" v-on-click-outside="close")
 				.tabs.is-toggle.is-fullwidth
 					ul
 						li(:class="current == 1 ? 'is-active' : ''" @click="curTab(1)")

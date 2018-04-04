@@ -68,6 +68,27 @@ ul {
 	margin: 0;
 	padding: 0;
 }
+////////////////////////////////
+//  this is page transitions  //
+////////////////////////////////
+
+.move-enter-active { 
+	animation: move-in .3s cubic-bezier(.1,.84,.51,1) ; 
+} 
+ 
+.move-leave-active { 
+	animation: move-out .5s; 
+} 
+ 
+@keyframes move-in { 
+  0% { transform: translateY(100%) } 
+  100% { transform: translateY(0) } 
+} 
+ 
+@keyframes move-out { 
+  0% { transform: translateY(0) } 
+  100% { transform: translateY(100%) } 
+} 
 
 .zoomin-enter-active, .zoomin-leave-active {
 	transition: all .3s;
@@ -162,3 +183,4 @@ ul {
 		margin-right: 1rem;
 	}
 }
+
