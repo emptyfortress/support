@@ -37,7 +37,11 @@ module.exports = {
   /*
   ** Build configuration
   */
-	plugins: [ '~/plugins/click-outside.js' ],
+	plugins: [ 
+		{ src: '~/plugins/click-outside.js'},
+		{ src: '~/plugins/vuecarousel.js', ssr: false}
+		// { src: '~/plugins/mySwiper.js', ssr: false }
+	],
   build: {
 		// vendor: ['click-outside'],
     /*
