@@ -47,7 +47,7 @@ const createStore = () => {
 			// 	state.notifications = !state.notifications;
 			// 	console.log(123);
 			// },
-			closeNotifications(state) {state.notifications = false},
+			// closeNotifications(state) {state.notifications = false},
 		}
 	})
 }
