@@ -42,7 +42,6 @@ carousel(:per-page='3'
 .carousel {
 	width: 780px;
 	margin: 0 auto;
-	/* border: 1px solid #ccc; */
 }
 .product-card {
 	margin: 0 .5rem;
@@ -54,7 +53,6 @@ carousel(:per-page='3'
 .product {
 	background: #fff;
 	height: 100%;
-	/* border: 1px solid $dv-gray3;  */
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -70,11 +68,6 @@ carousel(:per-page='3'
 	&:hover {
 		i, h3 {
 			color: $dv-yellow;
-		}
-	}
-	&:active {
-		i, h3 {
-			color: $dv-green;
 		}
 	}
 }
