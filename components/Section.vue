@@ -41,7 +41,7 @@ a {
 		margin-top: 0.7rem;
 	}
 	i { 
-		color: #A6A6A6;
+		color: $gray;
 		font-size: 2rem;
 	}
 }

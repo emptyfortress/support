@@ -65,6 +65,7 @@ export default {
 		max-width: 780px;
 		height: auto;
 		margin: 2rem auto;
+		margin-top: 0;
 		display: flex;
 		flex-flow: row wrap;
 		align-items: center;
