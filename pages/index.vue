@@ -2,7 +2,7 @@
 	.container-main
 		BigHeader/
 		TheSign/
-		ProductCarousel/
+		ProductCarousel(v-if="$store.state.login")/
 		.navgrid
 			Section(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
 		section.lastlist

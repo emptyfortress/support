@@ -27,7 +27,7 @@ a {
 	display: flex;
 	flex-flow: column;
 	width: 156px;
-	height: 130px;
+	height: 100px;
 	text-align: center;
 	justify-content: center;
 	font-size: 1rem;
@@ -42,7 +42,7 @@ a {
 	}
 	i { 
 		color: #4A90E2;
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 }
 

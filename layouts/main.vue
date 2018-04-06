@@ -9,8 +9,10 @@ transition(name='zoomin', mode='out-in')
 				div
 					Enter
 		.nav(:class="{active : $store.state.navigation}")
+			smallCarousel/
 			.navgrid
-				SectionLight(v-for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
+				<!-- SectionLight(v&#45;for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to") -->
+				SectionLight(v-for="section in filteredPage" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
 		Search/
 		Breadcrumb/
 		.container
@@ -27,11 +29,17 @@ import Ham from '@/components/Ham';
 import SectionLight from '@/components/SectionLight';
 import Search from '@/components/Search';
 import Breadcrumb from '@/components/Breadcrumb';
+import smallCarousel from '@/components/smallCarousel';
 
 
 export default {
 	data() {
 		return {
+		}
+	},
+	computed: {
+		filteredPage() {
+			return this.$store.state.sections.filter( item => item.innerpage == true )
 		}
 	},
 
@@ -43,7 +51,8 @@ export default {
 		Ham,
 		Search,
 		SectionLight,
-		Breadcrumb
+		Breadcrumb,
+		smallCarousel
 	}
 }
 
@@ -77,7 +86,7 @@ export default {
 	box-shadow:         inset 0 2px 10px #000;
 	overflow: hidden;
 	&.active {
-		height: 320px;
+		height: 340px;
 	}
 }
 
@@ -85,6 +94,7 @@ export default {
 	max-width: 780px;
 	height: auto;
 	margin: 2rem auto;
+	margin-top: 0;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;

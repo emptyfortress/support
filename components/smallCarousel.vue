@@ -1,16 +1,10 @@
 <template lang="pug">
-carousel(:per-page='3' :scrollPerPage='true' 
-					:loop='true'
-					:navigationEnabled='false'
-					navigationNextLabel=`<i class="icon-web"></i>`
-					navigationPrevLabel="prev" 
-					class='carousel')
+carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='false' paginationActiveColor="#498FE3" paginationColor="#000" class='carousel' )
 	slide(v-for="product in products" :key="product.id" )
 		.product-card
 			.product(@click="goto(product.to)")
 				i(:class="product.icon")
 				h3 {{product.name}}
-
 </template>
 
 <script>
@@ -31,6 +25,7 @@ carousel(:per-page='3' :scrollPerPage='true'
 		},
 		methods: {
 			goto(e) {
+				this.$store.commit( 'hideNav' );
 				this.$router.push(e);
 			}
 		}
@@ -38,38 +33,38 @@ carousel(:per-page='3' :scrollPerPage='true'
 </script>
 
 <style scoped lang="scss">
-
 .carousel {
-	width: 780px;
+	width: 960px;
 	margin: 0 auto;
+	margin-top: 1rem;
 }
+
 .product-card {
 	margin: 0 .5rem;
-	height: 12rem;
 	padding: .5rem;
-	background: #eee;
+	height: 165px;
 	border-radius: .5rem;
+	border: 1px solid $dv-blue;
+	&:hover {
+		border-color: $blue;
+	}
 }
 .product {
-	background: #fff;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	cursor: pointer;
 	i {
-		font-size: 6rem;
-		color: $gray;
+		font-size: 5rem;
+		color: $blue;
 	}
 	h3 {
+		font-size: 1.0rem;
 		text-align: center;
-		color: $gray;
-	}
-	&:hover {
-		i, h3 {
-			color: $dv-yellow;
-		}
+		color: #fff;
 	}
 }
 
 </style>
+

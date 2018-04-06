@@ -13,10 +13,10 @@
 			br
 			.level
 				.level-left
-					nuxt-link(to="/") Напомнить пароль
+					nuxt-link(to="#") Напомнить пароль
 				.level-right
 					.level-item.button.is-light(@click="back") Назад
-					.level-item.button.is-primary Вход
+					.level-item.button.is-primary(@click="enter") Вход
 		.alien
 			label
 				input(type="checkbox")
@@ -41,6 +41,10 @@
 		},
 		methods: {
 			back() {
+				this.$router.push('/');
+			},
+			enter() {
+				this.$store.commit( 'signIn' );
 				this.$router.push('/');
 			}
 		}

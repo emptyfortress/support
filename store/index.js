@@ -5,17 +5,18 @@ const createStore = () => {
 		state: {
 			navigation: false,
 			notifications: false,
+			login: false,
 			sections: [
-				{ id: 1,  icon: 'bookmark',  to: '/bookmark',  name: 'Мои запросы' },
-				{ id: 2,  icon: 'send',      to: '/send',      name: 'Отправить запрос' },
-				{ id: 3,  icon: 'forum',     to: '/forum',     name: 'Сообщество' },
-				{ id: 4,  icon: 'code',      to: '/code',      name: 'Разработчикам' },
-				{ id: 5,  icon: 'download',  to: '/download',  name: 'Загрузить' },
-				{ id: 6,  icon: 'condition', to: '/condition', name: 'Условия' },
-				{ id: 7,  icon: 'map',       to: '/map',       name: 'Путеводитель' },
-				{ id: 8,  icon: 'book',      to: '/docs',      name: 'Документация' },
-				{ id: 9,  icon: 'faq',       to: '/faq',       name: 'ЧаВо' },
-				{ id: 10, icon: 'mail',      to: '/mail',      name: 'Контакты' },
+				{ id: 1,  icon: 'bookmark',  innerpage: true, to: '/bookmark',  name: 'Мои запросы' },
+				{ id: 2,  icon: 'send',      innerpage: true, to: '/send',      name: 'Отправить запрос' },
+				{ id: 3,  icon: 'forum',     innerpage: true, to: '/forum',     name: 'Сообщество' },
+				{ id: 4,  icon: 'code',      innerpage: true, to: '/code',      name: 'Разработчикам' },
+				{ id: 5,  icon: 'download',  innerpage: true, to: '/download',  name: 'Загрузить' },
+				{ id: 6,  icon: 'condition', innerpage: false, to: '/condition', name: 'Условия' },
+				{ id: 7,  icon: 'map',       innerpage: false, to: '/map',       name: 'Путеводитель' },
+				{ id: 8,  icon: 'book',      innerpage: false, to: '/docs',      name: 'Документация' },
+				{ id: 9,  icon: 'faq',       innerpage: false, to: '/faq',       name: 'ЧаВо' },
+				{ id: 10, icon: 'mail',      innerpage: false, to: '/mail',      name: 'Контакты' },
 			],
 
 			docs: [
@@ -43,11 +44,8 @@ const createStore = () => {
 			hideNav(state) { state.navigation = false },
 			toggleNav(state) {state.navigation = !state.navigation},
 			toggleNotifications(state) {state.notifications = !state.notifications},
-			// toggleNotifications(state) {
-			// 	state.notifications = !state.notifications;
-			// 	console.log(123);
-			// },
-			// closeNotifications(state) {state.notifications = false},
+			closeNotifications(state) {state.notifications = false},
+			signIn(state) { state.login = true }
 		}
 	})
 }
