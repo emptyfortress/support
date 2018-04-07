@@ -9,10 +9,9 @@ transition(name='zoomin', mode='out-in')
 				div
 					Enter
 		.nav(:class="{active : $store.state.navigation}")
-			smallCarousel/
+			smallCarousel(v-if="$store.state.login")/
 			.navgrid
-				<!-- SectionLight(v&#45;for="section in $store.state.sections" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to") -->
-				SectionLight(v-for="section in filteredPage" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
+				SectionLight(v-for="section in ( $store.state.login ? $store.state.sections : defaultSections )" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
 		Search/
 		Breadcrumb/
 		.container
@@ -40,6 +39,9 @@ export default {
 	computed: {
 		filteredPage() {
 			return this.$store.state.sections.filter( item => item.innerpage == true )
+		},
+		defaultSections() {
+			return this.$store.state.sections.filter( item => item.firstpage == true )
 		}
 	},
 
@@ -78,7 +80,7 @@ export default {
 }
 
 .nav {
-	height: 0;
+	max-height: 0;
 	background: $dv-blue;
 	transition: all .3s cubic-bezier(.77,.06,.46,.97);
 	-moz-box-shadow:    inset 0 2px 10px #000;
@@ -86,15 +88,15 @@ export default {
 	box-shadow:         inset 0 2px 10px #000;
 	overflow: hidden;
 	&.active {
-		height: 340px;
+		max-height: 380px;
 	}
 }
 
 .navgrid {
-	max-width: 780px;
+	max-width: 960px;
 	height: auto;
 	margin: 2rem auto;
-	margin-top: 0;
+	/* margin-top: 0; */
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;

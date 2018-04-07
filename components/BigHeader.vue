@@ -45,6 +45,7 @@
 	padding: 0 1rem;
 	background: linear-gradient(white, $dv-gray2);
 	border-bottom: 1px solid $dv-gray3;
+	margin-bottom: 2rem;
 }
 
 .topBar {

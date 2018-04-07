@@ -10,7 +10,8 @@
 .signin {
 	display: flex;
 	max-width: 480px;
-	margin: 2rem auto;
+	margin: 0 auto;
+	margin-bottom: 2rem;
 	input {
 		font-size: 1rem;
 		border: 1px solid $dv-gray2;

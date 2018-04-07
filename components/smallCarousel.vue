@@ -1,10 +1,10 @@
 <template lang="pug">
-carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='false' paginationActiveColor="#498FE3" paginationColor="#000" class='carousel' )
+carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='true' paginationActiveColor="#498FE3" paginationColor="#000" class='carousel' )
 	slide(v-for="product in products" :key="product.id" )
 		.product-card
-			.product(@click="goto(product.to)")
-				i(:class="product.icon")
-				h3 {{product.name}}
+			.product
+				i(:class="product.icon" @click="goto(product.to)")
+				h3(@click="goto(product.to)") {{product.name}}
 </template>
 
 <script>
@@ -19,7 +19,7 @@ carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='false' paginati
 				{ id: 5, name: 'Договоры', icon: 'icon-dogovor', },
 				{ id: 6, name: 'Почтовый клиент', icon: 'icon-mailclient', },
 				{ id: 7, name: 'Делопроизводство', icon: 'icon-delo', },
-				{ id: 8, name: 'Управление документами', icon: 'icon-docmanage', },
+				{ id: 8, name: 'Управление\r документами', icon: 'icon-docmanage', },
 			],
 			}
 		},
@@ -40,20 +40,18 @@ carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='false' paginati
 }
 
 .product-card {
-	margin: 0 .5rem;
-	padding: .5rem;
+	margin: 0 2rem;
+	padding: .7rem;
 	height: 165px;
-	border-radius: .5rem;
-	border: 1px solid $dv-blue;
-	&:hover {
-		border-color: $blue;
-	}
 }
+
 .product {
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	border: 1px dotted $blue;
+	border-radius: .5rem;
 	cursor: pointer;
 	i {
 		font-size: 5rem;
@@ -62,9 +60,21 @@ carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='false' paginati
 	h3 {
 		font-size: 1.0rem;
 		text-align: center;
-		color: #fff;
+		color: $blue;
+		margin-top: 0;
+		text-transform: none;
+	}
+	&:hover {
+		border-style: solid;
+		background: darken($dv-blue, 2%);
+	}
+	&:active {
+		i, h3 {
+			color: $dv-green;
+		}
 	}
 }
+
 
 </style>
 

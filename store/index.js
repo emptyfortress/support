@@ -7,16 +7,18 @@ const createStore = () => {
 			notifications: false,
 			login: false,
 			sections: [
-				{ id: 1,  icon: 'bookmark',  innerpage: true, to: '/bookmark',  name: 'Мои запросы' },
-				{ id: 2,  icon: 'send',      innerpage: true, to: '/send',      name: 'Отправить запрос' },
-				{ id: 3,  icon: 'forum',     innerpage: true, to: '/forum',     name: 'Сообщество' },
-				{ id: 4,  icon: 'code',      innerpage: true, to: '/code',      name: 'Разработчикам' },
-				{ id: 5,  icon: 'download',  innerpage: true, to: '/download',  name: 'Загрузить' },
-				{ id: 6,  icon: 'condition', innerpage: false, to: '/condition', name: 'Условия' },
-				{ id: 7,  icon: 'map',       innerpage: false, to: '/map',       name: 'Путеводитель' },
-				{ id: 8,  icon: 'book',      innerpage: false, to: '/docs',      name: 'Документация' },
-				{ id: 9,  icon: 'faq',       innerpage: false, to: '/faq',       name: 'ЧаВо' },
-				{ id: 10, icon: 'mail',      innerpage: false, to: '/mail',      name: 'Контакты' },
+
+				{ id: 1,  icon: 'bookmark',  firstpage: false,  innerpage: true, to: '/bookmark',  name: 'Мои запросы' },
+				{ id: 2,  icon: 'send',      firstpage: false,  innerpage: true, to: '/send',      name: 'Отправить запрос' },
+				{ id: 3,  icon: 'forum',     firstpage: false,  innerpage: true, to: '/forum',     name: 'Сообщество' },
+				{ id: 4,  icon: 'code',      firstpage: false,  innerpage: true, to: '/code',      name: 'Разработчикам' },
+				{ id: 5,  icon: 'download',  firstpage: false,  innerpage: true, to: '/download',  name: 'Загрузить' },
+				{ id: 6,  icon: 'condition', firstpage: true,  innerpage: false, to: '/condition', name: 'Условия' },
+				{ id: 7,  icon: 'map',       firstpage: true,  innerpage: false, to: '/map',       name: 'Путеводитель' },
+				{ id: 8,  icon: 'book',      firstpage: true,  innerpage: true, to: '/docs',      name: 'Документация' },
+				{ id: 9,  icon: 'faq',       firstpage: true,  innerpage: false, to: '/faq',       name: 'ЧаВо' },
+				{ id: 10, icon: 'mail',      firstpage: true,  innerpage: false, to: '/mail',      name: 'Контакты' },
+
 			],
 
 			docs: [

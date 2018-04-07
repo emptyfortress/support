@@ -32,13 +32,12 @@ a {
 	justify-content: center;
 	font-size: 1rem;
 	cursor: pointer;
+	color: $blue;
 	&:hover {
 		border: 1px solid $blue;
-		/* background: #0E2B45; */
 	}
 	p {
 		margin-top: 0.7rem;
-		color: #fff;
 	}
 	i { 
 		color: #4A90E2;

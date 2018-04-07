@@ -1,9 +1,10 @@
 <template lang="pug">
 carousel(:per-page='3' :scrollPerPage='true' 
 					:loop='true'
-					:navigationEnabled='false'
-					navigationNextLabel=`<i class="icon-web"></i>`
-					navigationPrevLabel="prev" 
+					:navigationEnabled='true'
+					:paginationEnabled='false'
+					navigationNextLabel=`<i class="icon-next" style="font-size: 3rem; color: #ccc;"></i>`
+					navigationPrevLabel=`<i class="icon-prev" style="font-size: 3rem; color: #ccc"></i>`
 					class='carousel')
 	slide(v-for="product in products" :key="product.id" )
 		.product-card
@@ -19,13 +20,13 @@ carousel(:per-page='3' :scrollPerPage='true'
 			return {
 			products: [
 				{ id: 1, name: 'Платформа', icon: 'icon-platform', to: '/docs/platform/1' },
-				{ id: 2, name: 'Web-client', icon: 'icon-web', },
-				{ id: 3, name: 'Пульс', icon: 'icon-pulse', },
-				{ id: 4, name: 'Накопительные обновления', icon: 'icon-no', },
-				{ id: 5, name: 'Договоры', icon: 'icon-dogovor', },
-				{ id: 6, name: 'Почтовый клиент', icon: 'icon-mailclient', },
-				{ id: 7, name: 'Делопроизводство', icon: 'icon-delo', },
-				{ id: 8, name: 'Управление документами', icon: 'icon-docmanage', },
+				{ id: 2, name: 'Web-client', icon: 'icon-web',  to: '/docs/platform/1'},
+				{ id: 3, name: 'Пульс', icon: 'icon-pulse',  to: '/docs/platform/1'},
+				{ id: 4, name: 'Накопительные обновления', icon: 'icon-no',  to: '/docs/platform/1'},
+				{ id: 5, name: 'Договоры', icon: 'icon-dogovor',  to: '/docs/platform/1'},
+				{ id: 6, name: 'Почтовый клиент', icon: 'icon-mailclient',  to: '/docs/platform/1'},
+				{ id: 7, name: 'Делопроизводство', icon: 'icon-delo',  to: '/docs/platform/1'},
+				{ id: 8, name: 'Управление документами', icon: 'icon-docmanage',  to: '/docs/platform/1'},
 			],
 			}
 		},
@@ -40,6 +41,7 @@ carousel(:per-page='3' :scrollPerPage='true'
 <style scoped lang="scss">
 
 .carousel {
+	/* width: 960px; */
 	width: 780px;
 	margin: 0 auto;
 }
@@ -68,6 +70,11 @@ carousel(:per-page='3' :scrollPerPage='true'
 	&:hover {
 		i, h3 {
 			color: $dv-yellow;
+		}
+	}
+	&:active {
+		i, h3 {
+			color: $dv-green;
 		}
 	}
 }

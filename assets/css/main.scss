@@ -77,7 +77,7 @@ ul {
 } 
  
 .move-leave-active { 
-	animation: move-out .5s; 
+	animation: move-out .3s cubic-bezier(.1,.84,.51,1) ; 
 } 
  
 @keyframes move-in { 
@@ -99,13 +99,25 @@ ul {
 	transform: scale(.9);
 }
 
+// .zoomout-enter-active, .zoomout-leave-active {
+// 	transition: all .3s;
+// }
+// .zoomout-enter, .zoomout-leave-active {
+// 	opacity: 0;
+// 	transform: scale(1.07);
+// }
+
+
 .zoomout-enter-active, .zoomout-leave-active {
 	transition: all .3s;
 }
-.zoomout-enter, .zoomout-leave-active {
+.zoomout-enter {
 	opacity: 0;
 	transform: scale(1.07);
 }
+.zoomout-leave-active {
+	animation: move-out .3s cubic-bezier(.1,.84,.51,1) ; 
+} 
 
 .slide-right-enter-active, .slide-right-leave-active {
 	transition: all .3s;
