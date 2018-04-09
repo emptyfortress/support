@@ -21,6 +21,7 @@
 			label
 				input(type="checkbox")
 				span Чужой компьютер
+		nuxt-link(to='' class="registration") Зарегистрироваться
 </label>
 
 
@@ -52,6 +53,7 @@
 </script>
 
 <style scoped lang="scss">
+
 .sign {
 	width: 100%;
 	height: 100vh;
@@ -115,6 +117,14 @@
 		left: 0;
 		input {
 			margin-right: 1rem;
+		}
+	}
+	.registration {
+		position: absolute;
+		bottom: -1.7rem;
+		right: 0;
+		&:hover {
+			text-decoration: underline;
 		}
 	}
 }

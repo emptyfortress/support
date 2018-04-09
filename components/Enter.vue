@@ -1,7 +1,8 @@
 <template lang="pug">
 	.enter 
 		nuxt-link(to="/login")
-			i.icon-signin
+			i.icon-signin(v-if="!$store.state.login")
+			i.icon-user(v-else)
 </template>
 
 
@@ -18,6 +19,9 @@ export default {
 	&:hover {
 		color: $dv-blue;
 	}
+}
+.icon-user {
+	font-size: 1.6rem;
 }
 
 </style>

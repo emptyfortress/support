@@ -72,23 +72,38 @@ ul {
 //  this is page transitions  //
 ////////////////////////////////
 
-.move-enter-active { 
-	animation: move-in .3s cubic-bezier(.1,.84,.51,1) ; 
-} 
- 
-.move-leave-active { 
-	animation: move-out .3s cubic-bezier(.1,.84,.51,1) ; 
-} 
- 
-@keyframes move-in { 
-  0% { transform: translateY(100%) } 
-  100% { transform: translateY(0) } 
-} 
- 
-@keyframes move-out { 
-  0% { transform: translateY(0) } 
-  100% { transform: translateY(100%) } 
-} 
+// .move-enter-active { 
+// 	animation: move-in .3s cubic-bezier(.1,.84,.51,1) ; 
+// 	transition: opacity .3s;
+// } 
+//  
+// .move-leave-active { 
+// 	animation: move-out .3s cubic-bezier(.1,.84,.51,1) ; 
+// 	transition: opacity .3s;
+// } 
+//  
+// @keyframes move-in { 
+//   0% { transform: translateY(100%); opacity: 0 } 
+//   100% { transform: translateY(0); opacity: 1 } 
+// } 
+//  
+// @keyframes move-out { 
+//   0% { transform: translateY(0) } 
+//   100% { transform: translateY(100%) } 
+// } 
+
+
+.move-enter-active, .move-leave-active {
+	transition: all .3s cubic-bezier(.1,.84,.51,1);
+}
+.move-enter {
+	opacity: 0;
+	transform: translateY(-100%);
+}
+.move-leave-active {
+	opacity: 0;
+	transform: translateY(-100%);
+}
 
 .zoomin-enter-active, .zoomin-leave-active {
 	transition: all .3s;
@@ -99,13 +114,6 @@ ul {
 	transform: scale(.9);
 }
 
-// .zoomout-enter-active, .zoomout-leave-active {
-// 	transition: all .3s;
-// }
-// .zoomout-enter, .zoomout-leave-active {
-// 	opacity: 0;
-// 	transform: scale(1.07);
-// }
 
 
 .zoomout-enter-active, .zoomout-leave-active {
