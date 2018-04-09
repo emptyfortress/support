@@ -46,7 +46,7 @@
 			},
 			enter() {
 				this.$store.commit( 'signIn' );
-				this.$router.push('/');
+				this.$router.back();
 			}
 		}
 	}

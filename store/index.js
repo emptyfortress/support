@@ -47,7 +47,8 @@ const createStore = () => {
 			toggleNav(state) {state.navigation = !state.navigation},
 			toggleNotifications(state) {state.notifications = !state.notifications},
 			closeNotifications(state) {state.notifications = false},
-			signIn(state) { state.login = true }
+			signIn(state) { state.login = true },
+			signOut(state) { state.login = false }
 		}
 	})
 }
