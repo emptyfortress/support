@@ -11,7 +11,7 @@ transition(name='zoomin', mode='out-in')
 		.nav(:class="{active : $store.state.navigation}")
 			smallCarousel(v-if="$store.state.login")/
 			.navgrid
-				SectionLight(v-for="section in ( $store.state.login ? $store.state.sections : defaultSections )" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
+				SectionLight(v-for="section in ( $store.state.login ? filteredPage : defaultSections )" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
 		Search/
 		Breadcrumb/
 		.container

@@ -2,10 +2,7 @@
 	.enter 
 		nuxt-link(to="/login" v-if="!$store.state.login")
 			i.icon-signin
-		<!-- .dropdown.is&#45;hoverable.is&#45;right(v&#45;else) -->
 		.dropdown.is-hoverable.is-right(v-else)
-			<!-- nuxt&#45;link(to="" v&#45;else) -->
-			<!-- 	i.icon&#45;user -->
 			.dropdown-trigger
 				nuxt-link(to="")
 					i.icon-user

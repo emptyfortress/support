@@ -1,5 +1,11 @@
 <template lang="pug">
-carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='true' paginationActiveColor="#498FE3" paginationColor="#000" class='carousel' )
+carousel(:per-page='4' :scrollPerPage='true'
+				:paginationEnabled='false'
+				:loop='true'
+				:navigationEnabled='true'
+				navigationNextLabel=`<i class="icon-next" style="font-size: 3rem; color: #0096DC;"></i>`
+				navigationPrevLabel=`<i class="icon-prev" style="font-size: 3rem; color: #0096DC;"></i>`
+				class='carousel' )
 	slide(v-for="product in products" :key="product.id" )
 		.product-card
 			.product
@@ -40,9 +46,9 @@ carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='true' paginatio
 }
 
 .product-card {
-	margin: 0 2rem;
-	padding: .7rem;
-	height: 165px;
+	margin: 0;
+	padding: .5rem;
+	height: 175px;
 }
 
 .product {
@@ -53,6 +59,7 @@ carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='true' paginatio
 	border: 1px dotted $blue;
 	border-radius: .5rem;
 	cursor: pointer;
+	padding: .5rem;
 	i {
 		font-size: 5rem;
 		color: $blue;
@@ -67,6 +74,9 @@ carousel(:per-page='4' :scrollPerPage='true' :paginationEnabled='true' paginatio
 	&:hover {
 		border-style: solid;
 		background: darken($dv-blue, 2%);
+		i, h3 {
+			color: $dv-yellow;
+		}
 	}
 	&:active {
 		i, h3 {
