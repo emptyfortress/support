@@ -13,14 +13,14 @@
 			br
 			.level
 				.level-left
-					nuxt-link(to="#") Напомнить пароль
+					label
+						input(type="checkbox")
+						span Чужой компьютер
 				.level-right
 					.level-item.button.is-light(@click="back") Назад
 					.level-item.button.is-primary(@click="enter") Вход
 		.alien
-			label
-				input(type="checkbox")
-				span Чужой компьютер
+			nuxt-link(to="#") Напомнить пароль
 		nuxt-link(to='' class="registration") Зарегистрироваться
 </label>
 
@@ -107,9 +107,13 @@
 		::placeholder {
 			color: #ccc;
 		}
+		label {
+			input { width: auto; height: auto; margin-right: .4rem; }
+			font-size: .95rem;
+		}
 	}
 	a:hover {
-		text-decoration: none;
+		text-decoration: underline;
 	}
 	.alien {
 		position: absolute;
@@ -123,9 +127,6 @@
 		position: absolute;
 		bottom: -1.7rem;
 		right: 0;
-		&:hover {
-			text-decoration: underline;
-		}
 	}
 }
 

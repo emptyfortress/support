@@ -1,9 +1,11 @@
 <template lang="pug">
 	.search
 		div
-			<i class="icon-close" v-if="!showPop" @click="clearSearch"></i>
-			<i class="icon-search" v-else></i>
-			input#search(v-model="search" placeholder="Поиск" @focus="complete = true" @blur="complete = false")
+			.icon
+				<i class="icon-close" v-if="!showPop" @click="clearSearch"></i>
+				<i class="icon-search" v-else></i>
+			<!-- input#search(v&#45;model="search" placeholder="Поиск" @focus="complete = true" @blur="complete = false") -->
+			input#search(v-model="search" placeholder="Поиск" @focus="focuss" @blur="blurr")
 			.autocomplete(v-show="complete")
 				div(v-show="showPop")
 					Autocomplete/
@@ -16,6 +18,7 @@
 <script>
 import Autocomplete from '@/components/Autocomplete';
 import Hint from '@/components/Hint';
+
 
 	export default {
 		data() {
@@ -43,6 +46,14 @@ import Hint from '@/components/Hint';
 			clearSearch() {
 				this.search = '';
 				document.querySelector('#search').focus();
+			},
+			focuss() {
+				this.complete = true;
+				document.querySelector('.icon').classList.add('focused');
+			},
+			blurr() {
+				this.complete = false;
+				this.search.length == 0 ?  ( document.querySelector('.icon').classList.remove('focused') ) : ( document.querySelector('.icon').classList.add('focused') );
 			}
 	}
 }
@@ -56,13 +67,22 @@ import Hint from '@/components/Hint';
 		position: relative;
 		max-width: 960px;
 		margin: 0 auto;
-		i {
+		.icon {
 			position: absolute;
 			top: 10px;
-			right: .5rem;
+			right: 53%;
 			font-size: 1.2rem;
 			color: $main;
-			cursor: pointer;
+			transition: all .3s ease;
+			&.focused {
+				right: 0;
+				cursor: pointer;
+			}
+			i {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
 		}
 		input {
 			width: 100%;
@@ -71,11 +91,15 @@ import Hint from '@/components/Hint';
 			border: none;
 			outline: none;
 			font-size: 1.5rem;
-			padding-left: 1rem;
 		}
 		::placeholder {
 			color: $dv-gray3;
 			font-size: 1.1rem;
+			padding-left: 49%;
+			transition: all .3s ease;
+		}
+		:focus::placeholder {
+			padding-left: 0;
 		}
 		.autocomplete {
 			width: 100%;
@@ -95,5 +119,7 @@ import Hint from '@/components/Hint';
 		margin: 1rem;
 	}
 }
+
+
 
 </style>
