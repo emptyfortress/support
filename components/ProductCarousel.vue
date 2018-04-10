@@ -19,8 +19,8 @@ carousel(:per-page='3' :scrollPerPage='true'
 		data() {
 			return {
 			products: [
-				{ id: 1, name: 'Платформа', icon: 'icon-platform', to: '/docs/platform/1' },
-				{ id: 2, name: 'Web-client', icon: 'icon-web',  to: '/docs/platform/1'},
+				{ id: 1, name: 'Платформа', icon: 'icon-platform', to: '/product/_platform' },
+				{ id: 2, name: 'Web-client', icon: 'icon-web',  to: '/product/_web'},
 				{ id: 3, name: 'Пульс', icon: 'icon-pulse',  to: '/docs/platform/1'},
 				{ id: 4, name: 'Накопительные обновления', icon: 'icon-no',  to: '/docs/platform/1'},
 				{ id: 5, name: 'Договоры', icon: 'icon-dogovor',  to: '/docs/platform/1'},
@@ -33,6 +33,7 @@ carousel(:per-page='3' :scrollPerPage='true'
 		methods: {
 			goto(e) {
 				this.$router.push(e);
+				return { data: product.id }
 			}
 		}
 	}

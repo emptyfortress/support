@@ -4,7 +4,6 @@
 			.icon
 				<i class="icon-close" v-if="!showPop" @click="clearSearch"></i>
 				<i class="icon-search" v-else></i>
-			<!-- input#search(v&#45;model="search" placeholder="Поиск" @focus="complete = true" @blur="complete = false") -->
 			input#search(v-model="search" placeholder="Поиск" @focus="focuss" @blur="blurr")
 			.autocomplete(v-show="complete")
 				div(v-show="showPop")
@@ -73,7 +72,7 @@ import Hint from '@/components/Hint';
 			right: 53%;
 			font-size: 1.2rem;
 			color: $main;
-			transition: all .3s ease;
+			transition: all .5s ease;
 			&.focused {
 				right: 0;
 				cursor: pointer;
@@ -96,10 +95,10 @@ import Hint from '@/components/Hint';
 			color: $dv-gray3;
 			font-size: 1.1rem;
 			padding-left: 49%;
-			transition: all .3s ease;
+			transition: all .5s ease;
 		}
 		:focus::placeholder {
-			padding-left: 0;
+			padding-left: .5rem;
 		}
 		.autocomplete {
 			width: 100%;
