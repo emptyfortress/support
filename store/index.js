@@ -31,6 +31,16 @@ const createStore = () => {
 				{ id: 7, to: '', expand: false, name: 'Приложение «Делопроизводство»' },
 				{ id: 8, to: '', expand: false, name: 'Приложение «Управление документами»' },
 			],
+			docs1: [
+				{ id: 1, to: '', expand: false, name: 'Платформа' },
+				{ id: 2, to: '', expand: false, name: 'Web-client' },
+				{ id: 3, to: '', expand: false, name: 'Пульс' },
+				{ id: 4, to: '', expand: false, name: 'Накопительные обновления' },
+				{ id: 5, to: '', expand: false, name: 'Договоры' },
+				{ id: 6, to: '', expand: false, name: 'Почтовый клиент' },
+				{ id: 7, to: '', expand: false, name: 'Делопроизводство' },
+				{ id: 8, to: '', expand: false, name: 'Управление документами' },
+			],
 
 			platforma: [
 				{ id: 1, to: '/docs/platform/1', title: 'Установка и администрирование Docsvision 5.2.2450' },

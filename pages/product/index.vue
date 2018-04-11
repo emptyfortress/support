@@ -25,3 +25,13 @@
 		},
 	}
 </script>
+
+<style scoped lang="scss">
+.listP {
+	font-size: 1.07rem;
+	li {
+		padding: .5rem 0;
+	}
+}
+
+</style>
