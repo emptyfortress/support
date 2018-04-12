@@ -18,9 +18,7 @@ a {
 	color: $black;
 	&:active {
 		color: $dv-green;
-		i {
-			color: $dv-green;
-		}
+		i { color: $dv-green; }
 	}
 }
 
@@ -37,13 +35,8 @@ a {
 	&:hover {
 		border: 1px solid $dv-gray2;
 	}
-	p {
-		margin-top: 0.7rem;
-	}
-	i { 
-		color: $gray;
-		font-size: 2rem;
-	}
+	p { margin-top: 0.7rem; }
+	i { color: $gray; font-size: 2rem; }
 }
 
 

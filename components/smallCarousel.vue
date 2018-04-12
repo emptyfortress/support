@@ -17,16 +17,16 @@ carousel(:per-page='4' :scrollPerPage='true'
 	export default {
 		data() {
 			return {
-			products: [
-				{ id: 1, name: 'Платформа', icon: 'icon-platform', to: '/docs/platform/1' },
-				{ id: 2, name: 'Web-client', icon: 'icon-web', },
-				{ id: 3, name: 'Пульс', icon: 'icon-pulse', },
-				{ id: 4, name: 'Накопительные обновления', icon: 'icon-no', },
-				{ id: 5, name: 'Договоры', icon: 'icon-dogovor', },
-				{ id: 6, name: 'Почтовый клиент', icon: 'icon-mailclient', },
-				{ id: 7, name: 'Делопроизводство', icon: 'icon-delo', },
-				{ id: 8, name: 'Управление\r документами', icon: 'icon-docmanage', },
-			],
+				products: [
+					{ id: 1, name: 'Платформа', icon: 'icon-platform', to: '/product/_platform' },
+					{ id: 2, name: 'Web-client', icon: 'icon-web',  to: '/product/_web'},
+					{ id: 3, name: 'Пульс', icon: 'icon-pulse',  to: '/product/_pulse'},
+					{ id: 4, name: 'Накопительные обновления', icon: 'icon-no',  to: '/product/_no'},
+					{ id: 5, name: 'Договоры', icon: 'icon-dogovor',  to: '/product/_dogovor'},
+					{ id: 6, name: 'Почтовый клиент', icon: 'icon-mailclient',  to: '/product/_mail'},
+					{ id: 7, name: 'Делопроизводство', icon: 'icon-delo',  to: '/product/_delo'},
+					{ id: 8, name: 'Еще', icon: 'icon-more',  to: '/product'},
+				],
 			}
 		},
 		methods: {

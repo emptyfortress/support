@@ -2,7 +2,7 @@
 .container
 	.big
 		i(:class="current[0].icon")
-	h2 {{current[0].name}}:
+	h2 {{current[0].name}}
 	p Выполните поиск или выберите нужную тему из списка:
 	br/
 	.tags
@@ -25,7 +25,22 @@
 				span.is-italic.has-text-grey Выберите интересующий вас раздел выше
 		.section
 			.hd &nbsp;
-			.button.is-primary Показать
+			.button.is-primary(@click="tabsVisible = 1") Показать
+	br/
+	transition(name="move")
+		div(v-if="tabsVisible")
+			.tabs
+				ul
+					li(:class="activeTab == 1 ? 'is-active' : ''")
+						a(@click="setTab(1)") Мои запросы
+					li(v-for='tab in tabs'  :class="activeTab == tab.id ? 'is-active' : ''")
+						a(@click="setTab(tab.id)") {{ tab.name }}
+			#tab1(v-if="activeTab == 1") tab1
+			#tab2(v-if="activeTab == 2") tab2
+			#tab3(v-if="activeTab == 3") tab3
+			#tab4(v-if="activeTab == 4") tab4
+			#tab5(v-if="activeTab == 5") tab5
+			#tab6(v-if="activeTab == 6") tab6
 </template>
 
 <script>
@@ -33,6 +48,16 @@ export default {
 	data() {
 		return {
 			showDrop: false,
+			tabsVisible: false,
+			activeTab: 1,
+			tabs: [
+				{ id: 2, name: 'Документация' },
+				{ id: 3, name: 'FAQ' },
+				{ id: 4, name: 'Загрузить' },
+				{ id: 5, name: 'База знаний' },
+				{ id: 6, name: 'Сообщество' },
+
+			],
 			products: [
 				{ 
 					id: '_platform', name: 'Платформа', icon: 'icon-platform',
@@ -86,7 +111,7 @@ export default {
 						{ id: 1 , active: false, name: 'НО12', to: '', },
 					]
 				},
-				{ id: '_dogovor', name: 'Приложение "Договоры"', icon: 'icon-dogovor',
+				{ id: '_dogovor', name: 'Договоры', icon: 'icon-dogovor',
 					sections: [
 						{ id: 1 , active: false, name: 'тема 1', to: '', },
 						{ id: 2 , active: false, name: 'тема 2', to: '', },
@@ -94,7 +119,7 @@ export default {
 						{ id: 4 , active: false, name: 'тема 4', to: '', },
 					]
 				},
-				{ id: '_mail', name: 'Приложение "Почтовый клиент"', icon: 'icon-mailclient',
+				{ id: '_mail', name: 'Почтовый клиент', icon: 'icon-mailclient',
 					sections: [
 						{ id: 1 , active: false, name: 'тема 1', to: '', },
 						{ id: 2 , active: false, name: 'тема 2', to: '', },
@@ -102,7 +127,7 @@ export default {
 						{ id: 4 , active: false, name: 'тема 4', to: '', },
 					]
 				},
-				{ id: '_delo', name: 'Приложение "Делопроизводство"', icon: 'icon-delo',
+				{ id: '_delo', name: 'Делопроизводство', icon: 'icon-delo',
 					sections: [
 						{ id: 1 , active: false, name: 'тема 1', to: '', },
 						{ id: 2 , active: false, name: 'тема 2', to: '', },
@@ -110,7 +135,23 @@ export default {
 						{ id: 4 , active: false, name: 'тема 4', to: '', },
 					]
 				},
-				{ id: '_documents', name: 'Приложение "Управление документами"', icon: 'icon-docmanage',
+				{ id: '_documents', name: 'Управление документами', icon: 'icon-docmanage',
+					sections: [
+						{ id: 1 , active: false, name: 'тема 1', to: '', },
+						{ id: 2 , active: false, name: 'тема 2', to: '', },
+						{ id: 3 , active: false, name: 'тема 3', to: '', },
+						{ id: 4 , active: false, name: 'тема 4', to: '', },
+					]
+				},
+				{ id: '_archive', name: 'Электронный архив', icon: 'icon-archive',
+					sections: [
+						{ id: 1 , active: false, name: 'тема 1', to: '', },
+						{ id: 2 , active: false, name: 'тема 2', to: '', },
+						{ id: 3 , active: false, name: 'тема 3', to: '', },
+						{ id: 4 , active: false, name: 'тема 4', to: '', },
+					]
+				},
+				{ id: '_meeting', name: 'Управлениe совещаниями', icon: 'icon-meeting',
 					sections: [
 						{ id: 1 , active: false, name: 'тема 1', to: '', },
 						{ id: 2 , active: false, name: 'тема 2', to: '', },
@@ -132,6 +173,9 @@ export default {
 	methods: {
 		drop() {
 			return this.showDrop = !this.showDrop;
+		},
+		setTab(e) {
+			this.activeTab = e;
 		}
 	},
 }
@@ -140,6 +184,7 @@ export default {
 <style scoped lang="scss">
 @import '~bulma/sass/elements/tag';
 @import '~bulma/sass/components/dropdown';
+@import '~bulma/sass/components/tabs';
 
 .container { margin-top: 2rem; }
 .big {
@@ -184,6 +229,11 @@ select {
 }
 .wrap {
 	line-height: 150%;
+}
+.tabs{
+	a:hover {
+		text-decoration: none;
+	}
 }
 
 

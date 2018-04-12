@@ -1,29 +1,54 @@
 <template lang="pug">
 .container
 	h2
-		i.icon-book/ Продукты
-	ul.listP
-		li(v-for="item in products")
-			nuxt-link(:to='item.to') {{item.name}}
+		i.icon-product/ Продукты
+	BlockList1(v-bind:list="products")/
 </template>
 
 <script>
-	export default {
-		data() {
-			return {
-				products: [
-					{ id: 1, name: 'Платформа', icon: 'icon-platform', to: '/product/_platform' },
-					{ id: 2, name: 'Web-client', icon: 'icon-web',  to: '/product/_web'},
-					{ id: 3, name: 'Пульс', icon: 'icon-pulse',  to: '/product/_pulse'},
-					{ id: 4, name: 'Накопительные обновления', icon: 'icon-no',  to: '/product/_no'},
-					{ id: 5, name: 'Договоры', icon: 'icon-dogovor',  to: '/product/_dogovor'},
-					{ id: 6, name: 'Почтовый клиент', icon: 'icon-mailclient',  to: '/product/_mail'},
-					{ id: 7, name: 'Делопроизводство', icon: 'icon-delo',  to: '/product/_delo'},
-					{ id: 8, name: 'Управление документами', icon: 'icon-docmanage',  to: '/product/_documents'},
-				],
-			}
-		},
+import BlockList1 from '@/components/lists/BlockList1';
+
+export default {
+	data() {
+		return {
+			products: [
+				{ id: 1, expand: false, name: 'Платформа', icon: 'icon-platform', to: '/product/_platform',
+					info: "Технологическая платформа Docsvision для автоматизации управленческой деятельности, отраслевых бизнес-процессов и создания интеграционных решений."
+				},
+				{ id: 2, expand: false, name: 'Web-client', icon: 'icon-web',  to: '/product/_web',
+					info: "Возможность работать с Docsvision на любом компьютере и мобильном устройстве в любой операционной системе и в любом браузере."
+				},
+				{ id: 3, expand: false, name: 'Пульс', icon: 'icon-pulse',  to: '/product/_pulse',
+					info: "Специальное приложение для руководителей с простым и ярким интерфейсом, поддерживает работу в режиме офлайн. Можно установить на планшет или смартфон на платформах iOS и Android."
+				},
+				{ id: 4, expand: false, name: 'Накопительные обновления', icon: 'icon-no',  to: '/product/_no',
+					info: "Тут надо что-нибудь написать"
+				},
+				{ id: 5, expand: false, name: 'Договоры', icon: 'icon-dogovor',  to: '/product/_dogovor',
+					info: "Решения для работы с поставщиками и покупателями — разработка, согласование и учет договоров, технических заданий, смет и других договорных документов, переписка, пролонгация, контроль исполнения"
+				},
+				{ id: 6, expand: false, name: 'Почтовый клиент', icon: 'icon-mailclient',  to: '/product/_mail',
+					info: "Возможность работать с заданиями системы Docsvision через Microsoft Outlook или другую почтовую программу, независимо от наличия подключения к интернету."
+				},
+				{ id: 7, expand: false, name: 'Делопроизводство', icon: 'icon-delo',  to: '/product/_delo',
+					info: "Все для организации делопроизводства — от упрощенного до полнофункционального, по стандартам и методикам Росархива. Регистрация, рассмотрение, резолюции, согласования, контроль исполнительской дисциплины и номенклатура дел."
+				},
+				{ id: 8, expand: false, name: 'Управление документами', icon: 'icon-docmanage',  to: '/product/_documents',
+					info: "Делопроизводство — только вершина айсберга работы с документами. 90% времени и средств тратится в подразделениях и рабочих группах, там, где разрабатываются и создаются документы предприятия. Инструменты для этой «невидимой» работы должны быть предельно простыми и давать сотрудникам все преимущества работы с единым информационным пространством без лишних «канцелярских сложностей»."
+				},
+				{ id: 9, expand: false, name: 'Электронный архив', icon: 'icon-archive',  to: '/product/_archive',
+					info: "Система Docsvision обеспечивает Вас всем необходимым для создания и управления важнейшим информационным ресурсом — хранилищем электронных документов предприятия."
+				},
+				{ id: 10, expand: false, name: 'Управление совещаниями', icon: 'icon-meeting',  to: '/product/_meeting',
+					info: "Использование системы электронного документооборота позволяет упростить и автоматизировать все этапы подготовки и проведения делового совещания. Система управляет всем процессом организации, в котором создается деловое совещание, определяются его участники и повестка, то есть поддерживает все функции организации совещания."
+				},
+			],
+		}
+	},
+	components: {
+		BlockList1
 	}
+}
 </script>
 
 <style scoped lang="scss">

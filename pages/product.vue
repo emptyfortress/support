@@ -1,14 +1,15 @@
 <template lang="pug">
-nuxt/
+	nuxt-child/
 </template>
 
 <script>
 	export default {
 		layout: 'main',
 		transition(to, from) {
-			if (!from) return 'slide-right'
-			return +to.matched.length < +from.matched.length ? 'slide-left' : 'slide-right'
+			if(to.name == 'product') {
+				return 'slide-left'
+			}
+			else { return 'slide-right' }
 		},
-		
 	}
 </script>
