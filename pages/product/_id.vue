@@ -13,10 +13,8 @@
 	.data
 		.section
 			.hd Продукт
-			div
-				select.level-item
-					option(selected) {{current[0].name}}
-					option(v-for="item in $store.state.docs1" ) {{item.name}}
+			.product
+				nuxt-link(to="/product") {{ current[0].name }}
 		.section.max
 			.hd Тема
 			.wrap(v-if="theme.length > 0")
@@ -47,7 +45,6 @@
 export default {
 	data() {
 		return {
-			showDrop: false,
 			tabsVisible: false,
 			activeTab: 1,
 			tabs: [
@@ -171,12 +168,9 @@ export default {
 		},
 	},
 	methods: {
-		drop() {
-			return this.showDrop = !this.showDrop;
-		},
 		setTab(e) {
 			this.activeTab = e;
-		}
+		},
 	},
 }
 </script>
@@ -225,6 +219,11 @@ select {
 		text-transform: uppercase;
 		color: $main;
 		margin-bottom: 1rem;
+	}
+	.product {
+		font-size: 1.2rem;
+		a:hover {
+		}
 	}
 }
 .wrap {
