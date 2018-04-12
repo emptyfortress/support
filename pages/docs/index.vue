@@ -42,22 +42,22 @@ export default {
 						{ id: 1, underconstruction: true,},
 					]
 				},
-				{ id: 5, expand: false, name: 'Приложение «Договоры»',
+				{ id: 5, expand: false, name: 'Договоры',
 					childs: [
 						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Договоры» v.5.4.3' },
 					]
 				},
-				{ id: 6, expand: false, name: 'Приложение «Почтовый клиент»',
+				{ id: 6, expand: false, name: 'Почтовый клиент',
 					childs: [
-						{ id: 1, to: '/docs/platform/1', name: 'Модуль «Почтовый клиент»' },
+						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Почтовый клиент»' },
 					]
 				},
-				{ id: 7, expand: false, name: 'Приложение «Делопроизводство»',
+				{ id: 7, expand: false, name: 'Делопроизводство',
 					childs: [
 						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Делопроизводство» v.5.4.4' },
 					] 
 				}, 
-				{ id: 8, expand: false, name: 'Приложение «Управление документами»',
+				{ id: 8, expand: false, name: 'Управление документами',
 					childs: [
 						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Управление документами» Docsvision 5.4.2642' },
 						{ id: 1, to: '/docs/platform/2', name: 'Приложение «Управление документами» Docsvision 5.3.2559' },
