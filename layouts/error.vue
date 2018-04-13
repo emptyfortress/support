@@ -1,22 +1,24 @@
 <template lang="pug">
-transition(name="zoomout")
-	.container
-		.yellow
-		.flex1
-			.one Ошибка 404
-			.center
-				div
-					Logo/
-				img(src="~assets/img/dog.png")
-			.two {{err}}
-		div 
-			nuxt-link(to="/") Вернуться на главную
-
+	transition(name='fade' mode='in-out')
+		.container
+			.yellow
+			.flex1
+				.one Ошибка 404
+				.center
+					div
+						Logo/
+					img(src="~assets/img/dog.png")
+				.two {{err}}
+			div 
+				nuxt-link(to="/") Вернуться на главную
 </template>
 
 <script>
 	import Logo from '@/components/Logo';
+
+
 	export default {
+		name: 'error',
 		data() {
 			return {
 				err: 'Искомая страница не существует. Возможно, вы ошиблись в адресе, или страница была перемещена'

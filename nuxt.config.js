@@ -28,7 +28,14 @@ module.exports = {
   loading: { color: '#8AC140' },
 	router: {
 		linkExactActiveClass: 'is-active',
-		// base: '/support/'
+		// base: '/support/',
+		scrollBehavior(to, from, savedPosition) {
+			if (to.hash) {
+            return {selector: to.hash}
+        } else {
+            return { x: 0, y: 0 }
+        }
+    }
   },
 
 

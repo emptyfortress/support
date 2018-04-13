@@ -1,5 +1,5 @@
 <template lang="pug">
-div
+#top
 	h1 {{ articles[ ($route.params.id - 1) ].title }}
 	.level
 		.level-item
@@ -18,8 +18,8 @@ div
 				i.level-item.icon-share 8
 				i.level-item.icon-eye1
 					span 20
-			a(href="#comments" class="level-right")
-				i.icon-bubble 4
+			nuxt-link(to="#comments").level-right
+				i.icon-bubble 7
 		.send.level
 			p.level-left Не нашли то, что искали?
 			.button.is-outlined.is-primary Отправить запрос
@@ -36,7 +36,7 @@ div
 			Addcomment/
 		br
 		br
-		a.button.is-light.is-fullwidth(href="#top") Наверх
+		nuxt-link.button.is-light.is-fullwidth(to="#top") Наверх
 </template>
 
 <script>
@@ -80,6 +80,16 @@ export default {
 				{ user: 'Барак Обамович', text: 'Если принять во внимание физическую неоднородность почвенного индивидуума, можно прийти к выводу о том, что осушение нагревает фингер-эффект. Пескование снижает бурозём даже в том случае, если непосредственное наблюдение этого явления затруднительно. Чизелевание перманентно нейтрализует мозаичный ил.' },
 			]
 		}
+	},
+	computed: {
+		comm() {
+			return this.$route.fullPath + '#comments'
+		},
+		top() {
+			return this.$route.fullPath + '#top'
+		}
+
+
 	},
 	methods: {
 		show() {

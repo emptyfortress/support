@@ -72,26 +72,17 @@ ul {
 //  this is page transitions  //
 ////////////////////////////////
 
-// .move-enter-active { 
-// 	animation: move-in .3s cubic-bezier(.1,.84,.51,1) ; 
-// 	transition: opacity .3s;
-// } 
-//  
-// .move-leave-active { 
-// 	animation: move-out .3s cubic-bezier(.1,.84,.51,1) ; 
-// 	transition: opacity .3s;
-// } 
-//  
-// @keyframes move-in { 
-//   0% { transform: translateY(100%); opacity: 0 } 
-//   100% { transform: translateY(0); opacity: 1 } 
-// } 
-//  
-// @keyframes move-out { 
-//   0% { transform: translateY(0) } 
-//   100% { transform: translateY(100%) } 
-// } 
+.fade-enter-active, .fade-leave-active {
+	transition: all .3s cubic-bezier(.1,.84,.51,1);
+}
 
+.fade-enter {
+	opacity: 0;
+}
+
+.fade-leave-active {
+	opacity: 0;
+}
 
 .move-enter-active, .move-leave-active {
 	transition: all .3s cubic-bezier(.1,.84,.51,1);
@@ -114,8 +105,6 @@ ul {
 	transform: scale(.9);
 }
 
-
-
 .zoomout-enter-active, .zoomout-leave-active {
 	transition: all .3s;
 }
@@ -123,8 +112,8 @@ ul {
 	opacity: 0;
 	transform: scale(1.07);
 }
-.zoomout-leave-active {
-	animation: move-out .3s cubic-bezier(.1,.84,.51,1) ; 
+.zoomout-leave {
+	transform: scale(1);
 } 
 
 .slide-right-enter-active, .slide-right-leave-active {

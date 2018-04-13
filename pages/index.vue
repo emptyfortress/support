@@ -25,9 +25,14 @@ import ProductCarousel from '@/components/ProductCarousel';
 
 export default {
 	layout: 'default',
+	// transition(to,from) {
+	// 	if (from._hadError == true ) {
+	// 		return 'zoomin'
+	// 	} else { return 'zoomout' }
+	// },
 	transition: {
 		name: 'zoomout',
-		mode: 'out-in'
+		mode: 'in-out'
 	},
 	data() {
 		return {
