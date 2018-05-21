@@ -25,6 +25,7 @@
 			nuxt-link(to="#comments").level-right
 				i.icon-bubble 7
 		Mistype/
+		br
 		.related
 			h3 Похожие статьи
 			ul
@@ -155,6 +156,16 @@ p {
 	cursor: pointer;
 	span { 
 		color: $dv-green;
+	}
+}
+
+.related ul {
+	margin: 0;
+	list-style: none;
+	margin-bottom: 4rem;
+	li {
+		line-height: 150%;
+		margin-bottom: .5rem;
 	}
 }
 </style>

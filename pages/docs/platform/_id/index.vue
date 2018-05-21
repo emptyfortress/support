@@ -21,6 +21,7 @@
 			nuxt-link(to="#comments").level-right
 				i.icon-bubble 7
 		Mistype/
+		br
 		.related
 			h3 Похожие статьи
 			ul
@@ -141,6 +142,7 @@ a.is-active {
 
 .content {
 	font-size: 1.1rem;
+	line-height: 150%;
 	ul {
 		margin-top: 3rem;
 		margin-bottom: 3rem;
@@ -160,16 +162,6 @@ a.is-active {
 		&:active {
 			color: $dv-green;
 		}
-	}
-	.zapros {
-		height: 64px;
-		background: $dv-gray1;
-		width: 100%;
-		border-top: 1px solid $dv-gray2;
-		border-bottom: 1px solid $dv-gray2;
-		padding: 0 1rem;
-		font-size: .95rem;
-		color: #999;
 	}
 }
 .zag {
