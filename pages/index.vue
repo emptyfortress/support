@@ -5,11 +5,13 @@
 		ProductCarousel(v-if="$store.state.login")/
 		.navgrid
 			Section(v-for="section in ( $store.state.login ? $store.state.sections : defaultSections )" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to")
-		section.lastlist
+		section.lastlist(v-if="$store.state.login")
 			h2 Последние действия
 			<section v-for="n in 10">
 				Last/
 			</section>
+		section.lastlist(v-else)
+			Popular(:title="title" :list="popular")/
 		Footer/
 </template>
 
@@ -20,22 +22,43 @@ import Section from '@/components/Section';
 import TheSign from '@/components/TheSign';
 import Last from '@/components/lists/Last';
 import ProductCarousel from '@/components/ProductCarousel';
+import Popular from '@/components/lists/Popular';
 
-// import { Carousel, Slide } from 'vue-carousel';
 
 export default {
 	layout: 'default',
-	// transition(to,from) {
-	// 	if (from._hadError == true ) {
-	// 		return 'zoomin'
-	// 	} else { return 'zoomout' }
-	// },
-	transition: {
-		name: 'zoomout',
-		mode: 'in-out'
+	transition(to, from) {
+		if (from.layoutname == 'errorlayout') {
+			return 'zoomin'
+		} else {
+			return 'zoomout'
+		}
 	},
+	// transition(to, from) {
+	// 	if (from.name === 'error') {
+	// 		return 'zoomin'
+	// 	} else {
+	// 		return 'zoomout'
+	// 	}
+	// },
+	// transition: {
+	// 	name: 'zoomout',
+	// 	mode: 'in-out'
+	// },
 	data() {
 		return {
+			title: "Популярные темы в сообществе",
+			popular: [
+				{ forum: "Конструирование решений", text: "Рекламоноситель восстанавливает имидж предприятия. Ценовая стратегия по-прежнему востребована." },
+				{ forum: "Идеи и предложения", text: "Стратегия сегментации ускоряет процесс стратегического планирования." },
+				{ forum: "Форум всех вопросов", text: "VIP-мероприятие без оглядки" },
+				{ forum: "Форсаж", text: "Тактика выстраивания отношений с коммерсчекими агентами наиболее полно упорядочивает традиционный канал, отвоевывая рыночный сегмент." },
+				{ forum: "Форсаж", text: "Стимулирование коммьюнити искажает комплексный сегмент рынка." },
+				{ forum: "Демоверсии", text: "Размещение, анализируя результаты рекламной кампании, подсознательно притягивает" },
+				{ forum: "Администрирование", text: "Согласно предыдущему, концепция новой" },
+				{ forum: "Форум по курсам", text: "Традиционный канал правомочен. Баланс спроса и предложения" },
+				{ forum: "Форсаж", text: "Синхронизирует межличностный пул лояльных изданий." },
+			]
 		}
 	},
 	computed: {
@@ -50,9 +73,8 @@ export default {
 		Section,
 		TheSign,
 		Last,
-		ProductCarousel
-		// Carousel,
-		// Slide
+		ProductCarousel,
+		Popular
 	}
 }
 

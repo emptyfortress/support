@@ -11,13 +11,13 @@ div
 
 <script>
 export default {
-	props: [ 'list', 'classList' ],
+	props: [ 'list', ],
 
 	data() {
 		return {
-			items: [
-				this.list
-			]
+			// items: [
+			// 	this.list
+			// ]
 		}
 	},
 	methods: {

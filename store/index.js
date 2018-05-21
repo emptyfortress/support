@@ -47,8 +47,13 @@ const createStore = () => {
 				{ id: 2, to: '/docs/platform/2', title: 'Конструктор согласований Docsvision 5.4.2642' },
 				{ id: 3, to: '/docs/platform/3', title: 'Установка и администрирование Docsvision 5.3.2559' },
 				{ id: 4, to: '/docs/platform/4', title: 'Установка и администрирование Docsvision 5.2.2542' },
-			]
+			],
 
+			map: [
+				{ id: 1, to: '/map/1', title: 'Регистрация и доступ на портал' },
+				{ id: 2, to: '/map/2', title: 'Путеводитель по порталу' },
+				{ id: 3, to: '/map/3', title: 'Работа с инциндентами на портале' },
+			]
 
 		},
 		mutations: {

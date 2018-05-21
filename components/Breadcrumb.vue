@@ -11,8 +11,11 @@ const breadcrumbs = {
 	'/condition': 'Условия',
 	'condition-urgent': 'Экстренная техподдержка',
 	'/docs': 'Документация',
+	'/map': 'Путеводитель',
+	'/map/:id': 'some id here',
 	'/product': 'Продукты',
 	'/product/:id': 'тут название продукта',
+	// '/product/_product': 'тут название продукта',
 	'/docs/platform': 'Платформа',
 	'/docs/platform/:id': 'some id here',
 }

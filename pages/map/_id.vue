@@ -4,7 +4,7 @@
 		.column.is-one-quarter.article-list.gray
 			h3 Статьи в разделе
 			ul
-				li(v-for="item in $store.state.platforma")
+				li(v-for="item in $store.state.map")
 					nuxt-link(:to="item.to") {{ item.title }} 
 		.column.white
 			<nuxt-child :key="$route.params.id"/>

@@ -29,8 +29,6 @@
 		div(v-if="tabsVisible")
 			.tabs
 				ul
-					li(:class="activeTab == 1 ? 'is-active' : ''")
-						a(@click="setTab(1)") Мои запросы
 					li(v-for='tab in tabs'  :class="activeTab == tab.id ? 'is-active' : ''")
 						a(@click="setTab(tab.id)") {{ tab.name }}
 			#tab1(v-if="activeTab == 1") tab1
@@ -38,7 +36,6 @@
 			#tab3(v-if="activeTab == 3") tab3
 			#tab4(v-if="activeTab == 4") tab4
 			#tab5(v-if="activeTab == 5") tab5
-			#tab6(v-if="activeTab == 6") tab6
 </template>
 
 <script>
@@ -49,10 +46,10 @@ export default {
 			activeTab: 1,
 			tabs: [
 				{ id: 2, name: 'Документация' },
+				{ id: 1, name: 'Сообщество' },
 				{ id: 3, name: 'FAQ' },
 				{ id: 4, name: 'Загрузить' },
 				{ id: 5, name: 'База знаний' },
-				{ id: 6, name: 'Сообщество' },
 
 			],
 			products: [

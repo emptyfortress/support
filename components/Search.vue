@@ -106,7 +106,7 @@ import Hint from '@/components/Hint';
 			z-index: 5;
 			/* min-height: 100px; */
 			border: 1px solid #eee;
-			box-shadow: 0 2px 3px #ccc;
+			box-shadow: 0 2px 9px #666;
 			position: relative;
 			top: 0px;
 			border-radius: 0 0 5px 5px;

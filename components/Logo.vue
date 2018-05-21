@@ -2,7 +2,7 @@
 		<span @click="$store.commit('hideNav')">
 			<nuxt-link class="logo" to="/" >
 				<div>Docvision</div>
-				<img src="~assets/img/logo.svg" alt="">
+				<img src="~assets/img/logo-new.svg" alt="">
 				<div>Support</div>
 			</nuxt-link>
 		</span>

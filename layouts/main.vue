@@ -17,6 +17,8 @@ transition(name='zoomin', mode='out-in')
 		.container
 			<nuxt/>
 		Footer/
+		.send(v-show="but")
+			i.icon-send
 </template>
 
 <script>
@@ -42,7 +44,11 @@ export default {
 		},
 		defaultSections() {
 			return this.$store.state.sections.filter( item => item.firstpage == true )
-		}
+		},
+		but() {
+			// return this.$route.params.id == 1 ? true : false;
+			return this.$route.fullPath.indexOf('1') == -1 ? true : false;
+			}
 	},
 
 	components: {
@@ -61,6 +67,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+/* .main { position: relative; } */
 
 .header {
 	height: 69px;

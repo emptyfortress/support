@@ -80,7 +80,7 @@ div {
 		/* min-height: 100px; */
 		background: #fff;
 		border: 1px solid #eee;
-		box-shadow: 0 2px 3px #ccc;
+		box-shadow: 0 2px 9px #666;
 		position: absolute;
 		top: 50px;
 		border-radius: 0 0 5px 5px;

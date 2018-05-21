@@ -1,16 +1,16 @@
 <template lang="pug">
-	transition(name='fade' mode='in-out')
-		.container
-			.yellow
-			.flex1
-				.one Ошибка 404
-				.center
-					div
-						Logo/
-					img(src="~assets/img/dog.png")
-				.two {{err}}
-			div 
-				nuxt-link(to="/") Вернуться на главную
+<!-- transition(name='fade' mode='in&#45;out') -->
+	.container
+		.yellow
+		.flex1
+			.one Ошибка 404
+			.center
+				div
+					Logo/
+				img(src="~assets/img/dog.png")
+			.two {{err}}
+		div 
+			nuxt-link(to="/") Вернуться на главную
 </template>
 
 <script>
@@ -18,6 +18,7 @@
 
 
 	export default {
+		layout: 'errorlayout',
 		name: 'error',
 		data() {
 			return {

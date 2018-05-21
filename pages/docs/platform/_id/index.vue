@@ -20,7 +20,7 @@
 					span 20
 			nuxt-link(to="#comments").level-right
 				i.icon-bubble 7
-		.send.level
+		.zapros.level
 			p.level-left Не нашли то, что искали?
 			.button.is-outlined.is-primary Отправить запрос
 		.related
@@ -156,7 +156,7 @@ a.is-active {
 			color: $dv-green;
 		}
 	}
-	.send {
+	.zapros {
 		height: 64px;
 		background: $dv-gray1;
 		width: 100%;
