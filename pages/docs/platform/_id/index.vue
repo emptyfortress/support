@@ -20,11 +20,14 @@
 					span 20
 			nuxt-link(to="#comments").level-right
 				i.icon-bubble 7
-		.zapros.level
-			p.level-left Не нашли то, что искали?
-			.button.is-outlined.is-primary Отправить запрос
+		Mistype/
 		.related
 			h3 Похожие статьи
+			ul
+				li(v-for="item in related")
+					a(:href="url" target="_blank") {{item}}
+		.related
+			h3 Недавние статьи
 			ul
 				li(v-for="item in related")
 					a(:href="url" target="_blank") {{item}}
@@ -44,6 +47,7 @@ import User from '@/components/User';
 import Counter from '@/components/Counter';
 import Comment from '@/components/Comment';
 import Addcomment from '@/components/Addcomment';
+import Mistype from '@/components/Mistype';
 
 export default {
 	transition(to, from) {
@@ -100,7 +104,8 @@ export default {
 		User,
 		Counter,
 		Comment,
-		Addcomment
+		Addcomment,
+		Mistype
 	}
 };
 
