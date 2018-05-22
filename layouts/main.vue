@@ -17,8 +17,9 @@ transition(name='zoomin', mode='out-in')
 		.container
 			<nuxt/>
 		Footer/
-		.send(v-show="but")
-			i.icon-send
+		SendButton(v-show="but")/
+		<!-- .send(v&#45;show="but") -->
+		<!-- 	i.icon&#45;send -->
 </template>
 
 <script>
@@ -31,6 +32,7 @@ import SectionLight from '@/components/SectionLight';
 import Search from '@/components/Search';
 import Breadcrumb from '@/components/Breadcrumb';
 import smallCarousel from '@/components/smallCarousel';
+import SendButton from '@/components/SendButton';
 
 
 export default {
@@ -46,8 +48,8 @@ export default {
 			return this.$store.state.sections.filter( item => item.firstpage == true )
 		},
 		but() {
-			// return this.$route.params.id == 1 ? true : false;
-			return this.$route.fullPath.indexOf('1') == -1 ? true : false;
+			return this.$route.fullPath.indexOf('condition') == -1 ? true : false
+			// return this.$route.fullPath.indexOf('1') == -1 ? true : false;
 			}
 	},
 
@@ -60,7 +62,8 @@ export default {
 		Search,
 		SectionLight,
 		Breadcrumb,
-		smallCarousel
+		smallCarousel,
+		SendButton
 	}
 }
 
