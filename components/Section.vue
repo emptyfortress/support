@@ -4,8 +4,8 @@
 			i(:class="'icon-' + icon")
 			p {{name}}
 </template>
-<script>
 
+<script>
 export default {
 	props: ['name', 'icon', 'to']
 }

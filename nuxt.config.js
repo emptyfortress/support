@@ -47,6 +47,7 @@ module.exports = {
 	plugins: [ 
 		{ src: '~/plugins/click-outside.js'},
 		{ src: '~/plugins/vuecarousel.js', ssr: false }
+		// { src: '~/plugins/ripple.js'},
 		// { src: '~/plugins/mySwiper.js', ssr: false }
 	],
   build: {

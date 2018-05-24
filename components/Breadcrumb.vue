@@ -19,6 +19,7 @@ const breadcrumbs = {
 	// '/product/_product': 'тут название продукта',
 	'/docs/platform': 'Платформа',
 	'/docs/platform/:id': 'some id here',
+	'/forum': 'Сообщество',
 }
 
 export default {

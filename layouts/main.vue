@@ -18,8 +18,6 @@ transition(name='zoomin', mode='out-in')
 			<nuxt/>
 		Footer/
 		SendButton(v-show="but")/
-		<!-- .send(v&#45;show="but") -->
-		<!-- 	i.icon&#45;send -->
 </template>
 
 <script>
@@ -36,10 +34,6 @@ import SendButton from '@/components/SendButton';
 
 
 export default {
-	data() {
-		return {
-		}
-	},
 	computed: {
 		filteredPage() {
 			return this.$store.state.sections.filter( item => item.innerpage == true )
@@ -64,7 +58,15 @@ export default {
 		Breadcrumb,
 		smallCarousel,
 		SendButton
-	}
+	},
+	methods:{
+      cache(){
+          console.log('Cache Cleared');
+      },
+      alert(){
+          alert('Clicked on alert icon');
+      }
+  }
 }
 
 </script>

@@ -6,6 +6,7 @@ const createStore = () => {
 			navigation: false,
 			notifications: false,
 			login: false,
+			send: false,
 			sections: [
 
 				{ id: 1,  icon: 'bookmark',  firstpage: false,  innerpage: true, to: '/bookmark',  name: 'Мои запросы' },
@@ -17,7 +18,8 @@ const createStore = () => {
 				{ id: 7,  icon: 'map',       firstpage: true,  innerpage: false, to: '/map',       name: 'Путеводитель' },
 				{ id: 8,  icon: 'book',      firstpage: true,  innerpage: true, to: '/docs',      name: 'Документация' },
 				{ id: 9,  icon: 'faq',       firstpage: true,  innerpage: false, to: '/faq',       name: 'ЧаВо' },
-				{ id: 10, icon: 'mail',      firstpage: true,  innerpage: false, to: '/mail',      name: 'Контакты' },
+				{ id: 10, icon: 'mail',      firstpage: true,  innerpage: false, to: '/',      name: 'Контакты' },
+				// { id: 10, icon: 'mail',      firstpage: true,  innerpage: false, to: '/mail',      name: 'Контакты' },
 
 			],
 
@@ -63,7 +65,10 @@ const createStore = () => {
 			toggleNotifications(state) {state.notifications = !state.notifications},
 			closeNotifications(state) {state.notifications = false},
 			signIn(state) { state.login = true },
-			signOut(state) { state.login = false }
+			signOut(state) { state.login = false },
+			toggleSend(state) { state.send = !state.send },
+			showSend(state) { state.send = true },
+			hideSend(state) { state.send = false },
 		}
 	})
 }
