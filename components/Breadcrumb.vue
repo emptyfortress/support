@@ -16,10 +16,10 @@ const breadcrumbs = {
 	'/product': 'Продукты',
 	'/product/:id': 'тут название продукта',
 	'/download': 'Загрузить',
-	// '/product/_product': 'тут название продукта',
 	'/docs/platform': 'Платформа',
 	'/docs/platform/:id': 'some id here',
 	'/forum': 'Сообщество',
+	'/forum/faq': 'ЧаВо',
 }
 
 export default {

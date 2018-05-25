@@ -1,6 +1,6 @@
 <template lang="pug">
 .forums
-	.card(v-for="(item, index) in list" )(@click="goto(item.to)")
+	.card(v-for="(item, index) in list" @click="goto(item.to)")
 		.title {{ item.name }} 
 		.info {{ item.info }}
 		.article.tooltip(data-tooltip='Публикации')
