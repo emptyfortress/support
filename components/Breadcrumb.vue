@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 const breadcrumbs = {
 	'/condition': 'Условия',
 	'condition-urgent': 'Экстренная техподдержка',
@@ -19,7 +20,7 @@ const breadcrumbs = {
 	'/docs/platform': 'Платформа',
 	'/docs/platform/:id': 'some id here',
 	'/forum': 'Сообщество',
-	'/forum/faq': 'ЧаВо',
+	'/forum/:list': 'id форума',
 }
 
 export default {
