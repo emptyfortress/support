@@ -175,7 +175,7 @@ export default {
 <style scoped lang="scss">
 @import '~bulma/sass/elements/tag';
 @import '~bulma/sass/components/dropdown';
-@import '~bulma/sass/components/tabs';
+/* @import '~bulma/sass/components/tabs'; */
 
 .container { margin-top: 2rem; }
 .big {
@@ -225,11 +225,6 @@ select {
 }
 .wrap {
 	line-height: 150%;
-}
-.tabs{
-	a:hover {
-		text-decoration: none;
-	}
 }
 
 

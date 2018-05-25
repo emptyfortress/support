@@ -4,10 +4,10 @@
 		.title {{ item.name }} 
 		.info {{ item.info }}
 		.article.tooltip(data-tooltip='Публикации')
-			i.icon-forum
+			i.icon-article
 				span {{ item.article }}
 		.followers.tooltip(data-tooltip='Подписчики') 
-			i.icon-star
+			i.icon-star-empty
 				span {{ item.followers }}
 </template>
 
