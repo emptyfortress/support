@@ -13,7 +13,11 @@
 										:class="section.active ? 'is-info' : ''"
 										@click="section.active = !section.active"
 									) {{section.name}}
-
+	.level-right Сортировка&nbsp;&nbsp;
+		.select
+			select
+				option Новые вверху
+				option Новые внизу
 	#tab1(v-if="activeTab == 1")
 		Topic(v-for='topic in topics' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
 
@@ -25,13 +29,23 @@
 
 	#tab4(v-if="activeTab == 4")
 		Topic(v-for='topic in tab4' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
-
+	hr
+	br
+	nav.pagination.is-rounded
+		a.pagination-previous Previous
+		a.pagination-next Next
+		ul.pagination-list
+			li
+				a.pagination-link.is-current 1
+			li
+				a.pagination-link 2
+			li
+				a.pagination-link 3
 </template>
 
 <script>
 import Topic from '@/components/lists/Topic';
 	
-
 export default {
 	transition(to, from) {
 		if (!from) return 'slide-left'
@@ -118,8 +132,22 @@ export default {
 
 <style scoped lang="scss">
 @import '~bulma/sass/elements/tag';
+@import '~bulma/sass/components/pagination';
+@import '~bulma/sass/elements/form';
 	
 .tag {
 	cursor: pointer;
+}
+nav a {
+	text-decoration: none;
+}
+.pagination-link {
+	&.is-current {
+		background: $blue;
+		border-color: $blue;
+	}
+}
+.level-right {
+	margin-bottom: 1rem;
 }
 </style>
