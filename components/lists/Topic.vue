@@ -13,7 +13,7 @@
 								span {{ reply }}
 				
 		.attr
-			.zag {{ title }}
+			nuxt-link.zag(to="/forum/post") {{ title }}
 			.fio {{ fio }} &bull; 3 мес. назад
 	.level-right
 		.level-item.small.tooltip(data-tooltip="Ответов")
