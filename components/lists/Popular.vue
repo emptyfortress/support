@@ -1,14 +1,14 @@
 <template lang="pug">
 section
 	h2 {{ title }}
-	div
-		<section v-for="item in list">
-			.item-group
+	div(v-for="item in list")
+		.item-group
+			nuxt-link(to="/forum/faq")
 				.forum {{ item.forum }}
-				.action
+			.action
+				nuxt-link(to="/forum/post")
 					.header {{ item.text }}
-					.time 1 д назад
-		</section>
+				.time 1 д назад
 </template>
 
 <script>
@@ -32,7 +32,7 @@ section
 			margin-bottom: .5rem;
 			cursor: pointer;
 			&:hover {
-				text-decoration: underline;
+				/* text-decoration: underline; */
 			}
 		}
 		.action {

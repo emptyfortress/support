@@ -10,7 +10,7 @@
 			i.icon-bookmark
 	transition(name="jump3")
 		.but.but3.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Новая публикация в Сообществе")
-			i.icon-bubbles
+			i.icon-forum
 </template>
 
 <script>
