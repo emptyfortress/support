@@ -30,7 +30,7 @@ section
 			color: $dv-green;
 			font-size: 1.2rem;
 			margin-bottom: .5rem;
-			cursor: pointer;
+			/* cursor: pointer; */
 			&:hover {
 				/* text-decoration: underline; */
 			}

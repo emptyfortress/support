@@ -6,7 +6,7 @@
 		.but.but1.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Отправить новый запрос")
 			i.icon-send
 	transition(name="jump2")
-		.but.but2.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Мои запросы")
+		nuxt-link.but.but2.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Мои запросы" to="/myrequest/1")
 			i.icon-bookmark
 	transition(name="jump3")
 		.but.but3.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Новая публикация в Сообществе")

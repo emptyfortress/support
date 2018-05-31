@@ -5,7 +5,6 @@ div
 	ul.listP
 		li(v-for="item in childs")
 			nuxt-link(:to='item.to') {{item.name}}
-	<nuxt-child />
 </template>
 
 <script>
