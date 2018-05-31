@@ -20,6 +20,7 @@ const breadcrumbs = {
 	'/docs/platform': 'Платформа',
 	'/docs/platform/:id': 'some id here',
 	'/forum': 'Сообщество',
+	'/forum/post': 'Форум  /  Публикация',
 	'/forum/:list': 'id форума',
 }
 

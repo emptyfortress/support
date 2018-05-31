@@ -69,28 +69,6 @@ ul {
 	padding: 0;
 }
 
-.send {
-	width: 80px;
-	height: 80px;
-	// background: #FF397F;
-	background: #778899;
-	// background: $dv-blue;
-	border-radius: 40px;
-	position: fixed;
-	bottom: 2rem;
-	right: 2rem;
-	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
-	&:hover {
-		box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
-	}
-	i {
-		display: block;
-		font-size: 2.5rem;
-		text-align: center;
-		color: #fff;
-		margin-top: .9rem;
-	}
-}
 
 
 ////////////////////////////////

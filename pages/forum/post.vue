@@ -147,12 +147,12 @@ a.is-active {
 		margin-bottom: 1rem;
 	}
 	.code {
-		/* font-family: Courier; */
 		font-size: 1.2rem;
 		padding: 1rem;
-		border: 1px solid #ccc;
+		border: 1px solid #C8CFCF;
 		border-radius: .5rem;
-		background: $dv-gray1;
+		/* background: $dv-gray1; */
+		background: #EBF3F3;
 	}
 }
 

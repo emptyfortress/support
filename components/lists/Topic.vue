@@ -17,7 +17,7 @@
 			.fio {{ fio }} &bull; 3 мес. назад
 	.level-right
 		.level-item.small.tooltip(data-tooltip="Ответов")
-			i.icon-bubbles {{ reply }}
+			i.icon-bubble {{ reply }}
 		.level-item.small.tooltip(data-tooltip="Проголосовали")
 			i.icon-counter {{ counter }}
 
