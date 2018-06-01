@@ -1,7 +1,7 @@
 <template lang="pug">
 .container
 	h2
-		i.icon-bookmark/ Мои запросы
+		i.icon-bookmark/ {{ headline }}
 	.columns
 		ul.column.is-2
 			li
@@ -21,6 +21,18 @@
 			name: 'zoomin',
 			mode: 'out-in'
 		},
+		data() {
+			return {
+				
+			}
+		},
+		computed: {
+			headline() {
+				if (this.$route.params.id == 1) { return "Мои запросы" }
+				else if (this.$route.params.id == 2) { return "Мои публикации" }
+				else return "Мои подписки"
+			}
+		}
 	}
 </script>
 
@@ -34,7 +46,7 @@
 			width: 100%;
 			display: block;
 			padding: .5rem 1rem;
-			font-size: 1.2rem;
+			font-size: 1.0rem;
 			background: #fff;
 			&.active {
 				position: relative;
