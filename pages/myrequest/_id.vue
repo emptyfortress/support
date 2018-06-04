@@ -13,8 +13,7 @@ section(v-if="$route.params.id == 1")
 		thead
 			tr
 				th(v-for="column in columns") {{ column }}
-		tbody
-		<!-- transition&#45;group(tag="tbody" name="company" ) -->
+		transition-group(name="users" tag="tbody")
 			tr(v-for="row in filteredTable" @click="zendesk" :key="row.id").pointer
 				td
 					div.tooltip.is-tooltip-left(data-tooltip="Выполнен")
@@ -150,6 +149,17 @@ nav a {
 		background: $blue;
 		border-color: $blue;
 	}
+}
+
+.users-move {
+  transition: transform .6s;
+}
+.users-enter-active, .users-leave-active {
+  transition: all .6s;
+}
+.users-enter, .users-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 /* .company { */
