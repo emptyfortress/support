@@ -1,43 +1,62 @@
 <template lang="pug">
-section(v-if="$route.params.id == 1")
-	.tabs
-		ul
-			li(v-for='tab in requests'  :class="activeTab == tab.id ? 'is-active' : ''")
-				a(@click="setTab(tab.id)") {{ tab.name }}
-	.tags
-		.tag.is-rounded.is-medium.pointer(v-for="status in statuses" 
-										:class="activeTag == status.id ? 'is-info' : ''"
-										@click="setTag(status.id)"
-									) {{status.name}}
-	table.table.is-fullwidth.is-hoverable
-		thead(@click="sortTable")
-			tr
-				th(v-for="column in columns") {{ column }}
-		transition-group(name="users" tag="tbody")
-			tr(v-for="row in filteredTable" @click="zendesk" :key="row.id").pointer
-				td
-					div.tooltip.is-tooltip-left(data-tooltip="Выполнен")
-						Done(v-if="row.state == 'done'")/
-					div.tooltip.is-tooltip-left(data-tooltip="Ждет вашего ответа")
-						Wait(v-if="row.state == 'wait'")/
-					div.tooltip.is-tooltip-left(data-tooltip="Открыт")
-						Open(v-if="row.state == 'open'")/
-				td {{ row.title }}
-				td {{ row.num }}
-				td {{ row.created }}
-				td {{ row.modified }}
-	hr
-	br
-	nav.pagination.is-rounded
-		a.pagination-previous Previous
-		a.pagination-next Next
-		ul.pagination-list
-			li
-				a.pagination-link.is-current 1
-			li
-				a.pagination-link 2
-			li
-				a.pagination-link 3
+div
+	section(v-if="$route.params.id == 1")
+		.tabs
+			ul
+				li(v-for='tab in requests'  :class="activeTab == tab.id ? 'is-active' : ''")
+					a(@click="setTab(tab.id)") {{ tab.name }}
+		.level
+			.tags.level-left
+				.tag.is-rounded.is-medium.pointer(v-for="status in statuses" 
+												:class="activeTag == status.id ? 'is-info' : ''"
+												@click="setTag(status.id)"
+											) {{status.name}}
+			.level-right.filtr
+				input(v-model="query")
+				i.icon-filter(v-if="query.length == 0")
+				i.icon-close(v-else @click="clearQuery")
+		table.table.is-fullwidth.is-hoverable
+			thead(@click="sortTable")
+				tr
+					th(v-for="column in columns") {{ column }}
+			transition-group(name="users" tag="tbody")
+				tr(v-for="row in filteredTable" @click="zendesk" :key="row.id").pointer
+					td
+						div.tooltip.is-tooltip-left(data-tooltip="Выполнен")
+							Done(v-if="row.state == 'done'")/
+						div.tooltip.is-tooltip-left(data-tooltip="Ждет вашего ответа")
+							Wait(v-if="row.state == 'wait'")/
+						div.tooltip.is-tooltip-left(data-tooltip="Открыт")
+							Open(v-if="row.state == 'open'")/
+					td {{ row.title }}
+					td {{ row.num }}
+					td {{ row.created }}
+					td {{ row.modified }}
+		hr
+		br
+		nav.pagination.is-rounded
+			a.pagination-previous Previous
+			a.pagination-next Next
+			ul.pagination-list
+				li
+					a.pagination-link.is-current 1
+				li
+					a.pagination-link 2
+				li
+					a.pagination-link 3
+
+	section(v-if="$route.params.id == 2")
+		.tabs
+			ul
+				li(v-for='tab in publications'  :class="activeTab == tab.id ? 'is-active' : ''")
+					a(@click="setTab(tab.id)") {{ tab.name }}
+		p.has-text-centered
+			i.icon-face
+		p.has-text-centered Нет активных публикаций
+	section(v-if="$route.params.id == 3")
+		p.has-text-centered
+			img(src="~assets/img/dragons.jpg")
+		h3.has-text-centered Здесь будет подписка
 </template>
 
 <script>
@@ -55,12 +74,16 @@ export default {
 		return {
 			activeTab: 1,
 			activeTag: 1,
-			prevKey: 'id',
-			orderDesc: false,
+			query: '',
 			requests: [
 				{ id: 1, name: 'Мои запросы' },
 				{ id: 2, name: 'Получаемые копии запросов' },
 				{ id: 3, name: 'Запросы организаций' },
+			],
+			publications: [
+				{ id: 1, name: 'Мои публикации' },
+				{ id: 2, name: 'Комментарии в сообществе' },
+				{ id: 3, name: 'Комментарии к статьям' },
 			],
 			statuses: [
 				{ id: 1 , active: true, name: 'Любой', to: '', },
@@ -122,21 +145,11 @@ export default {
 			window.open("https://docsvision.zendesk.com/agent/dashboard","_blank")
 		},
 		sortTable(e) {
-			console.log(1234);
 			this.rows.reverse();
-
-		}
-		// sortUsers (e) {
-    //   var key = e.target.dataset.key
-    //   if (this.prevKey === key) {
-    //     this.users.reverse()
-    //     this.orderDesc = !this.orderDesc
-    //   } else {
-    //   	this.users = _.sortBy(this.users, key)
-    //     this.orderDesc = false
-    //   	this.prevKey = key
-    //   }
-    // },
+		},
+		clearQuery() {
+			this.query = '';
+		},
 	},
 	components: {
 		Done,
@@ -174,6 +187,35 @@ nav a {
 		border-color: $blue;
 	}
 }
+
+.level-right {
+	margin-bottom: 1.5rem;
+}
+.filtr {
+	position: relative;
+	input {
+		height: 2rem;
+		width: 250px;
+		border: none;
+		border-bottom: 1px dotted #666;
+		font-size: 1.1rem;
+	}
+	i {
+		position: absolute;
+		top: .4rem;
+		right: 0;
+		cursor: pointer;
+	}
+}
+.has-text-centered i {
+	font-size: 3rem;
+	color: $dv-gray3;
+}
+
+
+// ========================================
+// animation
+// ========================================
 
 .users-move {
   transition: transform .6s;
