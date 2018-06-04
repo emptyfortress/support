@@ -10,7 +10,7 @@ section(v-if="$route.params.id == 1")
 										@click="setTag(status.id)"
 									) {{status.name}}
 	table.table.is-fullwidth.is-hoverable
-		thead
+		thead(@click="sortTable")
 			tr
 				th(v-for="column in columns") {{ column }}
 		transition-group(name="users" tag="tbody")
@@ -23,7 +23,7 @@ section(v-if="$route.params.id == 1")
 					div.tooltip.is-tooltip-left(data-tooltip="Открыт")
 						Open(v-if="row.state == 'open'")/
 				td {{ row.title }}
-				td {{ row.id }}
+				td {{ row.num }}
 				td {{ row.created }}
 				td {{ row.modified }}
 	hr
@@ -55,6 +55,8 @@ export default {
 		return {
 			activeTab: 1,
 			activeTag: 1,
+			prevKey: 'id',
+			orderDesc: false,
 			requests: [
 				{ id: 1, name: 'Мои запросы' },
 				{ id: 2, name: 'Получаемые копии запросов' },
@@ -68,26 +70,26 @@ export default {
 			],
 			columns: [ '', 'Тема', 'ID', 'Создан', 'Обновлен', ],
 			rows: [
-				{ id: 1, title: 'Тестовый тикет', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id: 2, title: 'DVM', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 3, title: 'Карточки договора 77.17-ДВ Прил.1', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 4, title: 'FW: Форма заказа ПО АО "Каражыра"', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id: 5, title: 'Работа по Алмаз-Антей', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 6, title: 'Зависло согласование', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 7, title: 'Перезапустить IIS', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 8, title: 'Удаляются карточки', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 9, title: 'Алроса. Нагрузочное тестирование', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 10, title: 'На: Настройка согласований в легком клиенте', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 11, title: 'Тестовый тикет', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id: 12, title: 'DVM', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 13, title: 'Карточки договора 77.17-ДВ Прил.1', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 14, title: 'FW: Форма заказа ПО АО "Каражыра"', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id: 15, title: 'Работа по Алмаз-Антей', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 16, title: 'Зависло согласование', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 17, title: 'Перезапустить IIS', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 18, title: 'Удаляются карточки', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 19, title: 'Алроса. Нагрузочное тестирование', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 20, title: 'На: Настройка согласований в легком клиенте', id: '2382', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  1, num: '#2382', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id:  2, num: '#2382', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  3, num: '#2382', title: 'Карточки договора 77.17-ДВ Прил.1', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  4, num: '#2382', title: 'FW: Форма заказа ПО АО "Каражыра"', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id:  5, num: '#2382', title: 'Работа по Алмаз-Антей', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id:  6, num: '#2382', title: 'Зависло согласование', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  7, num: '#2382', title: 'Перезапустить IIS', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id:  8, num: '#2382', title: 'Удаляются карточки', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id:  9, num: '#2382', title: 'Алроса. Нагрузочное тестирование', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 10, num: '#2382', title: 'На: Настройка согласований в легком клиенте', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 11, num: '#2382', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id: 12, num: '#2382', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 13, num: '#2382', title: 'Карточки договора 77.17-ДВ Прил.1', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 14, num: '#2382', title: 'FW: Форма заказа ПО АО "Каражыра"', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id: 15, num: '#2382', title: 'Работа по Алмаз-Антей', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 16, num: '#2382', title: 'Зависло согласование', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 17, num: '#2382', title: 'Перезапустить IIS', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 18, num: '#2382', title: 'Удаляются карточки', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 19, num: '#2382', title: 'Алроса. Нагрузочное тестирование', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 20, num: '#2382', title: 'На: Настройка согласований в легком клиенте', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
 			]
 		}
 	},
@@ -99,6 +101,12 @@ export default {
 					break;
 				case 2:
 					return this.rows.filter( item => item.state == 'open' );
+					break;
+				case 3:
+					return this.rows.filter( item => item.state == 'wait' );
+					break;
+				case 4:
+					return this.rows.filter( item => item.state == 'done' );
 					break;
 			}
 		}
@@ -112,7 +120,23 @@ export default {
 		},
 		zendesk() {
 			window.open("https://docsvision.zendesk.com/agent/dashboard","_blank")
+		},
+		sortTable(e) {
+			console.log(1234);
+			this.rows.reverse();
+
 		}
+		// sortUsers (e) {
+    //   var key = e.target.dataset.key
+    //   if (this.prevKey === key) {
+    //     this.users.reverse()
+    //     this.orderDesc = !this.orderDesc
+    //   } else {
+    //   	this.users = _.sortBy(this.users, key)
+    //     this.orderDesc = false
+    //   	this.prevKey = key
+    //   }
+    // },
 	},
 	components: {
 		Done,
@@ -154,44 +178,21 @@ nav a {
 .users-move {
   transition: transform .6s;
 }
+
 .users-enter-active, .users-leave-active {
   transition: all .6s;
+}
+.users-leave-active {
+	position: absolute;
 }
 .users-enter, .users-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
 
-/* .company { */
-/*   backface-visibility: hidden; */
-/*   z-index: 1; */
-/* } */
-
-
-/* moving */
-/* .company-move { */
-/*   transition: all 600ms ease-in-out 50ms; */
-/* 	max-height: 5rem; */
-/* } */
-
-/* appearing */
-/* .company-enter-active { */
-/*   transition: all 400ms ease-out; */
-/* 	max-height: 5rem; */
-/* } */
-
-/* disappearing */
-/* .company-leave-active { */
-/*   transition: all 200ms ease-in; */
-/* 	max-height: 5rem; */
-/*   z-index: 0; */
-/* } */
-
-/* appear at / disappear to */
-/* .company-enter, */
-/* .company-leave-to { */
-/*   opacity: 0; */
-/* 	max-height: 0; */
-/* } */
+.users {
+  backface-visibility: hidden;
+  z-index: 1;
+}
 
 </style>
