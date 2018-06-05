@@ -18,8 +18,8 @@ div
 		table.table.is-fullwidth.is-hoverable
 			thead(@click="sortTable")
 				tr
-					th(v-for="column in columns") {{ column }}
-			transition-group(name="users" tag="tbody")
+					th(v-for="column in columns" :class="column.class") {{ column.name }}
+			transition-group(name="request" tag="tbody")
 				tr(v-for="row in filteredTable" @click="zendesk" :key="row.id").pointer
 					td
 						div.tooltip.is-tooltip-left(data-tooltip="Выполнен")
@@ -94,7 +94,13 @@ export default {
 				{ id: 3 , active: false, name: 'Ждет ответа', to: '', },
 				{ id: 4 , active: false, name: 'Выполнен', to: '', },
 			],
-			columns: [ '', 'Тема', 'ID', 'Создан', 'Обновлен', ],
+			columns: [
+				{ name: '', class: '' },
+				{ name: 'Тема', class: '' },
+				{ name: 'ID', class: '' },
+				{ name: 'Создан', class: 'has-text-weight-bold' },
+				{ name: 'Обновлен', class: '' },
+			],
 			rows: [
 				{ id:  1, num: '6812', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
 				{ id:  2, num: '3641', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
@@ -179,6 +185,8 @@ $table-head-cell-border-width: 0 0 1px;
 th {
 	font-family: $small;
 	font-size: .75rem;
+	font-weight: normal;
+	cursor: pointer;
 }
 td {
 	color: $dv-blue;
@@ -223,22 +231,22 @@ nav a {
 // animation
 // ========================================
 
-.users-move {
+.request-move {
   transition: transform .6s;
 }
 
-.users-enter-active, .users-leave-active {
+.request-enter-active, .request-leave-active {
   transition: all .6s;
 }
-.users-leave-active {
+.request-leave-active {
 	position: absolute;
 }
-.users-enter, .users-leave-to {
+.request-enter, .request-leave-to {
   opacity: 0;
   transform: translateY(30px);
 }
 
-.users {
+.request {
   backface-visibility: hidden;
   z-index: 1;
 }
