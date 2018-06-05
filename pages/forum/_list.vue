@@ -10,25 +10,17 @@
 				a(@click="setTab(tab.id)") {{ tab.name }}
 	.tags
 		.tag.is-rounded.is-medium(v-for="section in sections" 
-										:class="section.active ? 'is-info' : ''"
-										@click="section.active = !section.active"
+										:class="activeTag == section.id ? 'is-info' : ''"
+										@click="setTag(section.id)"
 									) {{section.name}}
-	.level-right Сортировка&nbsp;&nbsp;
+	.level-left Сортировка&nbsp;&nbsp;
 		.select
 			select
 				option Новые вверху
 				option Новые внизу
-	#tab1(v-if="activeTab == 1")
-		Topic(v-for='topic in topics' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
-
-	#tab2(v-if="activeTab == 2")
-		Topic(v-for='topic in tab2' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
-
-	#tab3(v-if="activeTab == 3")
-		Topic(v-for='topic in tab3' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
-
-	#tab4(v-if="activeTab == 4")
-		Topic(v-for='topic in tab4' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
+	transition-group(name="request" tag="span")
+		Topic(v-for='topic in filteredList' :key="topic.id" :title="topic.title" :fio="topic.fio" :reply="topic.reply" :counter="topic.counter")
+	Empty(v-if="activeTag == 6")/
 	hr
 	br
 	nav.pagination.is-rounded
@@ -45,6 +37,7 @@
 
 <script>
 import Topic from '@/components/lists/Topic';
+import Empty from '@/components/Empty';
 	
 export default {
 	transition(to, from) {
@@ -54,6 +47,7 @@ export default {
 	data() {
 		return {
 		activeTab: 1,
+		activeTag: 1,
 		tabs: [
 			{ id: 1, name: 'Все' },
 			{ id: 2, name: 'Популярное' },
@@ -80,18 +74,24 @@ export default {
 			{ id: 9, title: "Проекты", desc: "Вопросы создания СЭД"  },
 		],
 		topics: [
-			{ id:  1, to: "/forum/id/post", title: "Доминантсептаккорд имеет нечетный канал", fio: "Семен Семенович", reply: 2, counter: 4  },
-			{ id:  2, to: "", title: "Септаккорд многопланово иллюстрирует райдер", fio: "Аристарх Сигизмундович", reply: 2, counter: 4  },
-			{ id:  3, to: "", title: "Рондо, так или иначе, варьирует голос", fio: "Марфа Степановна", reply: 2, counter: 4  },
-			{ id:  4, to: "", title: "Струна, по определению, начинает перекрестный флюгель-горн", fio: "Барак Обамович", reply: 2, counter: 4  },
-			{ id:  5, to: "", title: "Арпеджио, так или иначе, иллюстрирует кризис жанра", fio: "Трифон Ильич", reply: 2, counter: 4  },
-			{ id:  6, to: "", title: "Канал заканчивает фузз", fio: "Ольга Петровна", reply: 2, counter: 4  },
-			{ id:  7, to: "", title: "Трехчастная фактурная форма полифигурно выстраивает полиряд", fio: "Семен Семенович", reply: 2, counter: 4  },
-			{ id:  8, to: "", title: "Крещендирующее хождение образует нечетный ревер", fio: "Марфа Степановна", reply: 2, counter: 4  },
-			{ id:  9, to: "", title: "Нежилое помещение подведомственно арбитражному суду", fio: "Трифон Ильич", reply: 2, counter: 4  },
-			{ id: 10, to: "", title: "Взаимозачет публичен", fio: "Аристарх Сигизмундович", reply: 2, counter: 4  },
-			{ id: 11, to: "", title: "Законодательство запрещает акционерный индоссамент", fio: "Марфа Степановна", reply: 2, counter: 4  },
-			{ id: 12, to: "", title: "Перестрахование акцептовано", fio: "Петр Петрович", reply: 2, counter: 4  },
+			{ id:  1, state: 1, title: "Доминантсептаккорд имеет нечетный канал", fio: "Семен Семенович", reply: 2, counter: 4  },
+			{ id:  2, state: 1, title: "Септаккорд многопланово иллюстрирует райдер", fio: "Аристарх Сигизмундович", reply: 2, counter: 4  },
+			{ id:  3, state: 2, title: "Рондо, так или иначе, варьирует голос", fio: "Марфа Степановна", reply: 2, counter: 4  },
+			{ id:  4, state: 5, title: "Струна, по определению, начинает перекрестный флюгель-горн", fio: "Барак Обамович", reply: 2, counter: 4  },
+			{ id:  5, state: 4, title: "Арпеджио, так или иначе, иллюстрирует кризис жанра", fio: "Трифон Ильич", reply: 2, counter: 4  },
+			{ id:  6, state: 2, title: "Канал заканчивает фузз", fio: "Ольга Петровна", reply: 2, counter: 4  },
+			{ id:  7, state: 2, title: "Трехчастная фактурная форма полифигурно выстраивает полиряд", fio: "Семен Семенович", reply: 2, counter: 4  },
+			{ id:  8, state: 3, title: "Крещендирующее хождение образует нечетный ревер", fio: "Марфа Степановна", reply: 2, counter: 4  },
+			{ id:  9, state: 1, title: "Нежилое помещение подведомственно арбитражному суду", fio: "Трифон Ильич", reply: 2, counter: 4  },
+			{ id: 10, state: 4, title: "Взаимозачет публичен", fio: "Аристарх Сигизмундович", reply: 2, counter: 4  },
+			{ id: 11, state: 4, title: "Законодательство запрещает акционерный индоссамент", fio: "Марфа Степановна", reply: 2, counter: 4  },
+			{ id: 12, state: 3, title: "Перестрахование акцептовано", fio: "Петр Петрович", reply: 2, counter: 4  },
+			{ id: 13, state: 1, title: "Доминантсептаккорд имеет нечетный канал", fio: "Семен Семенович", reply: 2, counter: 4  },
+			{ id: 14, state: 1, title: "Септаккорд многопланово иллюстрирует райдер", fio: "Аристарх Сигизмундович", reply: 2, counter: 4  },
+			{ id: 15, state: 2, title: "Рондо, так или иначе, варьирует голос", fio: "Марфа Степановна", reply: 2, counter: 4  },
+			{ id: 16, state: 5, title: "Струна, по определению, начинает перекрестный флюгель-горн", fio: "Барак Обамович", reply: 2, counter: 4  },
+			{ id: 17, state: 1, title: "Арпеджио, так или иначе, иллюстрирует кризис жанра", fio: "Трифон Ильич", reply: 2, counter: 4  },
+			{ id: 18, state: 4, title: "Канал заканчивает фузз", fio: "Ольга Петровна", reply: 2, counter: 4  },
 		]
 		}
 	},
@@ -100,32 +100,40 @@ export default {
 			let mylist = [ 'faq', 'idea', 'admin', 'informer', 'construct', 'efficient', 'live', 'program', 'project' ];
 			return mylist.indexOf( this.$route.params.list );
 		},
-		tab2() {
-			function checkEven(arg) {
-				return arg.id > 5;
+		filteredList() {
+			switch(this.activeTag) {
+				case 1:
+					return this.topics;
+					break;
+				case 2:
+					return this.topics.filter( item => item.state == 2 );
+					break;
+				case 3:
+					return this.topics.filter( item => item.state == 3 );
+					break;
+				case 4:
+					return this.topics.filter( item => item.state == 4 );
+					break;
+				case 5:
+					return this.topics.filter( item => item.state == 5 );
+					break;
+				case 6:
+					return this.topics.filter( item => item.state == 6 );
+					break;
 			}
-			return this.topics.filter(checkEven);
-		},
-		tab3() {
-			function checkEven(arg) {
-				return arg.id > 8;
-			}
-			return this.topics.filter(checkEven);
-		},
-		tab4() {
-			function checkEven(arg) {
-				return arg.id > 10;
-			}
-			return this.topics.filter(checkEven);
 		}
 	},
 	methods: {
 		setTab(e) {
 			this.activeTab = e;
 		},
+	setTag(e) {
+		this.activeTag = e;
+	},
 	},
 	components: {
-		Topic
+		Topic,
+		Empty
 	}
 }
 </script>
@@ -147,7 +155,33 @@ nav a {
 		border-color: $blue;
 	}
 }
-.level-right {
+.level-left {
 	margin-bottom: 1rem;
 }
+
+
+// ========================================
+// animation
+// ========================================
+
+.request-move {
+  transition: transform .6s;
+}
+
+.request-enter-active, .request-leave-active {
+  transition: all .6s;
+}
+.request-leave-active {
+	position: absolute;
+}
+.request-enter, .request-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.request {
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
 </style>

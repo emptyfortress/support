@@ -50,10 +50,7 @@ div
 			ul
 				li(v-for='tab in publications'  :class="activeTab == tab.id ? 'is-active' : ''")
 					a(@click="setTab(tab.id)") {{ tab.name }}
-		p.has-text-centered
-			img( src="~assets/img/empty.svg" )
-		p.has-text-centered Нет активных публикаций
-		br
+		Empty/
 		.box.has-text-centered
 			.button.is-primary Создать публикацию
 	section(v-if="$route.params.id == 3")
@@ -66,6 +63,7 @@ div
 import Done from '@/components/status/Done';
 import Wait from '@/components/status/Wait';
 import Open from '@/components/status/Open';
+import Empty from '@/components/Empty';
 
 
 export default {
@@ -166,7 +164,8 @@ export default {
 	components: {
 		Done,
 		Wait,
-		Open
+		Open,
+		Empty
 }
 
 }
