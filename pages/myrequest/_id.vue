@@ -93,26 +93,26 @@ export default {
 			],
 			columns: [ '', 'Тема', 'ID', 'Создан', 'Обновлен', ],
 			rows: [
-				{ id:  1, num: '#2382', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id:  2, num: '#2382', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id:  3, num: '#2382', title: 'Карточки договора 77.17-ДВ Прил.1', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id:  4, num: '#2382', title: 'FW: Форма заказа ПО АО "Каражыра"', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id:  5, num: '#2382', title: 'Работа по Алмаз-Антей', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id:  6, num: '#2382', title: 'Зависло согласование', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id:  7, num: '#2382', title: 'Перезапустить IIS', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id:  8, num: '#2382', title: 'Удаляются карточки', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id:  9, num: '#2382', title: 'Алроса. Нагрузочное тестирование', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 10, num: '#2382', title: 'На: Настройка согласований в легком клиенте', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 11, num: '#2382', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id: 12, num: '#2382', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 13, num: '#2382', title: 'Карточки договора 77.17-ДВ Прил.1', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 14, num: '#2382', title: 'FW: Форма заказа ПО АО "Каражыра"', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
-				{ id: 15, num: '#2382', title: 'Работа по Алмаз-Антей', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 16, num: '#2382', title: 'Зависло согласование', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
-				{ id: 17, num: '#2382', title: 'Перезапустить IIS', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 18, num: '#2382', title: 'Удаляются карточки', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 19, num: '#2382', title: 'Алроса. Нагрузочное тестирование', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
-				{ id: 20, num: '#2382', title: 'На: Настройка согласований в легком клиенте', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  1, num: '6812', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id:  2, num: '3641', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  3, num: '0647', title: 'Карточки договора 77.17-ДВ Прил.1', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  4, num: '5097', title: 'FW: Форма заказа ПО АО "Каражыра"', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id:  5, num: '4409', title: 'Работа по Алмаз-Антей', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id:  6, num: '4120', title: 'Зависло согласование', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id:  7, num: '4705', title: 'Перезапустить IIS', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id:  8, num: '8785', title: 'Удаляются карточки', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id:  9, num: '5013', title: 'Алроса. Нагрузочное тестирование', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 10, num: '3084', title: 'На: Настройка согласований в легком клиенте', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 11, num: '4481', title: 'Тестовый тикет', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id: 12, num: '6203', title: 'DVM', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 13, num: '5725', title: 'Карточки договора 77.17-ДВ Прил.1', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 14, num: '4851', title: 'FW: Форма заказа ПО АО "Каражыра"', created: '1 год назад', modified: '2 мес.назад', state: 'wait' },
+				{ id: 15, num: '9710', title: 'Работа по Алмаз-Антей', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 16, num: '7859', title: 'Зависло согласование', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
+				{ id: 17, num: '6501', title: 'Перезапустить IIS', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 18, num: '6923', title: 'Удаляются карточки', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 19, num: '5733', title: 'Алроса. Нагрузочное тестирование', created: '1 год назад', modified: '2 мес.назад', state: 'open' },
+				{ id: 20, num: '1032', title: 'На: Настройка согласований в легком клиенте', created: '1 год назад', modified: '2 мес.назад', state: 'done' },
 			]
 		}
 	},
@@ -120,16 +120,19 @@ export default {
 		filteredTable() {
 			switch (this.activeTag) {
 				case 1:
-					return this.rows;
+					return this.query ? this.rows.filter( item => item.title.includes(this.query) || item.num.includes(this.query) ) : this.rows;
 					break;
 				case 2:
-					return this.rows.filter( item => item.state == 'open' );
+					let open = this.rows.filter( item => item.state == 'open' );
+					return this.query ? open.filter(item => item.title.includes(this.query) || item.num.includes(this.query ) ) : open;
 					break;
 				case 3:
-					return this.rows.filter( item => item.state == 'wait' );
+					let wait= this.rows.filter( item => item.state == 'wait' );
+					return this.query ? wait.filter(item => item.title.includes(this.query) || item.num.includes(this.query ) ) : wait;
 					break;
 				case 4:
-					return this.rows.filter( item => item.state == 'done' );
+					let done= this.rows.filter( item => item.state == 'done' );
+					return this.query ? done.filter(item => item.title.includes(this.query) || item.num.includes(this.query ) ) : done;
 					break;
 			}
 		}
