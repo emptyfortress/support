@@ -51,8 +51,11 @@ div
 				li(v-for='tab in publications'  :class="activeTab == tab.id ? 'is-active' : ''")
 					a(@click="setTab(tab.id)") {{ tab.name }}
 		p.has-text-centered
-			i.icon-face
+			img( src="~assets/img/empty.svg" )
 		p.has-text-centered Нет активных публикаций
+		br
+		.box.has-text-centered
+			.button.is-primary Создать публикацию
 	section(v-if="$route.params.id == 3")
 		p.has-text-centered
 			img(src="~assets/img/dragons.jpg")
