@@ -70,18 +70,21 @@
 	height: 50px;
 	border-radius: 50px;
 	cursor: pointer;
-	background: $dv-blue;
+	/* background: $dv-blue; */
+	background: $dv-gray2;
 	left: 1rem;
 	z-index: -2;
 	text-align: center;
 	line-height: 50px;
+	border: 2px solid #ffffff00;
 	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2);
 	i {
-		color: #fff;
+		color: $main;
 		font-size: 1.4rem;
 	}
 	&:hover {
 		box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+		border: 2px solid #ffffff;
 	}
 }
 .tooltip:before {

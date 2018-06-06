@@ -133,7 +133,7 @@ export default {
 	},
 	components: {
 		Topic,
-		Empty
+		Empty,
 	}
 }
 </script>
@@ -143,9 +143,6 @@ export default {
 @import '~bulma/sass/components/pagination';
 @import '~bulma/sass/elements/form';
 	
-.tag {
-	cursor: pointer;
-}
 nav a {
 	text-decoration: none;
 }
