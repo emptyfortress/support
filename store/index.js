@@ -7,6 +7,8 @@ const createStore = () => {
 			notifications: false,
 			login: false,
 			send: false,
+			add: false,
+
 			sections: [
 
 				{ id: 1,  icon: 'bookmark',  firstpage: false,  innerpage: true, to: '/myrequest/1',  name: 'Мои запросы' },
@@ -68,6 +70,9 @@ const createStore = () => {
 			toggleSend(state) { state.send = !state.send },
 			showSend(state) { state.send = true },
 			hideSend(state) { state.send = false },
+			showAdd(state) {state.add = true},
+			hideAdd(state) {state.add = false},
+			toggleAdd(state) {state.add = !state.add},
 		}
 	})
 }

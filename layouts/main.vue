@@ -17,7 +17,8 @@ transition(name='zoomin', mode='out-in')
 		.container
 			<nuxt/>
 		Footer/
-		SendButton(v-show="but")/
+		ActionButton(v-show="but")/
+		AddRequest/
 </template>
 
 <script>
@@ -30,7 +31,8 @@ import SectionLight from '@/components/SectionLight';
 import Search from '@/components/Search';
 import Breadcrumb from '@/components/Breadcrumb';
 import smallCarousel from '@/components/smallCarousel';
-import SendButton from '@/components/SendButton';
+import ActionButton from '@/components/ActionButton';
+import AddRequest from '@/components/AddRequest';
 
 
 export default {
@@ -57,7 +59,8 @@ export default {
 		SectionLight,
 		Breadcrumb,
 		smallCarousel,
-		SendButton
+		ActionButton,
+		AddRequest
 	},
 	methods:{
       cache(){

@@ -3,7 +3,7 @@
 	.send(@click="toggleSend" :class="{ active: sendOn }")
 		i.icon-plus
 	transition(name="jump1")
-		.but.but1.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Отправить новый запрос")
+		.but.but1.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" @click="$store.commit('toggleAdd')" v-on-click-outside="close" data-tooltip="Отправить новый запрос")
 			i.icon-send
 	transition(name="jump2")
 		nuxt-link.but.but2.tooltip.is-tooltip-info.is-tooltip-left(v-if="sendOn" v-on-click-outside="close" data-tooltip="Мои запросы" to="/myrequest/1")
