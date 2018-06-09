@@ -46,11 +46,13 @@ module.exports = {
   */
 	plugins: [ 
 		{ src: '~/plugins/click-outside.js'},
+		{ src: '~/plugins/vuelidate.js', ssr: false },
 		{ src: '~/plugins/vuecarousel.js', ssr: false }
 		// { src: '~/plugins/ripple.js'},
 		// { src: '~/plugins/mySwiper.js', ssr: false }
 	],
   build: {
+		vendor: [ 'vuelidate' ],
 		// vendor: ['click-outside'],
     /*
     ** Run ESLint on save
