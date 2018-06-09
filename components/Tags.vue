@@ -30,4 +30,8 @@
 }
 .tags { margin-top: .3rem; }
 
+.error.field .tag {
+  border: 1px solid red;
+  background: #FDD;
+}
 </style>

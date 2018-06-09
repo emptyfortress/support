@@ -20,4 +20,9 @@
 	label { display: block; text-transform: uppercase; color: $main; font-size: .8rem; }
 	.select { width: 100%; select { width: 100% } }
 }
+
+.error.field input, .error.field select {
+  border: 1px solid red;
+  background: #FDD;
+}
 </style>

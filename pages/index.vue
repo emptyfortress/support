@@ -24,13 +24,14 @@ import Popular from '@/components/lists/Popular';
 
 export default {
 	layout: 'default',
-	transition(to, from) {
-		if (from.layoutname == 'errorlayout') {
-			return 'zoomin'
-		} else {
-			return 'zoomout'
-		}
-	},
+	transition: 'zoomout',
+	// transition(to, from) {
+	// 	if (from.layoutname == 'errorlayout') {
+	// 		return 'zoomin'
+	// 	} else {
+	// 		return 'zoomout'
+	// 	}
+	// },
 	// transition(to, from) {
 	// 	if (from.name === 'error') {
 	// 		return 'zoomin'

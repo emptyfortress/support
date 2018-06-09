@@ -1,5 +1,5 @@
 <template lang="pug">
-<!-- transition(name='fade' mode='in&#45;out') -->
+transition(name='fade' mode='in-out')
 	.container
 		.yellow
 		.flex1
@@ -16,10 +16,10 @@
 <script>
 	import Logo from '@/components/Logo';
 
-
 	export default {
-		layout: 'errorlayout',
+		// layout: 'errorlayout',
 		name: 'error',
+		// transition: 'zoomout',
 		data() {
 			return {
 				err: 'Искомая страница не существует. Возможно, вы ошиблись в адресе, или страница была перемещена'

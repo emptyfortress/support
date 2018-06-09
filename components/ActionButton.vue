@@ -104,7 +104,8 @@
 .jump1-enter-active, .jump1-leave-active,
 .jump2-enter-active, .jump2-leave-active,
 .jump3-enter-active, .jump3-leave-active {
-  transition: all .3s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	transition: all .3s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	/* transition: all .3s cubic-bezier(.27,.77,.78,1.05); */
 }
 
 .jump1-enter, .jump1-leave-to,

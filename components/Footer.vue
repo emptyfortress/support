@@ -14,7 +14,7 @@ export default {
 
 <style scoped lang="scss">
 .footer {
-	margin-top: 5rem;
+	margin-top: 4rem;
 	margin-bottom: 5rem;
 	font-family: $small;
 	padding: 1em;

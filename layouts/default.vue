@@ -4,13 +4,13 @@
 
 <script>
 	export default {
-		transition(to, from) {
-			if (from.layoutName === 'errorlayout') {
-				return 'zoomin'
-			} else {
-				return 'zoomout'
-			}
-		}
+		// transition(to, from) {
+		// 	if (from.layoutName === 'errorlayout') {
+		// 		return 'zoomin'
+		// 	} else {
+		// 		return 'zoomout'
+		// 	}
+		// }
 		
 	}
 </script>
