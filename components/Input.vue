@@ -13,7 +13,7 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
 const touchMap = new WeakMap();
 
 	export default {
-		props: [ 'labelText' ],
+		props: [ 'labelText', 'model' ],
 		data() {
 			return {
 				name: '',

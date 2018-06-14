@@ -159,7 +159,10 @@ const touchMap = new WeakMap();
 }
 .zapros {
 	width: 500px;
+	background: #ddd;
 	margin: 2rem auto;
+	overflow: auto;
+	height: calc(100vh - 220px);
 	.field { margin-top: 1.5rem; }
 }
 #sendBt {
