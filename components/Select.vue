@@ -21,8 +21,7 @@
 	.select { width: 100%; select { width: 100% } }
 }
 
-.error.field input, .error.field select {
-  border: 1px solid red;
-  background: #FDD;
+.error.field select {
+	box-shadow: 0 0 3px 2px $red;
 }
 </style>

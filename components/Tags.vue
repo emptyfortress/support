@@ -31,7 +31,7 @@
 .tags { margin-top: .3rem; }
 
 .error.field .tag {
-  border: 1px solid red;
-  background: #FDD;
+	border: none;
+	box-shadow: 0 0 3px 2px $red;
 }
 </style>

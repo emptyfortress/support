@@ -1,30 +1,16 @@
 <template lang="pug">
 #addRequest(:class="$store.state.add ? 'active' : '' " v-on:mousemove="logmouse")
 	i.icon-close(@click="$store.commit('hideAdd')")
+	#sendBt.button.is-medium(@mouseenter="valid") Отправить
 	.head Новый запрос
 	form.zapros
 		Select( labelText="Тип услуги" :list="type" )/
-		.form-group(:class="{ 'form-group--error': $v.name.$error }")
-			label.form__label Name
-			input.form__input(v-model.trim="name" @input="delayTouch($v.name)")
-		.error(v-if="!$v.name.required && $v.name.$error") Field is required
-		.error(v-if="!$v.name.minLength")
-			| Name must have at least {{$v.name.$params.minLength.min}} letters.
-
-		.form-group(:class="{ 'form-group--error': $v.age.$error }")
-			label.form__label Age
-			input.form__input(v-model.trim.lazy="$v.age.$model")
-		.error(v-if="!$v.age.between")
-			| Must be between {{$v.age.$params.between.min}} and {{$v.age.$params.between.max}}
-
-
 		Tags( :list="versions" label="Версия Доксвижн" )/
 		Tags( :list="no" label="Накопительное обновление" )/
 		Select( labelText="Модуль" :list="module" )/
 		Tags( :list="no1" label="Накопительное обновление модуля" )/
 		Input( labelText="Компания-клиент" )
 		Tags( :list="versions" label="Режим использования")/
-		#mybut.send.button.is-medium(@mouseenter="valid") Отправить
 
 </template>
 
@@ -45,7 +31,6 @@ const touchMap = new WeakMap();
 		data() {
 			return {
 				name: '',
-				age: 0,
 				type: [ 'Расширенная техническая поддержка', 'Корпоративная техническая поддержка', 'Консультация', 'Экстренная техподдержка'],
 				module: ['-- Выберите модуль --', 'Office toolbar 1', 'Office toolbar 2', 'Web-client 6', 'Web-client 7', 'Web-client 8', 'Web-client 9',],
 				versions: [
@@ -70,29 +55,33 @@ const touchMap = new WeakMap();
 				required,
 				minLength: minLength(4)
 			},
-			age: {
-				between: between(20, 30)
-			}
 		},
 		computed: {
-			butX() {
-				let rect = mybut.getBoundingClientRect();
-				return rect;
-			}
+			butCoord() {
+				let rect = sendBt.getBoundingClientRect();
+				return [Math.round(rect.x + rect.width/2), Math.round(rect.y + rect.height/2)];
+			},
 		},
-		mounted() {
+		updated() {
 			this.whenReady();
+			this.selectInputs();
 		},
 		methods: {
+			whenReady() {
+				let sendBt = document.querySelector('#sendBt');
+			},
+			selectInputs() {
+				let inp = [];
+				document.querySelectorAll('.form__input').forEach( e => inp.push(e) )
+				document.querySelectorAll('.select').forEach( e => inp.push(e) )
+				return inp;
+			},
 			delayTouch($v) {
 				$v.$reset()
 				if (touchMap.has($v)) {
 					clearTimeout(touchMap.get($v))
 				}
 				touchMap.set($v, setTimeout($v.$touch, 1000))
-			},
-			whenReady() {
-				let mybut = document.querySelector('#mybut');
 			},
 			setName(value) {
 				this.name = value
@@ -103,15 +92,17 @@ const touchMap = new WeakMap();
 			setNo1(e) { this.activeNo1 = e; },
 			valid() {
 				console.log(1234);
-				console.log(mybut);
-				console.log(this.butX);
-				// let match = document.querySelectorAll(".field");
-				// match.forEach( function(item) {
-				// 	item.classList.add("test")
-				// } )
+				console.log(this.butCoord);
 			},
 			logmouse(e) {
-				// console.log(e.clientX);
+				let distance = Math.round(Math.sqrt( ( this.butCoord[0] - e.clientX ) * ( this.butCoord[0] - e.clientX ) + ( this.butCoord[1] - e.clientY ) * ( this.butCoord[1] - e.clientY ) ))
+				let spread = -3 + 8 * (200 - distance)/200;
+				sendBt.style.boxShadow = '0 0 4px ' + spread + 'px #f00'
+				// this.selectInputs.forEach( function(item) {
+				// 	item.style.boxShadow = '0 0 3px ' + spread + 'px #f00'
+        //
+				// } )
+				console.log(distance);
 			}
 		},
 		components: {
@@ -165,14 +156,6 @@ input {
 	}
 }
 
-.send {
-	margin-top: 4rem;
-	/* position: absolute; */
-	/* bottom: 3rem; */
-	/* left: 50%; */
-	/* transform: translateX(-60px); */
-}
-
 .head {
 	text-align: center;
 	font-size: 2rem;
@@ -183,7 +166,12 @@ input {
 	margin: 2rem auto;
 	.field { margin-top: 1.5rem; }
 }
-
+#sendBt {
+	position: absolute;
+	bottom: 3rem;
+	left: 50%;
+	transform: translateX(-50px);
+}
 
 // ========================================
 // animation
