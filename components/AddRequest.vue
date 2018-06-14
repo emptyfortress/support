@@ -74,6 +74,7 @@ const touchMap = new WeakMap();
 				let inp = [];
 				document.querySelectorAll('.form__input').forEach( e => inp.push(e) )
 				document.querySelectorAll('.select').forEach( e => inp.push(e) )
+				document.querySelectorAll('.tag').forEach( e => inp.push(e) )
 				return inp;
 			},
 			delayTouch($v) {
@@ -92,17 +93,14 @@ const touchMap = new WeakMap();
 			setNo1(e) { this.activeNo1 = e; },
 			valid() {
 				console.log(1234);
-				console.log(this.butCoord);
 			},
 			logmouse(e) {
 				let distance = Math.round(Math.sqrt( ( this.butCoord[0] - e.clientX ) * ( this.butCoord[0] - e.clientX ) + ( this.butCoord[1] - e.clientY ) * ( this.butCoord[1] - e.clientY ) ))
-				let spread = -3 + 8 * (200 - distance)/200;
-				sendBt.style.boxShadow = '0 0 4px ' + spread + 'px #f00'
-				// this.selectInputs.forEach( function(item) {
-				// 	item.style.boxShadow = '0 0 3px ' + spread + 'px #f00'
-        //
-				// } )
-				console.log(distance);
+				let spread = -3 + 4 * (200 - distance)/100;
+				this.selectInputs().forEach( function(item) {
+					item.style.boxShadow = '0 0 2px ' + spread + 'px #f00'
+				} )
+				// console.log(distance);
 			}
 		},
 		components: {
@@ -117,11 +115,9 @@ const touchMap = new WeakMap();
 @import '~bulma/sass/elements/tag';
 @import '~bulma/sass/elements/form';
 
-input {
-	outline: none;
-}
 .form-group--error input, .form-group--error textarea, .form-group--error input:focus, .form-group--error input:hover {
     border-color: #f79483;
+		outline: none;
 }
 .form-group--error {
 	-webkit-animation: shake-horizontal 0.6s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;

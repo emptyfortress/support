@@ -40,7 +40,7 @@ const touchMap = new WeakMap();
 <style scoped lang="scss">
 .field {
 	label { display: block; text-transform: uppercase; color: $main; font-size: .8rem; }
-	input { width: 100%; height: 2.3rem; font-size: 1.3rem; outline: none;}
+	input { width: 100%; height: 2.3rem; font-size: 1.3rem; outline: none; border: 1px solid #fff;}
 }
 .field .error {
 	color: $red;
@@ -53,13 +53,13 @@ const touchMap = new WeakMap();
 	.form__label {color: $red;}
 	input {
 		border: 1px solid $red;
+		outline: none;
 	}
 
 }
 
 .error.field input {
 	border: none;
-	/* box-shadow: 0 0 3px 2px $red; */
 }
 
 
