@@ -1,7 +1,7 @@
 <template lang="pug">
 #addRequest(:class="$store.state.add ? 'active' : '' " v-on:mousemove="logmouse")
 	i.icon-close(@click="$store.commit('hideAdd')")
-	#sendBt.button.is-medium(@mouseenter="valid") Отправить
+	#sendBt.button.is-medium(@click="$store.commit('hideAdd')") Отправить
 	form#zapros
 		.head Новый запрос
 		.inner
@@ -168,7 +168,6 @@ const touchMap = new WeakMap();
 	transition: all .2s;
 	&:hover {
 		color: $red;
-		/* transform: rotate(90deg); */
 	}
 }
 
