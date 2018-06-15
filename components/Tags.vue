@@ -10,15 +10,21 @@
 
 <script>
 	export default {
-		props: [ 'list', 'activeTag', 'label' ],
+		props: [ 'list', 'label' ],
+		data() {
+			return {
+				activeTag: ''
+			}
+		},
 		methods: {
 			setTag(e) {
-				if (this.activeTag == e) {
-					return this.activeTag = ''
-				} else {
+				if (this.activeTag == '' && e == 'one') {
+					this.$store.commit('showOne')
 					return this.activeTag = e
-				}
-			},
+				} else if (this.activeTag == e) {
+						return this.activeTag = '' 
+				} else return this.activeTag = e;
+		}
 		}
 	}
 </script>

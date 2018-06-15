@@ -13,10 +13,10 @@ import { required, minLength, between } from 'vuelidate/lib/validators';
 const touchMap = new WeakMap();
 
 	export default {
-		props: [ 'labelText', 'model' ],
+		props: [ 'labelText', 'imodel' ],
 		data() {
 			return {
-				name: '',
+				name:  this.imodel,
 			}
 		},
 		validations: {
@@ -32,6 +32,9 @@ const touchMap = new WeakMap();
 					clearTimeout(touchMap.get($v))
 				}
 				touchMap.set($v, setTimeout($v.$touch, 1000))
+				if (this.name == 'next') {
+					this.$store.commit('showOne');
+				}
 			},
 		}
 	}

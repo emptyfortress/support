@@ -2,15 +2,21 @@
 #addRequest(:class="$store.state.add ? 'active' : '' " v-on:mousemove="logmouse")
 	i.icon-close(@click="$store.commit('hideAdd')")
 	#sendBt.button.is-medium(@mouseenter="valid") Отправить
-	.head Новый запрос
-	form.zapros
-		Select( labelText="Тип услуги" :list="type" )/
-		Tags( :list="versions" label="Версия Доксвижн" )/
-		Tags( :list="no" label="Накопительное обновление" )/
-		Select( labelText="Модуль" :list="module" )/
-		Tags( :list="no1" label="Накопительное обновление модуля" )/
-		Input( labelText="Компания-клиент" )
-		Tags( :list="versions" label="Режим использования")/
+	form#zapros
+		.head Новый запрос
+		.inner
+			Select( labelText="Тип услуги" :list="type" )/
+			Tags( :list="versions" label="Версия Доксвижн" )/
+			Tags( :list="no" label="Накопительное обновление" )/
+			Select( labelText="Модуль" :list="module" )/
+			Tags( :list="no1" label="Накопительное обновление модуля" )/
+			Input( labelText="Компания-клиент" imodel='')
+			Tags( :list="rejim" label="Режим использования")/
+			transition(name="slide")
+				section#one(v-if="$store.state.one")
+					Tags( :list="incindent" label="Воздействие инциндента" )
+					Tags( :list="character" label="Характер обращения" )
+					Input( labelText="Копия" imodel='')
 
 </template>
 
@@ -47,7 +53,16 @@ const touchMap = new WeakMap();
 					{ id: 4, name: "11" },
 					{ id: 5, name: "Не установлено" },
 				],
-				no1: [ { id: 1, name: "Не установлено" } ]
+				no1: [ { id: 1, name: "Не установлено" } ],
+				rejim: [ { id: 1, name: "Изучение" }, { id: 2, name: "Внедрение" }, { id: 'one', name: "Эксплуатация" }, ],
+				incindent: [ { id: 1, name: "Без классификации" }, { id: 2, name: "Другое" }, ],
+				character: [
+					{ id: 1, name: "Зависание" },
+					{ id: 2, name: "Замедление" },
+					{ id: 3, name: "Ошибка" },
+					{ id: 4, name: "Поведение не соответствует документации" },
+					{ id: 5, name: "Вопрос по функциональности" },
+				],
 			}
 		},
 		validations: {
@@ -65,6 +80,7 @@ const touchMap = new WeakMap();
 		updated() {
 			this.whenReady();
 			this.selectInputs();
+			this.add();
 		},
 		methods: {
 			whenReady() {
@@ -76,6 +92,10 @@ const touchMap = new WeakMap();
 				document.querySelectorAll('.select').forEach( e => inp.push(e) )
 				document.querySelectorAll('.tag').forEach( e => inp.push(e) )
 				return inp;
+			},
+			add() {
+				let out = document.querySelector('#zapros');
+				out.scrollTop = out.scrollHeight;
 			},
 			delayTouch($v) {
 				$v.$reset()
@@ -92,7 +112,7 @@ const touchMap = new WeakMap();
 			setNo(e) { this.activeNo = e; },
 			setNo1(e) { this.activeNo1 = e; },
 			valid() {
-				console.log(1234);
+				// console.log(1234);
 			},
 			logmouse(e) {
 				let distance = Math.round(Math.sqrt( ( this.butCoord[0] - e.clientX ) * ( this.butCoord[0] - e.clientX ) + ( this.butCoord[1] - e.clientY ) * ( this.butCoord[1] - e.clientY ) ))
@@ -100,7 +120,6 @@ const touchMap = new WeakMap();
 				this.selectInputs().forEach( function(item) {
 					item.style.boxShadow = '0 0 2px ' + spread + 'px #f00'
 				} )
-				// console.log(distance);
 			}
 		},
 		components: {
@@ -135,6 +154,7 @@ const touchMap = new WeakMap();
 	background: $dv-gray2;
 	transform: translateY(100vh);
 	transition: transform .3s cubic-bezier(.12,.69,1,1);
+	overflow: auto;
 	&.active {
 		transform: translateY(0);
 	}
@@ -157,13 +177,14 @@ const touchMap = new WeakMap();
 	font-size: 2rem;
 	color: $main;
 }
-.zapros {
-	width: 500px;
-	background: #ddd;
-	margin: 2rem auto;
+#zapros {
+	padding: 0 1rem;
 	overflow: auto;
-	height: calc(100vh - 220px);
+	/* box-shadow: 0 -2px 4px inset #ccc; */
+	height: calc(100vh - 170px);
 	.field { margin-top: 1.5rem; }
+	.inner { width: 500px; margin: 0 auto; margin-bottom: 2rem;
+	}
 }
 #sendBt {
 	position: absolute;
@@ -171,6 +192,23 @@ const touchMap = new WeakMap();
 	left: 50%;
 	transform: translateX(-50px);
 }
+
+#one {
+	margin-top:2rem;
+	margin-bottom: 4rem;
+}
+
+.slide-enter-active, .slide-leave-active {
+	transition: all .3s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+}
+.slide-enter, .slide-leave-to {
+	opacity: 0
+}
+.slide-enter, .slide-leave-to {
+	transform: translateY(-60px);
+}
+
+
 
 // ========================================
 // animation
