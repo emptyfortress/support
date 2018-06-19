@@ -19,6 +19,7 @@ transition(name='zoomin', mode='out-in')
 		Footer/
 		ActionButton(v-show="but")/
 		AddRequest/
+		notifications(group="foo" animation-type="velocity" )/
 </template>
 
 <script>

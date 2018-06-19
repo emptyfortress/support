@@ -1,7 +1,7 @@
 <template lang="pug">
 #addRequest(:class="$store.state.add ? 'active' : '' " v-on:mousemove="logmouse")
 	i.icon-close(@click="$store.commit('hideAdd')")
-	#sendBt.button.is-medium(@click="$store.commit('hideAdd')") Отправить
+	#sendBt.button.is-medium(@click="sendReq") Отправить
 	form#zapros
 		.head Новый запрос
 		.inner
@@ -37,6 +37,7 @@ const touchMap = new WeakMap();
 		data() {
 			return {
 				name: '',
+				distance: 999,
 				type: [ 'Расширенная техническая поддержка', 'Корпоративная техническая поддержка', 'Консультация', 'Экстренная техподдержка'],
 				module: ['-- Выберите модуль --', 'Office toolbar 1', 'Office toolbar 2', 'Web-client 6', 'Web-client 7', 'Web-client 8', 'Web-client 9',],
 				versions: [
@@ -81,6 +82,9 @@ const touchMap = new WeakMap();
 			this.whenReady();
 			this.selectInputs();
 			this.add();
+			this.selectInputs().forEach( function(item) {
+				item.style.boxShadow = '0 0 2px -3px #f00'
+			} )
 		},
 		methods: {
 			whenReady() {
@@ -88,9 +92,9 @@ const touchMap = new WeakMap();
 			},
 			selectInputs() {
 				let inp = [];
-				document.querySelectorAll('.form__input').forEach( e => inp.push(e) )
-				document.querySelectorAll('.select').forEach( e => inp.push(e) )
-				document.querySelectorAll('.tag').forEach( e => inp.push(e) )
+				document.querySelectorAll('#zapros .form__input').forEach( e => inp.push(e) )
+				document.querySelectorAll('#zapros .select').forEach( e => inp.push(e) )
+				document.querySelectorAll('#zapros .tag').forEach( e => inp.push(e) )
 				return inp;
 			},
 			add() {
@@ -111,12 +115,20 @@ const touchMap = new WeakMap();
 			setVer(e) { this.activeVer = e; },
 			setNo(e) { this.activeNo = e; },
 			setNo1(e) { this.activeNo1 = e; },
-			valid() {
-				// console.log(1234);
+			sendReq() {
+				this.distance = 999
+				this.$store.commit('hideAdd')
+				this.$notify({
+					group: "foo",
+					type: "success",
+					title: "Спасибо!",
+					text: "Ваш запрос отправлен по адресу",
+				})
 			},
+
 			logmouse(e) {
-				let distance = Math.round(Math.sqrt( ( this.butCoord[0] - e.clientX ) * ( this.butCoord[0] - e.clientX ) + ( this.butCoord[1] - e.clientY ) * ( this.butCoord[1] - e.clientY ) ))
-				let spread = -3 + 4 * (200 - distance)/100;
+				this.distance = Math.round(Math.sqrt( ( this.butCoord[0] - e.clientX ) * ( this.butCoord[0] - e.clientX ) + ( this.butCoord[1] - e.clientY ) * ( this.butCoord[1] - e.clientY ) ))
+				let spread = -3 + 4 * (200 - this.distance)/100;
 				this.selectInputs().forEach( function(item) {
 					item.style.boxShadow = '0 0 2px ' + spread + 'px #f00'
 				} )
@@ -181,7 +193,7 @@ const touchMap = new WeakMap();
 	overflow: auto;
 	/* box-shadow: 0 -2px 4px inset #ccc; */
 	height: calc(100vh - 170px);
-	.field { margin-top: 1.5rem; }
+	.field { margin-top: 2rem; }
 	.inner { width: 500px; margin: 0 auto; margin-bottom: 2rem;
 	}
 }
@@ -198,7 +210,8 @@ const touchMap = new WeakMap();
 }
 
 .slide-enter-active, .slide-leave-active {
-	transition: all .3s cubic-bezier(0.680, -0.550, 0.265, 1.550);
+	/* transition: all .5s cubic-bezier(0.680, -0.550, 0.265, 1.550); */
+	transition: all .5s ease-out;
 }
 .slide-enter, .slide-leave-to {
 	opacity: 0
