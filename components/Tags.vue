@@ -3,7 +3,7 @@
 	label {{ label }}
 	.tags
 		.tag.is-rounded.is-medium(v-for="item in list" :key="item.id"
-										:class="activeTag == item.id ? 'is-info' : ''"
+										:class="activeTag == item.id ? 'is-info' : '' || activeTag=='' ? 'invalid' : ''"
 										@click="setTag(item.id)"
 										) {{ item.name }}
 </template>
@@ -13,18 +13,34 @@
 		props: [ 'list', 'label' ],
 		data() {
 			return {
-				activeTag: ''
+				activeTag: '',
 			}
 		},
+		// computed: {
+		// 	tagg() {
+		// 		let tagg = document.querySelectorAll('.tag');
+		// 		return tagg;
+		// 	}
+		// },
+		// updated() {
+		// 	this.val();
+		// },
 		methods: {
+			// val() {
+			// 	if (this.activeTag == '') {
+			// 		this.tagg.forEach( item => item.classList.add('invalid') )
+			// 	} else this.tagg.forEach( item => item.classList.remove('invalid') )
+			// },
 			setTag(e) {
 				if (this.activeTag == '' && e == 'one') {
 					this.$store.commit('showOne')
 					return this.activeTag = e
 				} else if (this.activeTag == e) {
-						return this.activeTag = '' 
-				} else return this.activeTag = e;
-		}
+						return this.activeTag = '';
+				} else {
+						return this.activeTag = e
+				}  
+			}
 		}
 	}
 </script>

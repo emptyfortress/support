@@ -23,7 +23,6 @@ const touchMap = new WeakMap();
 		computed: {
 			inputt() {
 				let inputt = document.querySelectorAll('.form__input');
-				// console.log(inputt);
 				return inputt;
 			}
 		},

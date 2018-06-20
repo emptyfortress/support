@@ -23,16 +23,9 @@
 
 
 <script>
-import Vue from 'vue'
-import Vuelidate from 'vuelidate'
-Vue.use(Vuelidate)
-
-import { required, minLength, between } from 'vuelidate/lib/validators';
 import Input from '@/components/Input';
 import Select from '@/components/Select';
 import Tags from '@/components/Tags';
-
-const touchMap = new WeakMap();
 	
 	export default {
 		data() {
@@ -87,23 +80,16 @@ const touchMap = new WeakMap();
 			},
 			selectInputs() {
 				let inp = [];
-				document.querySelectorAll('.invalid').forEach( function(e) {
-					inp.push(e)
-				} )
+				// document.querySelectorAll('.invalid').forEach( function(e) {
+				// 	inp.push(e)
+				// } )
 				// document.querySelectorAll('#zapros .select').forEach( e => inp.push(e) )
-				document.querySelectorAll('#zapros .tag').forEach( e => inp.push(e) )
+				document.querySelectorAll('#zapros .invalid').forEach( e => inp.push(e) )
 				return inp;
 			},
 			add() {
 				let out = document.querySelector('#zapros');
 				out.scrollTop = out.scrollHeight;
-			},
-			delayTouch($v) {
-				$v.$reset()
-				if (touchMap.has($v)) {
-					clearTimeout(touchMap.get($v))
-				}
-				touchMap.set($v, setTimeout($v.$touch, 1000))
 			},
 			setName(value) {
 				this.name = value
