@@ -124,6 +124,7 @@ const touchMap = new WeakMap();
 					title: "Спасибо!",
 					text: "Ваш запрос отправлен по адресу",
 				})
+				this.$router.push('/myrequest/1')
 			},
 
 			logmouse(e) {

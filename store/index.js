@@ -13,7 +13,7 @@ const createStore = () => {
 			sections: [
 
 				{ id: 1,  icon: 'bookmark',  firstpage: false,  innerpage: true, to: '/myrequest/1',  name: 'Мои запросы' },
-				{ id: 2,  icon: 'send',      firstpage: false,  innerpage: true, to: '/request',      name: 'Отправить запрос' },
+				{ id: 2,  icon: 'send',      firstpage: false,  innerpage: true, to: '/',      name: 'Отправить запрос', click: 'this.sendOn = true' },
 				{ id: 3,  icon: 'forum',     firstpage: false,  innerpage: true, to: '/forum',     name: 'Сообщество' },
 				{ id: 4,  icon: 'code',      firstpage: false,  innerpage: true, to: '/code',      name: 'Разработчикам' },
 				{ id: 5,  icon: 'download',  firstpage: false,  innerpage: true, to: '/download',  name: 'Загрузить' },
