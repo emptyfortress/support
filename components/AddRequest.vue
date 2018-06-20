@@ -11,6 +11,7 @@
 			Select( labelText="Модуль" :list="module" )/
 			Tags( :list="no1" label="Накопительное обновление модуля" )/
 			Input( labelText="Компания-клиент" imodel='')
+			<!-- Input( labelText="Компания" imodel='') -->
 			Tags( :list="rejim" label="Режим использования")/
 			transition(name="slide")
 				section#one(v-if="$store.state.one")
@@ -66,12 +67,6 @@ const touchMap = new WeakMap();
 				],
 			}
 		},
-		validations: {
-			name: {
-				required,
-				minLength: minLength(4)
-			},
-		},
 		computed: {
 			butCoord() {
 				let rect = sendBt.getBoundingClientRect();
@@ -92,8 +87,10 @@ const touchMap = new WeakMap();
 			},
 			selectInputs() {
 				let inp = [];
-				document.querySelectorAll('#zapros .form__input').forEach( e => inp.push(e) )
-				document.querySelectorAll('#zapros .select').forEach( e => inp.push(e) )
+				document.querySelectorAll('.invalid').forEach( function(e) {
+					inp.push(e)
+				} )
+				// document.querySelectorAll('#zapros .select').forEach( e => inp.push(e) )
 				document.querySelectorAll('#zapros .tag').forEach( e => inp.push(e) )
 				return inp;
 			},

@@ -1,7 +1,8 @@
 <template lang="pug">
 .field(:class="{ 'form-group--error': $v.name.$error }")
 	label.form__label {{ labelText }}
-	input.form__input( v-model.trim='name' @input="delayTouch($v.name)" )
+	<!-- input.form__input( v&#45;model.trim='$v.name.$model' @input="delayTouch($v.name)" ) -->
+	input.form__input.invalid( v-model.trim='$v.name.$model' @input="delayTouch($v.name)" )
 	.error(v-if="!$v.name.required && $v.name.$error") Пожалуйста, заполните это поле
 	.error(v-if="!$v.name.minLength && $v.name.$error")
 		| {{ labelText }} должно содеражать не меньше {{$v.name.$params.minLength.min}} букв.
@@ -19,6 +20,13 @@ const touchMap = new WeakMap();
 				name:  this.imodel,
 			}
 		},
+		computed: {
+			inputt() {
+				let inputt = document.querySelectorAll('.form__input');
+				// console.log(inputt);
+				return inputt;
+			}
+		},
 		validations: {
 			name: {
 				required,
@@ -32,6 +40,15 @@ const touchMap = new WeakMap();
 					clearTimeout(touchMap.get($v))
 				}
 				touchMap.set($v, setTimeout($v.$touch, 1000))
+				if ($v.$invalid) {
+					this.inputt.forEach(function(item, index) {
+						item.classList.add('invalid');
+					}) 
+				} else {
+					this.inputt.forEach(function(item, index) {
+						item.classList.remove('invalid');
+					}) 
+				}
 				if (this.name == 'next') {
 					this.$store.commit('showOne');
 				}
