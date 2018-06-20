@@ -16,21 +16,7 @@
 				activeTag: '',
 			}
 		},
-		// computed: {
-		// 	tagg() {
-		// 		let tagg = document.querySelectorAll('.tag');
-		// 		return tagg;
-		// 	}
-		// },
-		// updated() {
-		// 	this.val();
-		// },
 		methods: {
-			// val() {
-			// 	if (this.activeTag == '') {
-			// 		this.tagg.forEach( item => item.classList.add('invalid') )
-			// 	} else this.tagg.forEach( item => item.classList.remove('invalid') )
-			// },
 			setTag(e) {
 				if (this.activeTag == '' && e == 'one') {
 					this.$store.commit('showOne')
