@@ -1,7 +1,7 @@
 <template lang="pug">
 .field(:class="{ 'form-group--error': $v.name.$error }")
 	label.form__label {{ labelText }}
-	input.form__input( v-model.trim='$v.name.$model' @input="delayTouch($v.name)" :class="$v.name.$invalid == true ? 'invalid' : ''" )
+	input.form__input( v-model.trim='$v.name.$model' @input="delayTouch($v.name)" :class="$v.name.$invalid == true ? 'invalid' : 'valid'" )
 	.error(v-if="!$v.name.required && $v.name.$error") Пожалуйста, заполните это поле
 	.error(v-if="!$v.name.minLength && $v.name.$error")
 		| {{ labelText }} должно содеражать не меньше {{$v.name.$params.minLength.min}} букв.
@@ -40,7 +40,17 @@ const touchMap = new WeakMap();
 <style scoped lang="scss">
 .field {
 	label { display: block; text-transform: uppercase; color: $main; font-size: .8rem; }
-	input { width: 100%; height: 2.3rem; font-size: 1.3rem; outline: none; border: 1px solid #fff;}
+	input {
+		width: 100%;
+		height: 2.3rem;
+		font-size: 1.3rem;
+		outline: none;
+		border: 1px solid #fff;
+		&.valid {
+			border: 1px solid $dv-green;
+			background: #EAFFD6;
+		}
+	}
 }
 .field .error {
 	color: $red;

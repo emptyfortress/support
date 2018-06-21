@@ -3,7 +3,7 @@
 	label {{ label }}
 	.tags
 		.tag.is-rounded.is-medium(v-for="item in list" :key="item.id"
-										:class="activeTag == item.id ? 'is-info' : '' || activeTag=='' ? 'invalid' : ''"
+										:class="activeTag == item.id ? 'is-primary' : '' || activeTag=='' ? 'invalid' : ''"
 										@click="setTag(item.id)"
 										) {{ item.name }}
 </template>

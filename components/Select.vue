@@ -2,7 +2,7 @@
 .field
 	label {{ labelText }}
 	.select
-		select(v-model="selected" @change="checkSel" :class="selectValid == false ? 'invalid' : ''")
+		select(v-model="selected" @change="checkSel" :class="selectValid == false ? 'invalid' : 'valid'" )
 			option(v-for="( item, index ) in list" v-bind:value="index") {{ item }}
 
 </template>
@@ -29,7 +29,16 @@
 
 .field {
 	label { display: block; text-transform: uppercase; color: $main; font-size: .8rem; }
-	.select { width: 100%; select { width: 100% } }
+	.select {
+		width: 100%; 
+		select {
+			width: 100%;
+			&.valid {
+				border: 1px solid $dv-green;
+				background: #EAFFD6;
+			}
+		}
+	}
 }
 
 .error.field select {
