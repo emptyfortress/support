@@ -19,7 +19,7 @@ transition(name='zoomin', mode='out-in')
 		Footer/
 		ActionButton(v-show="but")/
 		AddRequest/
-		notifications(group="foo" animation-type="velocity" )/
+		notifications(group="foo" animation-type="velocity")/
 </template>
 
 <script>
@@ -46,7 +46,6 @@ export default {
 		},
 		but() {
 			return this.$route.fullPath.indexOf('condition') == -1 ? true : false
-			// return this.$route.fullPath.indexOf('1') == -1 ? true : false;
 			}
 	},
 

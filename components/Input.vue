@@ -62,6 +62,4 @@ const touchMap = new WeakMap();
 	border: none;
 }
 
-
-
 </style>

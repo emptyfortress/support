@@ -8,7 +8,7 @@ const createStore = () => {
 			login: false,
 			send: false,
 			add: false,
-			one: false,
+			allValid: false,
 
 			sections: [
 
@@ -72,9 +72,10 @@ const createStore = () => {
 			showSend(state) { state.send = true },
 			hideSend(state) { state.send = false },
 			showAdd(state) { state.add = true },
-			hideAdd(state) {state.add = false, state.one = false},
+			hideAdd(state) {state.add = false},
 			toggleAdd(state) {state.add = !state.add},
-			showOne(state) {state.one = true},
+			showOne(state) {state.allValid = true},
+			hideOne(state) {state.allValid = false},
 		}
 	})
 }

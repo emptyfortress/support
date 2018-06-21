@@ -18,8 +18,7 @@
 		},
 		methods: {
 			setTag(e) {
-				if (this.activeTag == '' && e == 'one') {
-					this.$store.commit('showOne')
+				if (this.activeTag == '') {
 					return this.activeTag = e
 				} else if (this.activeTag == e) {
 						return this.activeTag = '';
@@ -35,7 +34,8 @@
 @import '~bulma/sass/elements/tag';
 .field {
 	label { display: block; text-transform: uppercase; color: $main; font-size: .8rem; }
-}
+} 
+
 .tags { margin-top: .3rem; }
 
 .error.field .tag {

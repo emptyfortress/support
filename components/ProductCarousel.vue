@@ -8,7 +8,7 @@ carousel(:per-page='3' :scrollPerPage='true'
 					class='carousel')
 	slide(v-for="product in products" :key="product.id" )
 		.product-card
-			.product(@click="goto(product.to)")
+			.product(@click="goto(product)")
 				i(:class="product.icon")
 				h3 {{product.name}}
 
@@ -30,8 +30,8 @@ carousel(:per-page='3' :scrollPerPage='true'
 		},
 		methods: {
 			goto(e) {
-				this.$router.push(e);
-				return { data: product.id }
+				this.$router.push(e.to);
+				return { data: e.id }
 			}
 		}
 	}

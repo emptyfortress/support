@@ -10,10 +10,10 @@
 			Tags( :list="no" label="Накопительное обновление" )/
 			Select( labelText="Модуль" :list="module" )/
 			Tags( :list="no1" label="Накопительное обновление модуля" )/
-			Input( labelText="Компания-клиент" imodel='')
+			Input( labelText="Компания-клиент" imodel='laskdals')
 			Tags( :list="rejim" label="Режим использования")/
 			transition(name="slide")
-				section#one(v-if="$store.state.one")
+				section#one(v-if="$store.state.allValid")
 					Tags( :list="incindent" label="Воздействие инциндента" )
 					Tags( :list="character" label="Характер обращения" )
 					Input( labelText="Копия" imodel='')
@@ -31,8 +31,8 @@ import Tags from '@/components/Tags';
 			return {
 				name: '',
 				distance: 999,
-				type: [ 'Расширенная техническая поддержка', 'Корпоративная техническая поддержка', 'Консультация', 'Экстренная техподдержка'],
-				module: ['-- Выберите модуль --', 'Office toolbar 1', 'Office toolbar 2', 'Web-client 6', 'Web-client 7', 'Web-client 8', 'Web-client 9',],
+				type: ['Расширенная техническая поддержка', 'Корпоративная техническая поддержка', 'Консультация', 'Экстренная техподдержка'],
+				module: ['Office toolbar 1', 'Office toolbar 2', 'Web-client 6', 'Web-client 7', 'Web-client 8', 'Web-client 9',],
 				versions: [
 					{ id: 1, name: "5.5" },
 					{ id: 2, name: "5.4" },
@@ -69,9 +69,6 @@ import Tags from '@/components/Tags';
 			this.whenReady();
 			this.selectInputs();
 			this.add();
-			this.selectInputs().forEach( function(item) {
-				item.style.boxShadow = '0 0 2px -3px #f00'
-			} )
 		},
 		methods: {
 			whenReady() {
@@ -79,11 +76,10 @@ import Tags from '@/components/Tags';
 			},
 			selectInputs() {
 				let inp = [];
-				// document.querySelectorAll('.invalid').forEach( function(e) {
-				// 	inp.push(e)
-				// } )
-				// document.querySelectorAll('#zapros .select').forEach( e => inp.push(e) )
 				document.querySelectorAll('#zapros .invalid').forEach( e => inp.push(e) )
+				if (inp.length == 0) {
+					this.$store.commit('showOne')
+				}
 				return inp;
 			},
 			add() {
@@ -98,20 +94,20 @@ import Tags from '@/components/Tags';
 			setNo(e) { this.activeNo = e; },
 			setNo1(e) { this.activeNo1 = e; },
 			sendReq() {
-				this.distance = 999
-				this.$store.commit('hideAdd')
+				this.distance = 999,
+				this.$store.commit('hideAdd'),
+				this.$store.commit('hideOne'),
 				this.$notify({
 					group: "foo",
 					type: "success",
 					title: "Спасибо!",
-					text: "Ваш запрос отправлен по адресу",
-				})
+					text: "Ваш запрос принят!",
+				}),
 				this.$router.push('/myrequest/1')
 			},
-
 			logmouse(e) {
 				this.distance = Math.round(Math.sqrt( ( this.butCoord[0] - e.clientX ) * ( this.butCoord[0] - e.clientX ) + ( this.butCoord[1] - e.clientY ) * ( this.butCoord[1] - e.clientY ) ))
-				let spread = -3 + 4 * (200 - this.distance)/100;
+				let spread = -3 + 3 * (200 - this.distance)/100;
 				this.selectInputs().forEach( function(item) {
 					item.style.boxShadow = '0 0 2px ' + spread + 'px #f00'
 				} )
@@ -149,7 +145,7 @@ import Tags from '@/components/Tags';
 	background: $dv-gray2;
 	transform: translateY(100vh);
 	transition: transform .3s cubic-bezier(.12,.69,1,1);
-	overflow: auto;
+	overflow: hidden;
 	&.active {
 		transform: translateY(0);
 	}
@@ -174,7 +170,6 @@ import Tags from '@/components/Tags';
 #zapros {
 	padding: 0 1rem;
 	overflow: auto;
-	/* box-shadow: 0 -2px 4px inset #ccc; */
 	height: calc(100vh - 170px);
 	.field { margin-top: 2rem; }
 	.inner { width: 500px; margin: 0 auto; margin-bottom: 2rem;
@@ -188,7 +183,7 @@ import Tags from '@/components/Tags';
 }
 
 #one {
-	margin-top:2rem;
+	margin-top:4rem;
 	margin-bottom: 4rem;
 }
 

@@ -2,14 +2,25 @@
 .field
 	label {{ labelText }}
 	.select
-		select
-			option(v-for="item in list") {{ item }}
+		select(v-model="selected" @change="checkSel" :class="selectValid == false ? 'invalid' : ''")
+			option(v-for="( item, index ) in list" v-bind:value="index") {{ item }}
 
 </template>
 
 <script>
 	export default {
-		props: [ 'labelText', 'list']
+		props: [ 'labelText', 'list'],
+		data() {
+			return {
+				selectValid: false,
+				selected: ""
+			}
+		},
+		methods: {
+			checkSel() {
+				this.selected == '' ? this.selectValid = false : this.selectValid = true
+			}
+		}
 	}
 </script>
 
