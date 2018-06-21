@@ -204,10 +204,15 @@ ul {
 	}
 }
 .tabs{
-	a:hover {
+	li a:hover {
 		text-decoration: none;
 	}
+	li.is-active a  {
+		// border-top: 2px solid #000;
+		// border-bottom-width: 2px;
+	}
 }
+
 .pointer, .tag {
 	cursor: pointer;
 }

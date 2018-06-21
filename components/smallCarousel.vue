@@ -9,7 +9,7 @@ carousel(:per-page='4' :scrollPerPage='true'
 	slide(v-for="product in products" :key="product.id" )
 		.product-card
 			.product
-				i(:class="product.icon" @click="goto(product.to)")
+				i(:class="product.icon" @click="goto(product)")
 				h3(@click="goto(product.to)") {{product.name}}
 </template>
 
@@ -32,7 +32,7 @@ carousel(:per-page='4' :scrollPerPage='true'
 		methods: {
 			goto(e) {
 				this.$store.commit( 'hideNav' );
-				this.$router.push(e);
+				this.$router.push(e.to);
 			}
 		}
 	}

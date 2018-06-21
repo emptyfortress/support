@@ -50,7 +50,6 @@ export default {
 				{ id: 3, name: 'FAQ' },
 				{ id: 4, name: 'Загрузить' },
 				{ id: 5, name: 'База знаний' },
-
 			],
 			products: [
 				{ 
