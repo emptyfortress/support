@@ -11,7 +11,6 @@
 			Select( labelText="Модуль" :list="module" )/
 			Tags( :list="no1" label="Накопительное обновление модуля" )/
 			Input( labelText="Компания-клиент" imodel='')
-			<!-- Input( labelText="Компания" imodel='') -->
 			Tags( :list="rejim" label="Режим использования")/
 			transition(name="slide")
 				section#one(v-if="$store.state.one")
