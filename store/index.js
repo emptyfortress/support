@@ -18,10 +18,11 @@ const createStore = () => {
 				{ id: 4,  icon: 'code',      firstpage: false,  innerpage: true, to: '/code',      name: 'Разработчикам' },
 				{ id: 5,  icon: 'download',  firstpage: false,  innerpage: true, to: '/download',  name: 'Загрузить' },
 				{ id: 6,  icon: 'condition', firstpage: true,  innerpage: false, to: '/condition', name: 'Условия' },
-				{ id: 7,  icon: 'map',       firstpage: true,  innerpage: false, to: '/map',       name: 'Путеводитель' },
+				{ id: 7,  icon: 'compass',   firstpage: true,  innerpage: false, to: '/map',       name: 'Путеводитель' },
 				{ id: 8,  icon: 'book',      firstpage: true,  innerpage: true, to: '/docs',      name: 'Документация' },
 				{ id: 9,  icon: 'faq',       firstpage: true,  innerpage: false, to: '/forum/faq',       name: 'ЧаВо' },
 				{ id: 10, icon: 'mail',      firstpage: true,  innerpage: false, to: '/',      name: 'Контакты' },
+				{ id: 11, icon: 'map',      firstpage: true,  innerpage: false, to: '/',      name: 'Roadmap' },
 
 			],
 
