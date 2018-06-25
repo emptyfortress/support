@@ -22,7 +22,7 @@ const createStore = () => {
 				{ id: 8,  icon: 'book',      firstpage: true,  innerpage: true, to: '/docs',      name: 'Документация' },
 				{ id: 9,  icon: 'faq',       firstpage: true,  innerpage: false, to: '/forum/faq',       name: 'ЧаВо' },
 				{ id: 10, icon: 'mail',      firstpage: true,  innerpage: false, to: '/',      name: 'Контакты' },
-				{ id: 11, icon: 'map',      firstpage: true,  innerpage: false, to: '/',      name: 'Roadmap' },
+				{ id: 11, icon: 'map',      firstpage: true,  innerpage: false, to: '/roadmap',      name: 'Roadmap' },
 
 			],
 
