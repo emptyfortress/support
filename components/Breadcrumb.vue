@@ -23,6 +23,7 @@ const breadcrumbs = {
 	'/forum/post': 'Форум  /  Публикация',
 	'/forum/:list': 'id форума',
 	'/myrequest': 'Мои запросы',
+	'/roadmap': 'Roadmap',
 }
 
 export default {
