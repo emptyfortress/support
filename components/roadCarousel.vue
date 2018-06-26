@@ -25,14 +25,17 @@
 			}
 		},
 		mounted() {
-			let slider = document.querySelector('.VueCarousel-inner');
-			slider.style.transform = "translate3d(-280px, 0, 0)";
-
+			this.startShift();
 		},
 		methods: {
+			startShift() {
+				let slider = document.querySelector('.VueCarousel-inner');
+				slider.style.transform = "translate3d("  + slider.style.flexBasis + ", 0, 0)";
+				// slider.style.transform = "translate3d(200px, 0, 0)";
+			},
 			setActiveItem(index) {
 				let slider = document.querySelector('.VueCarousel-inner');
-				slider.style.transform = "translate3d(242px, 0, 0)";
+				// slider.style.transform = "translate3d(" + flex-basis +"px, 0, 0)";
 				console.log(index);
       },
 		}
@@ -42,22 +45,25 @@
 <style scoped lang="scss">
 .inner {
 	margin: 0 auto;
+	border: 1px solid #ccc; 
 }
 .carousel {
-	/* width: 650px; */
+	width: 400px;
 	margin: 0 auto;
-}
-.VueCarousel-wrapper {
+	border: 1px solid red; 
 	overflow: visible;
 }
-.VueCarousel-inner {
-	transform: translate3d(-100px,0,0);
+.VueCarousel-wrapper {
+	overflow: visible !important;
+}
+.VueCarouser-inner {
 }
 
 .product {
 	background: #eee;
 	margin: 0 .5rem;
-	/* flex-basis: 20%; */
+	/* width: 150px; */
+	/* flex-basis: content; */
 	cursor: pointer;
 	padding: .5rem;
 	color: $main;
