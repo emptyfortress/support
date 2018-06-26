@@ -4,8 +4,8 @@
 					:paginationEnabled='false'
 					:loop='false'
 					class='carousel' )
-		slide(v-for="product in products" :key="product.id" )
-			.product(:class="product.active ? 'active' : ''" @click="goToSlide")
+		slide(v-for="( product, index ) in products" :key="index"  )
+			.product(:class="product.active ? 'active' : ''" @click="setActiveItem(index)")
 				p.dv Docsvision
 				p {{product.name}}
 </template>
@@ -14,6 +14,7 @@
 	export default {
 		data() {
 			return {
+				activeVersion: 2,
 				products: [
 					{ id: 5, name: '',  active: false, to: '' },
 					{ id: 1, name: '5.3',  active: false, to: '' },
@@ -23,15 +24,17 @@
 				],
 			}
 		},
+		mounted() {
+			let slider = document.querySelector('.VueCarousel-inner');
+			slider.style.transform = "translate3d(-280px, 0, 0)";
+
+		},
 		methods: {
-			goto(e) {
-				this.$store.commit( 'hideNav' );
-				this.$router.push(e.to);
-			},
-			goToSlide() {
+			setActiveItem(index) {
 				let slider = document.querySelector('.VueCarousel-inner');
-				// slider.style.transform = "translate3d(-242px, 0, 0)";
-			}
+				slider.style.transform = "translate3d(242px, 0, 0)";
+				console.log(index);
+      },
 		}
 	}
 </script>
@@ -39,22 +42,22 @@
 <style scoped lang="scss">
 .inner {
 	margin: 0 auto;
-	border: 1px solid red; 
-	/* border: */
 }
 .carousel {
-	border: 1px solid blue; 
-	width: 650px;
+	/* width: 650px; */
 	margin: 0 auto;
 }
 .VueCarousel-wrapper {
 	overflow: visible;
 }
+.VueCarousel-inner {
+	transform: translate3d(-100px,0,0);
+}
 
 .product {
 	background: #eee;
-	margin: 0 1rem;
-	flex-basis: 20%;
+	margin: 0 .5rem;
+	/* flex-basis: 20%; */
 	cursor: pointer;
 	padding: .5rem;
 	color: $main;
