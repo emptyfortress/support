@@ -53,12 +53,10 @@
 <style scoped lang="scss">
 .inner {
 	margin: 0 auto;
-	/* border: 1px solid #ccc;  */
 }
 .carousel {
 	width: 130px;
 	margin: 0 auto;
-	/* border: 1px solid red;  */
 	overflow: visible;
 }
 .carousel .VueCarousel-wrapper {
@@ -69,8 +67,6 @@
 
 .product {
 	margin: 0 .5rem;
-	/* width: 150px; */
-	/* flex-basis: content; */
 	cursor: pointer;
 	padding: .5rem;
 	color: $main;
