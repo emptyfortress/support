@@ -8,12 +8,40 @@
 			.product(:class="index == activeVersion ? 'active' : ''" @click="setActiveItem(index)")
 				p.dv Docsvision
 				p {{product.name}}
-	section(v-if="activeVersion == 0")
-		p this is 1
-	section(v-if="activeVersion == 1")
-		p this is 2
-	section(v-if="activeVersion == 2")
-		p this is 3
+	.treeContainer
+		.section(v-if="activeVersion == 0")
+			p this is 1
+			p this is 1
+			p this is 1
+			p this is 1
+			p this is 1
+		.section(v-if="activeVersion == 1")
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+			p this is 2
+		.section(v-if="activeVersion == 2")
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
+			p this is 3
 </template>
 
 <script>
@@ -38,7 +66,6 @@
 			overflow() { // this is for showing items outside of carousel
 				let inner = document.querySelector('.VueCarousel-wrapper')
 				inner.style.overflow = 'visible';
-
 			},
 			setActiveItem(index) {
 				let slider = document.querySelector('.VueCarousel-inner');
@@ -51,6 +78,7 @@
 </script>
 
 <style scoped lang="scss">
+
 .inner {
 	margin: 0 auto;
 }
@@ -75,9 +103,6 @@
 		color: $dv-green;
 		background: #eee;
 	}
-	i {
-		font-size: 5rem;
-	}
 	p {
 		font-size: 1.3rem;
 		text-align: center;
@@ -87,5 +112,17 @@
 	}
 }
 
+.treeContainer {
+	width: 600px;
+	margin: 0 auto;
+	background: url(~assets/img/vert.png) repeat-y center top;
+	.section {
+		width: 100%;
+		/* height: 500px; */
+		/* background: #ccc; */
+	}
+}
+
 </style>
+
 
