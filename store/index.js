@@ -9,6 +9,7 @@ const createStore = () => {
 			send: false,
 			add: false,
 			allValid: false,
+			activeVersion: 0,
 
 			sections: [
 
@@ -77,6 +78,9 @@ const createStore = () => {
 			toggleAdd(state) {state.add = !state.add},
 			showOne(state) {state.allValid = true},
 			hideOne(state) {state.allValid = false},
+			setActiveVersion(state, payload) {
+				state.activeVersion = payload.amount;
+			}
 		}
 	})
 }
