@@ -24,10 +24,6 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	/* margin: 2rem; */
-	div {
-
-	}
 	.center {
 		width: 15px;
 		height: 15px;

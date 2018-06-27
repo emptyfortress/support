@@ -3,8 +3,7 @@ div
 	.container
 		h1 
 			i.icon-map/ Roadmap
-		p Стратегический план развития платформы ДВ (сроки примерные)
-	<!-- .start Docsvision 5.4 -->
+		p План развития платформы ДВ (сроки примерные)
 	roadCarousel
 </template>
 

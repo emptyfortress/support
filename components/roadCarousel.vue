@@ -10,9 +10,8 @@
 				p {{product.name}}
 	.head
 	.treeContainer
-		section(v-if="activeVersion == 0" )
-			div(v-for="item in version53" )
-				Branch(:name="item.name" :date="item.date")
+		.branchlist(v-if="activeVersion == 0" v-for="item in version53")
+			Branch(:name="item.name" :date="item.date")
 		section(v-if="activeVersion == 1")
 		section(v-if="activeVersion == 2")
 	.tail
@@ -102,6 +101,10 @@ export default {
 	margin: 0 auto;
 	background: url(~assets/img/vert.png) repeat-y center top;
 	border: 1px solid red; 
+}
+.branchlist {
+	margin-bottom: 2rem;
+	&:last-child { margin-bottom: 0; }
 }
 
 .tail {
