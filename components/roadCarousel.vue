@@ -8,6 +8,12 @@
 			.product(:class="index == activeVersion ? 'active' : ''" @click="setActiveItem(index)")
 				p.dv Docsvision
 				p {{product.name}}
+	section(v-if="activeVersion == 0")
+		p this is 1
+	section(v-if="activeVersion == 1")
+		p this is 2
+	section(v-if="activeVersion == 2")
+		p this is 3
 </template>
 
 <script>
@@ -25,18 +31,14 @@
 		computed: {
 		},
 		mounted() {
-			this.startShift();
 			this.overflow();
+			this.setActiveItem(1);
 		},
 		methods: {
 			overflow() { // this is for showing items outside of carousel
 				let inner = document.querySelector('.VueCarousel-wrapper')
 				inner.style.overflow = 'visible';
 
-			},
-			startShift() {
-				let slider = document.querySelector('.VueCarousel-inner');
-				slider.style.transform = "translate3d(-128px, 0, 0)";
 			},
 			setActiveItem(index) {
 				let slider = document.querySelector('.VueCarousel-inner');
