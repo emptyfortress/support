@@ -3,7 +3,7 @@ div
 	.container
 		h1 
 			i.icon-map/ Roadmap
-		p План развития платформы ДВ (сроки примерные)
+		p План развития платформы ДВ
 	roadCarousel
 </template>
 

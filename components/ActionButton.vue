@@ -13,6 +13,7 @@
 			i.icon-forum
 </template>
 
+
 <script>
 	export default {
 		data() {
@@ -32,7 +33,10 @@
 	}
 </script>
 
+
+
 <style scoped lang="scss">
+
 #actionButton {
 	position: fixed;
 	bottom: 2rem;
