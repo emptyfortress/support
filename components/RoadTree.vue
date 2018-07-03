@@ -3,21 +3,21 @@ section
 	.head
 	ul.treeContainer
 		transition-group(name="fade1" mode="in-out" tag="li")
-			li.branchlist(v-if="ver0" v-for="item in version53" :key="item")
+			li.branchlist(v-if="ver0" v-for="item in version53" :key="item.id")
 				.section(@click="goTo(to)")
 					.left
 						p {{ item.date }}
 					.center
 					.right
 						p {{ item.name }}
-			li.branchlist(v-if="ver1" v-for="item in version54" :key="item")
+			li.branchlist(v-if="ver1" v-for="item in version54" :key="item.id")
 				.section(@click="goTo(to)")
 					.left
 						p {{ item.date }}
 					.center
 					.right
 						p {{ item.name }}
-			li.branchlist(v-if="ver2" v-for="item in version55" :key="item")
+			li.branchlist(v-if="ver2" v-for="item in version55" :key="item.id")
 				.section(@click="goTo(to)")
 					.left
 						p {{ item.date }}
@@ -39,7 +39,7 @@ section
 				version54: [
 					{ id: 0, date: "Осень 2018", name: "Конструктор согласований", to: "" },
 					{ id: 1, date: "Сентябрь 2018", name: "Увеличение быстродействия папок", to: "" },
-					{ id: 1, date: "Октябрь 2018", name: "Фильтры в представлениях", to: "" },
+					{ id: 2, date: "Октябрь 2018", name: "Фильтры в представлениях", to: "" },
 				],
 				version55: [
 					{ id: 0, date: "Раз в 2-3 месяца (по мере накопления багов)", name: "Накопительное обновление", to: "" },

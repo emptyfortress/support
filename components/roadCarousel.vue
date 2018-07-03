@@ -18,9 +18,9 @@ export default {
 		return {
 			activeVersion: 0,
 			sections: [
-				{ id: 1, name: '5.3',  active: false, to: '' },
-				{ id: 2, name: '5.4',  active: true, to: ''},
-				{ id: 3, name: '5.5',  active: false, to: ''},
+				{ id: 1, name: 'Функционал',  active: false, to: '' },
+				{ id: 2, name: 'Приоритеты',  active: true, to: ''},
+				{ id: 3, name: 'Календарь',  active: false, to: ''},
 			],
 		}
 	},
@@ -40,7 +40,7 @@ export default {
 			this.activeVersion = index;
 			this.$store.commit( "setActiveVersion", { amount: index } )
 			console.log(index);
-			console.log( "actiev" + this.$store.state.activeVersion);
+			// console.log( "actiev" + this.$store.state.activeVersion);
 		},
 	},
 	components: {
@@ -72,16 +72,18 @@ export default {
 	padding: .5rem;
 	color: $main;
 	transition: all .3s ease;
+	color: $dv-blue;
+	border-radius: 1rem;
+	/* background: #eee; */
 	&.active {
 		color: $dv-green;
 		background: #eee;
 	}
 	p {
-		font-size: 1.3rem;
+		/* font-size: .9rem; */
+		text-transform: uppercase;
 		text-align: center;
-	}
-	.dv {
-		font-size: .9rem;
+		/* font-weight: bold; */
 	}
 }
 
