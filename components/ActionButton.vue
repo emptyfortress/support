@@ -15,22 +15,21 @@
 
 
 <script>
-	export default {
-		data() {
-			return {
-				sendOn: false
-			}
-		},
-		methods: {
-			toggleSend() {
-				this.sendOn = !this.sendOn;
-			},
-			close() {
-				this.sendOn = false;
-			},
+export default {
+	data() {
+		return {
+			sendOn: false
 		}
-		
+	},
+	methods: {
+		toggleSend() {
+			this.sendOn = !this.sendOn;
+		},
+		close() {
+			this.sendOn = false;
+		},
 	}
+}
 </script>
 
 
