@@ -4,10 +4,9 @@
 					:paginationEnabled='false'
 					:loop='false'
 					class='carousel' )
-		slide(v-for="( product, index ) in products" :key="index"  )
-			.product(:class="index == activeVersion ? 'active' : ''" @click="setActiveItem(index)")
-				p.dv Docsvision
-				p {{product.name}}
+		slide(v-for="( item, index ) in sections" :key="index"  )
+			.item(:class="index == activeVersion ? 'active' : ''" @click="setActiveItem(index)")
+				p {{item.name}}
 	RoadTree/
 </template>
 
@@ -18,7 +17,7 @@ export default {
 	data() {
 		return {
 			activeVersion: 0,
-			products: [
+			sections: [
 				{ id: 1, name: '5.3',  active: false, to: '' },
 				{ id: 2, name: '5.4',  active: true, to: ''},
 				{ id: 3, name: '5.5',  active: false, to: ''},
@@ -67,7 +66,7 @@ export default {
 .VueCarouser-inner {
 }
 
-.product {
+.item {
 	margin: 0 .5rem;
 	cursor: pointer;
 	padding: .5rem;
