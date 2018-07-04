@@ -53,6 +53,7 @@ section
 			ver2() { return this.$store.state.activeVersion == 2 ? true : false },
 		},
 	}
+
 </script>
 
 <style scoped lang="scss">

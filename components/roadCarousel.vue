@@ -35,12 +35,13 @@ export default {
 		},
 		setActiveItem(index) {
 			let slider = document.querySelector('.VueCarousel-inner');
-			let distance = - ( index * 128 );
+			let flexB = parseInt(slider.style.flexBasis);
+			let distance = - ( index * flexB );
 			slider.style.transform = "translate3d(" + distance +"px, 0, 0)";
 			this.activeVersion = index;
 			this.$store.commit( "setActiveVersion", { amount: index } )
-			console.log(index);
-			// console.log( "actiev" + this.$store.state.activeVersion);
+			console.log(flexB);
+			// console.log();
 		},
 	},
 	components: {
@@ -56,7 +57,7 @@ export default {
 	margin: 0 auto;
 }
 .carousel {
-	width: 130px;
+	width: 160px;
 	margin: 0 auto;
 	overflow: visible;
 }
@@ -69,21 +70,19 @@ export default {
 .item {
 	margin: 0 .5rem;
 	cursor: pointer;
-	padding: .5rem;
+	padding: .5rem 1rem;
 	color: $main;
-	transition: all .3s ease;
-	color: $dv-blue;
+	border: 1px solid $dv-gray2;
 	border-radius: 1rem;
-	/* background: #eee; */
 	&.active {
 		color: $dv-green;
-		background: #eee;
+		border-color: $dv-green;
+		&:hover { color: $dv-green; }
 	}
+	&:hover { border-color: $dv-gray3; color: #000}
 	p {
-		/* font-size: .9rem; */
 		text-transform: uppercase;
 		text-align: center;
-		/* font-weight: bold; */
 	}
 }
 
