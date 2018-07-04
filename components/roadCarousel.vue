@@ -18,20 +18,27 @@ export default {
 		return {
 			activeVersion: 0,
 			sections: [
-				{ id: 1, name: 'Функционал',  active: false, to: '' },
-				{ id: 2, name: 'Приоритеты',  active: true, to: ''},
-				{ id: 3, name: 'Календарь',  active: false, to: ''},
+				{ id: 0, name: 'Все продукты',  active: true, to: ''},
+				{ id: 1, name: 'Docsvision 5.5',  active: false, to: '' },
+				{ id: 2, name: 'Вебклиент',  active: false, to: ''},
+				{ id: 3, name: 'Пульс',  active: false, to: ''},
+				{ id: 1, name: 'Docsvision 5.4',  active: false, to: '' },
+				{ id: 1, name: 'Docsvision 5.3',  active: false, to: '' },
 			],
 		}
 	},
 	mounted() {
 		this.overflow();
-		this.setActiveItem(0);
 	},
 	methods: {
 		overflow() { // this is for showing items outside of carousel
 			let inner = document.querySelector('.VueCarousel-wrapper')
 			inner.style.overflow = 'visible';
+		},
+		startMove() {
+			let slider = document.querySelector('.VueCarousel-inner');
+			let flexB = parseInt(slider.style.flexBasis);
+			slider.style.transform = "translate3d(-160px, 0, 0)";
 		},
 		setActiveItem(index) {
 			let slider = document.querySelector('.VueCarousel-inner');
@@ -39,13 +46,11 @@ export default {
 			let distance = - ( index * flexB );
 			slider.style.transform = "translate3d(" + distance +"px, 0, 0)";
 			this.activeVersion = index;
-			this.$store.commit( "setActiveVersion", { amount: index } )
-			console.log(flexB);
-			// console.log();
+			this.$store.commit( "setActiveVersion", { amount: index } );
 		},
 	},
 	components: {
-		RoadTree: RoadTree
+		RoadTree,
 	}
 }
 
@@ -57,7 +62,7 @@ export default {
 	margin: 0 auto;
 }
 .carousel {
-	width: 160px;
+	width: 200px;
 	margin: 0 auto;
 	overflow: visible;
 }

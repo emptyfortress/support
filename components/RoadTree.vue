@@ -1,5 +1,5 @@
 <template lang="pug">
-section
+.pri
 	.head
 	ul.treeContainer
 		transition-group(name="fade1" mode="in-out" tag="li")
@@ -113,6 +113,10 @@ section
 		text-align: left; 
 		margin-left: 2rem;
 	}
+}
+
+.pri {
+	transition: .4s all ease;
 }
 
 .fade1-enter-active, .fade1-leave-active {
