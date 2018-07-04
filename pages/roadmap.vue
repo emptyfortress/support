@@ -5,7 +5,14 @@ div
 			i.icon-map/ Roadmap
 		p План развития платформы ДВ
 	div.cal
-		<timeline ref="timeline" :items="items" :groups="groups" :options="options"></timeline>
+		timeline(ref="timeline"
+							:items="items"
+							:groups="groups"
+							:options="options"
+							:events="['select', 'mouseOver']"
+							@select='myClickEvent'
+							@mouseOver='myClickEvent'
+							)
 	roadCarousel
 </template>
 
@@ -22,12 +29,10 @@ export default {
       	id: 0,
         content: 'Group 2'
       }],
-      items: [{
-      	id: 0,
-        group: 0,
-        start: new Date(),
-        content: 'Item 1'
-      }],
+      items: [
+				{ id: 0, group: 0, start: new Date(), content: 'Item 1' },
+				{ id: 1, group: 0, start: new Date(+1), content: 'Item 1' },
+			],
       options: {
         editable: true,
       },
@@ -36,6 +41,11 @@ export default {
 	components: {
 		Timeline,
 		roadCarousel
+	},
+	methods: {
+		myClickEvent(properties) {
+			console.log('select', properties);
+		}
 	}
 }
 </script>
