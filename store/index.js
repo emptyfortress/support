@@ -9,7 +9,7 @@ const createStore = () => {
 			send: false,
 			add: false,
 			allValid: false,
-			activeVersion: 0,
+			currentProduct: 0,
 
 			sections: [
 
@@ -79,7 +79,7 @@ const createStore = () => {
 			showOne(state) {state.allValid = true},
 			hideOne(state) {state.allValid = false},
 			setActiveVersion(state, payload) {
-				state.activeVersion = payload.amount;
+				state.currentProduct = payload.amount;
 			}
 		}
 	})

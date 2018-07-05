@@ -16,6 +16,7 @@ div
 	roadCarousel
 </template>
 
+
 <script>
 import roadCarousel from '@/components/roadCarousel';
 import { Timeline } from 'vue2vis';

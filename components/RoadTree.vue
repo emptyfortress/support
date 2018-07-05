@@ -2,32 +2,12 @@
 .pri
 	.head
 	.treeContainer
-		roadItem(:listFeatures="version53" v-if="ver0")
-		roadItem(:listFeatures="version54" v-if="ver1")
-		
-		<!-- transition&#45;group(name="fade1" mode="in&#45;out" tag="li") -->
-		<!-- 	li.branchlist(v&#45;if="ver0" v&#45;for="item in version53" :key="item.id") -->
-		<!-- 		.section(@click="") -->
-		<!-- 			.left -->
-		<!-- 				p {{ item.date }} -->
-		<!-- 			.center -->
-		<!-- 			.right -->
-		<!-- 				p {{ item.name }} -->
-		<!-- 	li.branchlist(v&#45;if="ver1" v&#45;for="item in version54" :key="item.id") -->
-		<!-- 		.section(@click="") -->
-		<!-- 			.left -->
-		<!-- 				p {{ item.date }} -->
-		<!-- 			.center -->
-		<!-- 			.right -->
-		<!-- 				p {{ item.name }} -->
-		<!-- 	li.branchlist(v&#45;if="ver2" v&#45;for="item in version55" :key="item.id") -->
-		<!-- 		.section(@click="") -->
-		<!-- 			.left -->
-		<!-- 				p {{ item.date }} -->
-		<!-- 			.center -->
-		<!-- 			.right -->
-		<!-- 				p {{ item.name }} -->
-
+		roadItem(:listFeatures="version53" v-if="$store.state.currentProduct==0")
+		roadItem(:listFeatures="version54" v-if="$store.state.currentProduct==1")
+		roadItem(:listFeatures="version54" v-if="$store.state.currentProduct==2")
+		roadItem(:listFeatures="version54" v-if="$store.state.currentProduct==3")
+		roadItem(:listFeatures="version54" v-if="$store.state.currentProduct==4")
+		roadItem(:listFeatures="version54" v-if="$store.state.currentProduct==5")
 	.tail
 </template>
 
@@ -53,9 +33,6 @@ import roadItem from "@/components/lists/roadItem";
 			}
 		},
 		computed: {
-			ver0() { return this.$store.state.activeVersion == 0 ? true : false },
-			ver1() { return this.$store.state.activeVersion == 1 ? true : false },
-			ver2() { return this.$store.state.activeVersion == 2 ? true : false },
 		},
 		components: {
 			roadItem

@@ -7,13 +7,13 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +1 components/ActionButton.vue
-badd +1 components/Empty.vue
-badd +30 /usr/local/Cellar/neovim/HEAD-1248178/share/nvim/runtime/doc/helphelp.txt
-badd +0 ~/.config/nvim/init.vim
+badd +1 components/RoadTree.vue
+badd +1 pages/roadmap.vue
+badd +1 components/lists/roadItem.vue
+badd +5 store/index.js
 argglobal
 silent! argdel *
-edit components/ActionButton.vue
+edit components/RoadTree.vue
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -22,9 +22,28 @@ wincmd w
 set nosplitbelow
 wincmd t
 set winminheight=1 winminwidth=1 winheight=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 68 + 66) / 133)
-exe 'vert 2resize ' . ((&columns * 64 + 66) / 133)
+exe 'vert 1resize ' . ((&columns * 93 + 94) / 188)
+exe 'vert 2resize ' . ((&columns * 94 + 94) / 188)
 argglobal
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let s:l = 2 - ((1 * winheight(0) + 27) / 55)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+2
+normal! 0
+lcd ~/Develop/support
+wincmd w
+argglobal
+if bufexists('~/Develop/support/components/lists/roadItem.vue') | buffer ~/Develop/support/components/lists/roadItem.vue | else | edit ~/Develop/support/components/lists/roadItem.vue | endif
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -40,27 +59,10 @@ exe s:l
 normal! zt
 1
 normal! 0
+lcd ~/Develop/support
 wincmd w
-argglobal
-if bufexists('~/.config/nvim/init.vim') | buffer ~/.config/nvim/init.vim | else | edit ~/.config/nvim/init.vim | endif
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let s:l = 32 - ((31 * winheight(0) + 27) / 55)
-if s:l < 1 | let s:l = 1 | endif
-exe s:l
-normal! zt
-32
-normal! 0
-wincmd w
-exe 'vert 1resize ' . ((&columns * 68 + 66) / 133)
-exe 'vert 2resize ' . ((&columns * 64 + 66) / 133)
+exe 'vert 1resize ' . ((&columns * 93 + 94) / 188)
+exe 'vert 2resize ' . ((&columns * 94 + 94) / 188)
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
