@@ -18,7 +18,7 @@ transition(name='zoomin', mode='out-in')
 			<nuxt/>
 		Footer/
 		ActionButton(v-show="but")/
-		AddRequest/
+		<!-- AddRequest/ -->
 		notifications(group="foo" animation-type="velocity")/
 </template>
 
@@ -33,7 +33,7 @@ import Search from '@/components/Search';
 import Breadcrumb from '@/components/Breadcrumb';
 import smallCarousel from '@/components/smallCarousel';
 import ActionButton from '@/components/ActionButton';
-import AddRequest from '@/components/AddRequest';
+// import AddRequest from '@/components/AddRequest';
 
 
 export default {
@@ -60,7 +60,7 @@ export default {
 		Breadcrumb,
 		smallCarousel,
 		ActionButton,
-		AddRequest
+		// AddRequest
 	},
 	methods:{
       cache(){
