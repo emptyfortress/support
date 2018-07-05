@@ -4,7 +4,7 @@ div
 		h1 
 			i.icon-map/ Roadmap
 		p План развития платформы ДВ
-	div.cal
+	.timeline
 		timeline(ref="timeline"
 							:items="items"
 							:groups="groups"
@@ -17,9 +17,10 @@ div
 </template>
 
 <script>
+import roadCarousel from '@/components/roadCarousel';
 import { Timeline } from 'vue2vis';
 import "vue2vis/dist/vue2vis.css";
-import roadCarousel from '@/components/roadCarousel';
+import "@/assets/css/timeline.scss";
 
 export default {
 	layout: 'main',
@@ -61,9 +62,8 @@ export default {
 roadCarousel {
 }
 
-.cal {
+.timeline {
 	margin-bottom: 2rem;
 	/* border: 1px solid red; */
 }
-
 </style>

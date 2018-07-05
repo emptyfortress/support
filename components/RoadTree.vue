@@ -29,7 +29,6 @@
 
 <script>
 	export default {
-		props: ['test'],
 		data() {
 			return {
 				version53: [
