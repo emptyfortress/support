@@ -4,10 +4,10 @@ ul
 		li.branchlist(v-for="item in listFeatures" :key="item.id")
 			.section(@click="")
 				.left
-					p {{ item.date }}
+					div Рейтинг: {{ item.rating }}
 				.center
 				.right
-					p {{ item.name }}
+					div {{ item.content }}
 </template>
 
 <script>
@@ -27,7 +27,7 @@ export default {
 
 <style scoped lang="scss">
 .branchlist {
-	margin-bottom: 1rem;
+	margin-bottom: 1.7rem;
 	&:last-child {
 		margin-bottom: 0;
 	}
@@ -37,7 +37,9 @@ export default {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 	.center {
+		margin-top: 1rem;
 		width: 15px;
 		height: 15px;
 		border-radius: 15px;
@@ -52,9 +54,10 @@ export default {
 		}
 	}
 	.left, .right {
+		padding: 1rem;
 		/* width: calc(100% - 40px); */
-		width: 30%;
-		background: #eee;
+		width: 50%;
+		/* background: #eee; */
 	}
 	.left {
 		text-align: right; 
@@ -63,6 +66,7 @@ export default {
 	.right {
 		text-align: left; 
 		margin-left: 2rem;
+		background: #eee;
 	}
 }
 

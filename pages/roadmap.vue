@@ -20,6 +20,7 @@ div
 <script>
 import roadCarousel from '@/components/roadCarousel';
 import { Timeline } from 'vue2vis';
+// import moment from 'vue-moment';
 import "vue2vis/dist/vue2vis.css";
 import "@/assets/css/timeline.scss";
 
@@ -32,11 +33,17 @@ export default {
         content: 'Group 2'
       }],
       items: [
-				{ id: 0, group: 0, start: new Date(), content: 'Item 1' },
-				{ id: 1, group: 0, start: new Date(+1), content: 'Item 1' },
+				{ id:  9, group: 0, start: new Date(), num: 1, rating: "", content: 'Item 1', },
+				// { id: 10, group: 0, s''tart: '', end: '', num: 1, rating: "", content: 'Item 1', },
+				// { id: 11, group: 0, start: '', end: '', num: 1, rating: "", content: 'Item 1', },
 			],
       options: {
-        editable: true,
+        editable: false,
+				orientation: 'top',
+				// locale: 'ru',
+				// moment: function(date) {
+				// 	return Timeline.vis.moment(date).utcOffset('+03:00');
+				// },
       },
 		}
 	},

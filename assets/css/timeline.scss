@@ -1,4 +1,18 @@
 .vis-timeline {
-	border: none;
+	// border: none;
 	// background: #eee;
 }
+
+.vis-today {
+	background: #ECF5FD;
+}
+
+.vis-panel.vis-top {
+	background-image: linear-gradient(#fff, #e6e6e6);
+}
+
+.vis-major div {
+	font-weight: bold;
+	font-size: 18px;
+}
+
