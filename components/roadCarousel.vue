@@ -7,11 +7,11 @@
 		slide(v-for="( item, index ) in sections" :key="index"  )
 			.item(:class="index == activeVersion ? 'active' : ''" @click="setActiveItem(index)")
 				p {{item.name}}
-	RoadTree/
+	<!-- RoadTree/ -->
 </template>
 
 <script>
-import RoadTree from '@/components/RoadTree';
+// import RoadTree from '@/components/RoadTree';
 	
 export default {
 	data() {
@@ -50,7 +50,7 @@ export default {
 		},
 	},
 	components: {
-		RoadTree,
+		// RoadTree,
 	}
 }
 
@@ -80,11 +80,11 @@ export default {
 	border: 1px solid $dv-gray2;
 	border-radius: 1rem;
 	&.active {
-		color: $dv-green;
+		color: #fff;
 		border-color: $dv-green;
-		&:hover { color: $dv-green; }
+		background: $dv-green;
 	}
-	&:hover { border-color: $dv-gray3; color: #000}
+	/* &:hover { border-color: $dv-gray3; color: #000} */
 	p {
 		text-transform: uppercase;
 		text-align: center;
