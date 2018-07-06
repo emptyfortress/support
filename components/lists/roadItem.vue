@@ -27,7 +27,7 @@ export default {
 
 <style scoped lang="scss">
 .branchlist {
-	margin-bottom: 1.7rem;
+	margin-bottom: .5rem;
 	&:last-child {
 		margin-bottom: 0;
 	}

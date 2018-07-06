@@ -54,7 +54,7 @@ import roadItem from "@/components/lists/roadItem";
 	/* width: 600px; */
 	margin: 0 auto;
 	background: url(~assets/img/vert.png) repeat-y center top;
-	border: 1px solid red; 
+	/* border: 1px solid red;  */
 }
 .branchlist {
 	margin-bottom: 2rem;
