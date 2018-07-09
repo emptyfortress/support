@@ -19,11 +19,9 @@ export default {
 			activeVersion: 0,
 			sections: [
 				{ id: 0, name: 'Все продукты',  active: true, to: ''},
-				{ id: 1, name: 'Docsvision 5.5',  active: false, to: '' },
-				{ id: 2, name: 'Вебклиент',  active: false, to: ''},
+				{ id: 1, name: 'Десктоп',  active: false, to: '' },
+				{ id: 2, name: 'Веб',  active: false, to: ''},
 				{ id: 3, name: 'Пульс',  active: false, to: ''},
-				{ id: 4, name: 'Docsvision 5.4',  active: false, to: '' },
-				{ id: 5, name: 'Docsvision 5.3',  active: false, to: '' },
 			],
 		}
 	},

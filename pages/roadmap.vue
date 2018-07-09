@@ -40,9 +40,9 @@ export default {
 				{ id:  2, group: 0, start: '2018-06-05' , product: 3, rating: "", content: 'Item 1', },
 				{ id:  3, group: 0, start: '2018-06-08' , product: 2, rating: "", content: 'Item 1', },
 				{ id:  4, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
-				{ id:  5, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  5, group: 0, start: '2018-06-12' , product: 3, rating: "", content: 'Item 1', },
 				{ id:  6, group: 0, start: '2018-06-11' , product: 2, rating: "", content: 'Item 1', },
-				{ id:  7, group: 0, start: '2018-06-11' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  7, group: 0, start: '2018-06-11' , product: 1, rating: "", content: 'Item 1', },
 				{ id:  8, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
 			],
       options: {
