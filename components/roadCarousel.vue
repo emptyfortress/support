@@ -44,6 +44,7 @@ export default {
 			let distance = - ( index * flexB );
 			slider.style.transform = "translate3d(" + distance +"px, 0, 0)";
 			this.activeVersion = index;
+			this.$store.commit( "setActiveVersion", { amount: null } );
 			this.$store.commit( "setActiveVersion", { amount: index } );
 		},
 	},

@@ -13,7 +13,7 @@ div
 							:events="['select']"
 							@select='myClickEvent'
 							)
-	reqTable/
+	reqTable(v-if="item == 0")/
 </template>
 
 
@@ -30,6 +30,7 @@ export default {
 	layout: 'main',
 	data() {
 		return {
+			item: 0,
 			groups: [{
       	id: 0,
         content: 'Group 2'
@@ -74,7 +75,8 @@ export default {
 	},
 	methods: {
 		myClickEvent(properties) {
-			console.log('select', properties);
+			// this.item = properties.items;
+			this.$refs.timeline.focus(properties.items);
 		},
 	fitAll() {
 			this.$refs.timeline.fit();
