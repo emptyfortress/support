@@ -7,12 +7,11 @@ div
 	roadCarousel
 	.timeline
 		timeline(ref="timeline"
-							:items="items"
+							:items="timelineItems"
 							:groups="groups"
 							:options="options"
-							:events="['select', 'mouseOver']"
+							:events="['select']"
 							@select='myClickEvent'
-							@mouseOver='myClickEvent'
 							)
 	reqTable/
 </template>
@@ -35,13 +34,28 @@ export default {
         content: 'Group 2'
       }],
       items: [
-				{ id:  9, group: 0, start: new Date(), num: 1, rating: "", content: 'Item 1', },
-				{ id:  10, group: 0, start: '2018-06-02' , num: 1, rating: "", content: 'Item 1', },
+				{ id:  0, group: 0, start: '2018-06-02' , product: 1, rating: "", content: 'Item 1', },
+				{ id:  1, group: 0, start: '2018-06-04' , product: 1, rating: "", content: 'Item 1', },
+				{ id:  2, group: 0, start: '2018-06-05' , product: 3, rating: "", content: 'Item 1', },
+				{ id:  3, group: 0, start: '2018-06-08' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  4, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
 			],
       options: {
         editable: false,
 				orientation: 'top',
       },
+		}
+	},
+	updated() {
+		this.fitAll();
+	},
+	computed: {
+		timelineItems() {
+			if (this.$store.state.currentProduct === 0) {
+				return this.items
+			} else {
+				return this.items.filter( item => item.product == this.$store.state.currentProduct )
+			}
 		}
 	},
 	components: {
@@ -52,6 +66,9 @@ export default {
 	methods: {
 		myClickEvent(properties) {
 			console.log('select', properties);
+		},
+	fitAll() {
+			this.$refs.timeline.fit();
 		}
 	}
 }
