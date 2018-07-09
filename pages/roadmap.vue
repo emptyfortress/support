@@ -20,6 +20,7 @@ div
 <script>
 import roadCarousel from '@/components/roadCarousel';
 import reqTable from '@/components/reqTable';
+import moment from 'moment';
 
 import { Timeline } from 'vue2vis';
 import "vue2vis/dist/vue2vis.css";
@@ -39,10 +40,18 @@ export default {
 				{ id:  2, group: 0, start: '2018-06-05' , product: 3, rating: "", content: 'Item 1', },
 				{ id:  3, group: 0, start: '2018-06-08' , product: 2, rating: "", content: 'Item 1', },
 				{ id:  4, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  5, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  6, group: 0, start: '2018-06-11' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  7, group: 0, start: '2018-06-11' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  8, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
 			],
       options: {
         editable: false,
 				orientation: 'top',
+				moment: function(date) {
+					return moment(date).utcOffset('+03:00');
+				},
+				// locale: 'ru',
       },
 		}
 	},
