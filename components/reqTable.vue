@@ -15,7 +15,7 @@
 			tr
 				th(v-for="column in columns" :class="column.class") {{ column.name }}
 		transition-group(name="request" tag="tbody")
-			tr(v-for="row in filteredTable" :key="row.id").pointer
+			tr(v-for="row in filteredTable" :key="row.id" :class="activeRow == row.id ? 'is-selected' : ''" @click='selectRow(row.item)' ).pointer
 				td {{ row.rating }}
 				td {{ row.content }}
 				td {{ row.num }}
@@ -38,6 +38,7 @@
 export default {
 	data() {
 		return {
+			activeRow: '',
 			activeReq: 1,
 			query: '',
 			types: [
@@ -52,19 +53,19 @@ export default {
 			],
 			allItems: [
 
-				{ id:  1,  group: 1, item: 1, num: 'BL-201', rating: 21802, tag: '', partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
-				{ id:  2,  group: 1, item: 2, num: 'BL-202', rating: 6298 , tag: '', partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
-				{ id:  3,  group: 1, item: 2, num: 'BL-203', rating: 8115 , tag: '', partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
-				{ id:  9,  group: 1, item: 8, num: 'BL-209', rating: 19018, tag: '', partners: 'ЦФТ', content: 'Настройка риббона Навигатора', },
-				{ id:  4,  group: 2, item: 4, num: 'BL-204', rating: 9932 , tag: 'my', partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
-				{ id:  5,  group: 2, item: 4, num: 'BL-205', rating: 11750, tag: 'my', partners: 'РКЦ Прогресс', content: 'Настройка условий нумератора - И, ИЛИ', },
-				{ id:  6,  group: 2, item: 7, num: 'BL-206', rating: 13567, tag: '', partners: 'РКЦ Прогресс', content: 'Настройка прав на отдельные нумераторы', },
-				{ id:  10, group: 2, item: 7, num: 'BL-201', rating: 21802, tag: '', partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
-				{ id:  12, group: 2, item: 5, num: 'BL-203', rating: 8115 , tag: '', partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
-				{ id:  7,  group: 3, item: 3, num: 'BL-207', rating: 15384, tag: '', partners: 'ГосНИИмаш', content: 'Создание Заданий и ГЗ по документам. Шаблоны', },
-				{ id:  8,  group: 3, item: 6, num: 'BL-208', rating: 17201, tag: 'my', partners: 'Союз', content: 'Использование url в папках - отключение проверки соответствия формата', },
-				{ id:  11, group: 3, item: 3, num: 'BL-202', rating: 6298 , tag: '', partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
-				{ id:  13, group: 3, item: 6, num: 'BL-204', rating: 9932 , tag: 'my', partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
+				{ id:  1,  group: 1, item: 1, num: 'BL-201', rating: 21802, partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
+				{ id:  2,  group: 1, item: 2, num: 'BL-202', rating: 6298 , partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
+				{ id:  3,  group: 1, item: 2, num: 'BL-203', rating: 8115 , partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
+				{ id:  9,  group: 1, item: 8, num: 'BL-209', rating: 19018, partners: 'ЦФТ', content: 'Настройка риббона Навигатора', },
+				{ id:  4,  group: 2, item: 4, num: 'BL-204', rating: 9932 , partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
+				{ id:  5,  group: 2, item: 4, num: 'BL-205', rating: 11750, partners: 'РКЦ Прогресс', content: 'Настройка условий нумератора - И, ИЛИ', },
+				{ id:  6,  group: 2, item: 7, num: 'BL-206', rating: 13567, partners: 'РКЦ Прогресс', content: 'Настройка прав на отдельные нумераторы', },
+				{ id:  10, group: 2, item: 7, num: 'BL-201', rating: 21802, partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
+				{ id:  12, group: 2, item: 5, num: 'BL-203', rating: 8115 , partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
+				{ id:  7,  group: 3, item: 3, num: 'BL-207', rating: 15384, partners: 'ГосНИИмаш', content: 'Создание Заданий и ГЗ по документам. Шаблоны', },
+				{ id:  8,  group: 3, item: 6, num: 'BL-208', rating: 17201, partners: 'Союз', content: 'Использование url в папках - отключение проверки соответствия формата', },
+				{ id:  11, group: 3, item: 3, num: 'BL-202', rating: 6298 , partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
+				{ id:  13, group: 3, item: 6, num: 'BL-204', rating: 9932 , partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
 
 			],
 			
@@ -98,6 +99,18 @@ export default {
 		sortTable(e) {
 			this.allItems.reverse();
 		},
+		selectRow(e) {
+			if (this.activeRow != e) {
+				this.$store.commit('setTimlineSelection', { amount: e })
+				// console.log(this.$store.state.timelineSelection);
+				return this.activeRow = e;
+			} else {
+					this.activeRow = '';
+					this.$store.commit('setTimlineSelection', { amount: [] })
+					// console.log(this.$store.state.timelineSelection);
+					// return this.activeRow = '';
+			}
+		}
 
 	}
 }
@@ -174,5 +187,8 @@ nav a {
 .request {
   backface-visibility: hidden;
   z-index: 1;
+}
+.table tr.is-selected {
+	/* background: $blue; */
 }
 </style>

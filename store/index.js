@@ -11,6 +11,7 @@ const createStore = () => {
 			allValid: false,
 			currentProduct: 0,
 			currentItem: 0,
+			timelineSelection: 0,
 
 			sections: [
 
@@ -84,6 +85,9 @@ const createStore = () => {
 			},
 			setActiveItem(state, payload) {
 				state.currentItem = payload.amount;
+			},
+			setTimlineSelection(state, payload) {
+				state.timelineSelection = payload.amount;
 			}
 		}
 	})

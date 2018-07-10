@@ -7,13 +7,12 @@ div
 	roadCarousel
 	.timeline
 		timeline(ref="timeline"
-							:items="timelineItems"
-							:groups="groups"
-							:options="options"
-							:events="['select']"
+			:items="timelineItems"
+				:groups="groups"
+					:options="options"
+						:events="['select']"
 							@select='myClickEvent'
 							)
-	<!-- reqTable(v&#45;if="selectedItem == 0")/ -->
 	reqTable/
 </template>
 
@@ -38,7 +37,7 @@ export default {
 				{ id: 2, content: 'Веб' },
 				{ id: 3, content: 'Пульс' },
 			],
-      items: [
+			items: [
 				{ id:  1, group: 1, start: '2018-06-02' , product: 1,  content: 'Item 1', },
 				{ id:  2, group: 1, start: '2018-06-04' , product: 1,  content: 'Item 1', },
 				{ id:  3, group: 3, start: '2018-06-05' , product: 3,  content: 'Item 1', },
@@ -49,18 +48,19 @@ export default {
 				{ id:  8, group: 1, start: '2018-06-11' , product: 1,  content: 'Item 1', },
 				// { id:  8, group: 2, start: '2018-06-12' , product: 2,  content: 'Item 1', },
 			],
-      options: {
-        editable: false,
+			options: {
+				editable: false,
 				orientation: 'top',
 				moment: function(date) {
 					return moment(date).utcOffset('+03:00');
 				},
 				// locale: 'ru',
-      },
+			},
 		}
 	},
 	updated() {
 		this.fitAll();
+		// this.timelineSelection()
 	},
 	computed: {
 		timelineItems() {
@@ -71,6 +71,9 @@ export default {
 			}
 		},
 	},
+	mounted() {
+		this.subs();
+	},
 	components: {
 		Timeline,
 		roadCarousel,
@@ -78,25 +81,40 @@ export default {
 		RoadTree
 	},
 	methods: {
+		subs() {
+			this.$store.subscribe( (mutation, state) => {
+				if (mutation.type === 'setTimlineSelection') {
+					this.selectItem(mutation.payload.amount)
+				}
+			})
+		},
 		myClickEvent(properties) {
 			let refTimeline = this.$refs.timeline;  // this var - for not loosing context
 			if (properties.items.length == 0) {
 				this.selectedItem = 0
 				this.$store.commit('setActiveItem', { amount: 0 } )
-				// console.log('nothing');
-				// console.log(this.$store.state.currentItem);
 			} else {
 				this.selectedItem = properties.items[0];
 				setTimeout(function() { 
 					refTimeline.focus(properties.items);
 				}, 0);
 				this.$store.commit('setActiveItem', { amount: properties.items[0] } )
-				console.log(properties.items[0]);
+				// console.log(properties.items[0]);
 			}
 		},
-	fitAll() {
+		fitAll() {
 			this.$refs.timeline.fit()
 		},
+		selectItem(id) {
+			let refTimeline = this.$refs.timeline;
+			if (id == 0) {
+				return refTimeline.setSelection([]);
+				// this.fitAll();
+			} else {
+				// refTimeline.focus(id);
+				return refTimeline.setSelection(id);
+			}
+		}
 	}
 }
 </script>
