@@ -13,13 +13,15 @@ div
 							:events="['select']"
 							@select='myClickEvent'
 							)
-	reqTable(v-if="selectedItem == 0")/
+	<!-- reqTable(v&#45;if="selectedItem == 0")/ -->
+	reqTable/
 </template>
 
 
 <script>
 import roadCarousel from '@/components/roadCarousel';
 import reqTable from '@/components/reqTable';
+import RoadTree from '@/components/RoadTree';
 import moment from 'moment';
 
 import { Timeline } from 'vue2vis';
@@ -31,20 +33,21 @@ export default {
 	data() {
 		return {
 			selectedItem: 0,
-			groups: [{
-      	id: 0,
-        content: 'Group 2'
-      }],
+			groups: [
+				{ id: 1, content: 'Десктоп' },
+				{ id: 2, content: 'Веб' },
+				{ id: 3, content: 'Пульс' },
+			],
       items: [
-				{ id:  0, group: 0, start: '2018-06-02' , product: 1, rating: "", content: 'Item 1', },
-				{ id:  1, group: 0, start: '2018-06-04' , product: 1, rating: "", content: 'Item 1', },
-				{ id:  2, group: 0, start: '2018-06-05' , product: 3, rating: "", content: 'Item 1', },
-				{ id:  3, group: 0, start: '2018-06-08' , product: 2, rating: "", content: 'Item 1', },
-				{ id:  4, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
-				{ id:  5, group: 0, start: '2018-06-12' , product: 3, rating: "", content: 'Item 1', },
-				{ id:  6, group: 0, start: '2018-06-11' , product: 2, rating: "", content: 'Item 1', },
-				{ id:  7, group: 0, start: '2018-06-11' , product: 1, rating: "", content: 'Item 1', },
-				{ id:  8, group: 0, start: '2018-06-12' , product: 2, rating: "", content: 'Item 1', },
+				{ id:  1, group: 1, start: '2018-06-02' , product: 1,  content: 'Item 1', },
+				{ id:  2, group: 1, start: '2018-06-04' , product: 1,  content: 'Item 1', },
+				{ id:  3, group: 3, start: '2018-06-05' , product: 3,  content: 'Item 1', },
+				{ id:  4, group: 2, start: '2018-06-08' , product: 2,  content: 'Item 1', },
+				{ id:  5, group: 2, start: '2018-06-12' , product: 2,  content: 'Item 1', },
+				{ id:  6, group: 3, start: '2018-06-12' , product: 3,  content: 'Item 1', },
+				{ id:  7, group: 2, start: '2018-06-11' , product: 2,  content: 'Item 1', },
+				{ id:  8, group: 1, start: '2018-06-11' , product: 1,  content: 'Item 1', },
+				// { id:  8, group: 2, start: '2018-06-12' , product: 2,  content: 'Item 1', },
 			],
       options: {
         editable: false,
@@ -64,22 +67,32 @@ export default {
 			if (this.$store.state.currentProduct === 0) {
 				return this.items
 			} else {
-				return this.items.filter( item => item.product == this.$store.state.currentProduct )
+				return this.items.filter( item => item.group == this.$store.state.currentProduct )
 			}
 		},
 	},
 	components: {
 		Timeline,
 		roadCarousel,
-		reqTable
+		reqTable,
+		RoadTree
 	},
 	methods: {
 		myClickEvent(properties) {
 			let refTimeline = this.$refs.timeline;  // this var - for not loosing context
-			this.selectedItem = properties.items;
-			setTimeout(function() { 
-				refTimeline.focus(properties.items);
-			}, 0);
+			if (properties.items.length == 0) {
+				this.selectedItem = 0
+				this.$store.commit('setActiveItem', { amount: 0 } )
+				// console.log('nothing');
+				// console.log(this.$store.state.currentItem);
+			} else {
+				this.selectedItem = properties.items[0];
+				setTimeout(function() { 
+					refTimeline.focus(properties.items);
+				}, 0);
+				this.$store.commit('setActiveItem', { amount: properties.items[0] } )
+				console.log(properties.items[0]);
+			}
 		},
 	fitAll() {
 			this.$refs.timeline.fit()

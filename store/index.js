@@ -10,6 +10,7 @@ const createStore = () => {
 			add: false,
 			allValid: false,
 			currentProduct: 0,
+			currentItem: 0,
 
 			sections: [
 
@@ -80,6 +81,9 @@ const createStore = () => {
 			hideOne(state) {state.allValid = false},
 			setActiveVersion(state, payload) {
 				state.currentProduct = payload.amount;
+			},
+			setActiveItem(state, payload) {
+				state.currentItem = payload.amount;
 			}
 		}
 	})

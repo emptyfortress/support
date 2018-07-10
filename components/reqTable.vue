@@ -51,38 +51,40 @@ export default {
 				{ name: 'Партнеры', class: '' },
 			],
 			allItems: [
-				{ id:  0,  group: 3, num: 'BL-201', rating: 21802, tag: '', partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
-				{ id:  1,  group: 1, num: 'BL-202', rating: 6298 , tag: '', partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
-				{ id:  2,  group: 2, num: 'BL-203', rating: 8115 , tag: '', partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
-				{ id:  3,  group: 1, num: 'BL-204', rating: 9932 , tag: 'my', partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
-				{ id:  4,  group: 0, num: 'BL-205', rating: 11750, tag: 'my', partners: 'РКЦ Прогресс', content: 'Настройка условий нумератора - И, ИЛИ', },
-				{ id:  5,  group: 1, num: 'BL-206', rating: 13567, tag: '', partners: 'РКЦ Прогресс', content: 'Настройка прав на отдельные нумераторы', },
-				{ id:  6,  group: 2, num: 'BL-207', rating: 15384, tag: '', partners: 'ГосНИИмаш', content: 'Создание Заданий и ГЗ по документам. Шаблоны', },
-				{ id:  7,  group: 1, num: 'BL-208', rating: 17201, tag: 'my', partners: 'Союз', content: 'Использование url в папках - отключение проверки соответствия формата', },
-				{ id:  8,  group: 0, num: 'BL-209', rating: 19018, tag: '', partners: 'ЦФТ', content: 'Настройка риббона Навигатора', },
-				{ id:  9,  group: 0, num: 'BL-201', rating: 21802, tag: '', partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
-				{ id:  10, group: 2, num: 'BL-202', rating: 6298 , tag: '', partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
-				{ id:  11, group: 2, num: 'BL-203', rating: 8115 , tag: '', partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
-				{ id:  12, group: 3, num: 'BL-204', rating: 9932 , tag: 'my', partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
+
+				{ id:  1,  group: 1, item: 1, num: 'BL-201', rating: 21802, tag: '', partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
+				{ id:  2,  group: 1, item: 2, num: 'BL-202', rating: 6298 , tag: '', partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
+				{ id:  3,  group: 1, item: 2, num: 'BL-203', rating: 8115 , tag: '', partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
+				{ id:  9,  group: 1, item: 8, num: 'BL-209', rating: 19018, tag: '', partners: 'ЦФТ', content: 'Настройка риббона Навигатора', },
+				{ id:  4,  group: 2, item: 4, num: 'BL-204', rating: 9932 , tag: 'my', partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
+				{ id:  5,  group: 2, item: 4, num: 'BL-205', rating: 11750, tag: 'my', partners: 'РКЦ Прогресс', content: 'Настройка условий нумератора - И, ИЛИ', },
+				{ id:  6,  group: 2, item: 7, num: 'BL-206', rating: 13567, tag: '', partners: 'РКЦ Прогресс', content: 'Настройка прав на отдельные нумераторы', },
+				{ id:  10, group: 2, item: 7, num: 'BL-201', rating: 21802, tag: '', partners: 'Велес', content: 'Использование маски в атрибутивном поиске', },
+				{ id:  12, group: 2, item: 5, num: 'BL-203', rating: 8115 , tag: '', partners: 'РКЦ Прогресс', content: 'Название вида - локализация, отображаемое название и комментарии', },
+				{ id:  7,  group: 3, item: 3, num: 'BL-207', rating: 15384, tag: '', partners: 'ГосНИИмаш', content: 'Создание Заданий и ГЗ по документам. Шаблоны', },
+				{ id:  8,  group: 3, item: 6, num: 'BL-208', rating: 17201, tag: 'my', partners: 'Союз', content: 'Использование url в папках - отключение проверки соответствия формата', },
+				{ id:  11, group: 3, item: 3, num: 'BL-202', rating: 6298 , tag: '', partners: 'Интернет-Фрегат', content: 'Интеграция с адресными системами (КЛАДР)', },
+				{ id:  13, group: 3, item: 6, num: 'BL-204', rating: 9932 , tag: 'my', partners: 'СофтАкадемия', content: 'Настройка момента проверки обязательности полей', },
+
 			],
 			
 		}
 	},
 	computed: {
 		filteredTable() {
-			switch (this.$store.state.currentProduct) {
-				case 0:
-					return this.allItems
-					break;
-				case 1:
-					return this.allItems.filter( item => item.group == 1 )
-					break;
-				case 2:
-					return this.allItems.filter( item => item.group == 2 )
-					break;
-				case 2:
-					return this.allItems.filter( item => item.group == 3 )
-					break;
+			let curPr = this.$store.state.currentProduct;
+			let curIt = this.$store.state.currentItem;
+			if (curPr == 0 && curIt == 0) {
+				return this.allItems
+			}
+			else if (curPr != 0 && curIt == 0) {
+				return this.allItems.filter( item => item.group == curPr )
+			}
+			else if (curPr == 0 && curIt != 0) {
+				return this.allItems.filter( item => item.item == curIt )
+			}
+			else {
+				return this.allItems.filter( item => ( item.group == curPr && item.item == curIt ) )
 			}
 		}
 	},

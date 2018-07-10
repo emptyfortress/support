@@ -5,7 +5,7 @@
 					:loop='false'
 					class='carousel' )
 		slide(v-for="( item, index ) in sections" :key="index"  )
-			.item(:class="index == activeVersion ? 'active' : ''" @click="setActiveItem(index)")
+			.item(:class="index == activeVersion ? 'active' : ''" @click="setActiveVersion(index)")
 				p {{item.name}}
 	<!-- RoadTree/ -->
 </template>
@@ -38,7 +38,7 @@ export default {
 			let flexB = parseInt(slider.style.flexBasis);
 			slider.style.transform = "translate3d(-160px, 0, 0)";
 		},
-		setActiveItem(index) {
+		setActiveVersion(index) {
 			let slider = document.querySelector('.VueCarousel-inner');
 			let flexB = parseInt(slider.style.flexBasis);
 			let distance = - ( index * flexB );
