@@ -13,7 +13,7 @@ div
 							:events="['select']"
 							@select='myClickEvent'
 							)
-	reqTable(v-if="item == 0")/
+	reqTable(v-if="selectedItem == 0")/
 </template>
 
 
@@ -30,7 +30,7 @@ export default {
 	layout: 'main',
 	data() {
 		return {
-			item: 0,
+			selectedItem: 0,
 			groups: [{
       	id: 0,
         content: 'Group 2'
@@ -66,7 +66,7 @@ export default {
 			} else {
 				return this.items.filter( item => item.product == this.$store.state.currentProduct )
 			}
-		}
+		},
 	},
 	components: {
 		Timeline,
@@ -75,12 +75,15 @@ export default {
 	},
 	methods: {
 		myClickEvent(properties) {
-			// this.item = properties.items;
-			this.$refs.timeline.focus(properties.items);
+			let refTimeline = this.$refs.timeline;  // this var - for not loosing context
+			this.selectedItem = properties.items;
+			setTimeout(function() { 
+				refTimeline.focus(properties.items);
+			}, 0);
 		},
 	fitAll() {
-			this.$refs.timeline.fit();
-		}
+			this.$refs.timeline.fit()
+		},
 	}
 }
 </script>
