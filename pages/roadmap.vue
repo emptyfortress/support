@@ -150,9 +150,15 @@ export default {
 		padding: .5rem 1.5rem;
 		margin-right: 1px;
 		cursor: pointer;
+		&:hover {
+			background: darken(#eee, 7%);
+		}
 		&.active {
 			background: $dv-green;
 			color: #fff;
+			&:hover {
+				background: darken($dv-green, 4%);
+			}
 		}
 	}
 }
