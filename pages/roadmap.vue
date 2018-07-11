@@ -46,7 +46,6 @@ export default {
 				{ id:  6, group: 3, start: '2018-06-12' , product: 3,  content: 'Item 1', },
 				{ id:  7, group: 2, start: '2018-06-11' , product: 2,  content: 'Item 1', },
 				{ id:  8, group: 1, start: '2018-06-11' , product: 1,  content: 'Item 1', },
-				// { id:  8, group: 2, start: '2018-06-12' , product: 2,  content: 'Item 1', },
 			],
 			options: {
 				editable: false,
@@ -95,9 +94,9 @@ export default {
 				this.$store.commit('setActiveItem', { amount: 0 } )
 			} else {
 				this.selectedItem = properties.items[0];
-				setTimeout(function() { 
-					refTimeline.focus(properties.items);
-				}, 0);
+				// setTimeout(function() { 
+				// 	refTimeline.focus(properties.items);
+				// }, 0);
 				this.$store.commit('setActiveItem', { amount: properties.items[0] } )
 				// console.log(properties.items[0]);
 			}
@@ -107,9 +106,12 @@ export default {
 		},
 		selectItem(id) {
 			let refTimeline = this.$refs.timeline;
-			if (id == 0) {
+			if (id == []) {
 				return refTimeline.setSelection([]);
 				// this.fitAll();
+				} else if(id > 8) {
+				// refTimeline.focus(id);
+				return refTimeline.setSelection(id-5);
 			} else {
 				// refTimeline.focus(id);
 				return refTimeline.setSelection(id);
@@ -122,7 +124,7 @@ export default {
 <style scoped lang="scss">
 .container {
 	padding-top: 4rem;
-	text-align: center;
+	/* text-align: center; */
 	margin-bottom: 2rem;
 	p { font-size: 1.2rem; color: $main; margin-top: 0; }
 	h1 { margin-bottom: 1rem; }
