@@ -78,17 +78,20 @@ export default {
 		filteredTable() {
 			let curPr = this.$store.state.currentProduct;
 			let curIt = this.$store.state.currentItem;
+			let querry = this.query.toLowerCase();
+			let querryTable =  this.query ? this.allItems.filter(item => item.content.toLowerCase().includes(querry) || item.partners.toLowerCase().includes(querry) || item.num.toLowerCase().includes(querry)) : this.allItems
+
 			if (curPr == 0 && curIt == 0) {
-				return this.allItems
+				return querryTable
 			}
 			else if (curPr != 0 && curIt == 0) {
-				return this.allItems.filter( item => item.group == curPr )
+				return querryTable.filter( item => item.group == curPr )
 			}
 			else if (curPr == 0 && curIt != 0) {
-				return this.allItems.filter( item => item.item == curIt )
+				return querryTable.filter( item => item.item == curIt )
 			}
 			else {
-				return this.allItems.filter( item => ( item.group == curPr && item.item == curIt ) )
+				return querryTable.filter( item => ( item.group == curPr && item.item == curIt ) )
 			}
 		}
 	},
