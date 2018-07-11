@@ -192,6 +192,11 @@ nav a {
   z-index: 1;
 }
 .table tr.is-selected {
-	/* background: $blue; */
+	background: #FEF88C;
+	color: #000;
+	td {
+		border-top: 1px solid #FEC329;
+		border-bottom: 1px solid #FEC329;
+	}
 }
 </style>
