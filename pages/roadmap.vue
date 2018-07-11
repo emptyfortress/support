@@ -39,7 +39,7 @@ export default {
 				{ id: 3, name: 'Пульс',  active: false, to: ''},
 			],
 			groups: [
-				{ id: 1, content: 'Десктоп' },
+				{ id: 1, content: 'Десктоп', className: 'desktop' },
 				{ id: 2, content: 'Веб' },
 				{ id: 3, content: 'Пульс' },
 			],
@@ -162,4 +162,5 @@ export default {
 		}
 	}
 }
+
 </style>

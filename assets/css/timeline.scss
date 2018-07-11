@@ -18,4 +18,31 @@
 .vis-labelset .vis-label {
 	text-align:right;
 }
-
+.vis-item {
+	background: #01547D;
+	border: 1px solid #028ED4;
+	// border: 1px solid #fff;
+	color: #fff;
+	&.vis-selected {
+		color: #000;
+	}
+}
+.desktop {
+	.vis-item {
+		// background: #eee;
+	}
+}
+.vis-panel.vis-center {
+	background: linear-gradient(#013957, #011C29);
+}
+.vis-labelset {
+	background: #fff;
+}
+.vis-content {
+	background: url( '~assets/img/chita1.jpg');
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+}
+.vis-foreground .vis-group {
+	border-bottom: 1px solid #005982;
+}

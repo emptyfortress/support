@@ -21,7 +21,8 @@
 				td {{ row.num }}
 				td {{ row.partners }}
 				td 
-					i.icon-new-window
+					a(href="http://dv-backlog.vdv.digdes.com/DocsvisionWebClient/#/Folder/BCC4C5FA-7C64-450F-A38B-E80C80737005?Color=folder-default" target="_blank")
+						i.icon-new-window
 	hr
 	br
 	nav.pagination.is-rounded
@@ -80,7 +81,6 @@ export default {
 			let curIt = this.$store.state.currentItem;
 			let querry = this.query.toLowerCase();
 			let querryTable =  this.query ? this.allItems.filter(item => item.content.toLowerCase().includes(querry) || item.partners.toLowerCase().includes(querry) || item.num.toLowerCase().includes(querry)) : this.allItems
-
 			if (curPr == 0 && curIt == 0) {
 				return querryTable
 			}
