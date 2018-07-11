@@ -4,7 +4,9 @@ div
 		h1 
 			i.icon-map/ Roadmap
 		p План развития платформы ДВ
-	roadCarousel
+	.prodList
+		.prod(v-for="(item, index) in sections" :key="index" 
+				:class="index == activeVersion ? 'active' : ''" @click="setActiveVersion(index)") {{ item.name }}
 	.timeline
 		timeline(ref="timeline"
 			:items="timelineItems"
@@ -18,11 +20,8 @@ div
 
 
 <script>
-import roadCarousel from '@/components/roadCarousel';
 import reqTable from '@/components/reqTable';
-import RoadTree from '@/components/RoadTree';
 import moment from 'moment';
-
 import { Timeline } from 'vue2vis';
 import "vue2vis/dist/vue2vis.css";
 import "@/assets/css/timeline.scss";
@@ -32,6 +31,13 @@ export default {
 	data() {
 		return {
 			selectedItem: 0,
+			activeVersion: 0,
+			sections: [
+				{ id: 0, name: 'Все продукты',  active: true, to: ''},
+				{ id: 1, name: 'Десктоп',  active: false, to: '' },
+				{ id: 2, name: 'Веб',  active: false, to: ''},
+				{ id: 3, name: 'Пульс',  active: false, to: ''},
+			],
 			groups: [
 				{ id: 1, content: 'Десктоп' },
 				{ id: 2, content: 'Веб' },
@@ -59,7 +65,6 @@ export default {
 	},
 	updated() {
 		this.fitAll();
-		// this.timelineSelection()
 	},
 	computed: {
 		timelineItems() {
@@ -75,9 +80,7 @@ export default {
 	},
 	components: {
 		Timeline,
-		roadCarousel,
 		reqTable,
-		RoadTree
 	},
 	methods: {
 		subs() {
@@ -116,7 +119,12 @@ export default {
 				// refTimeline.focus(id);
 				return refTimeline.setSelection(id);
 			}
-		}
+		},
+		setActiveVersion(index) {
+			this.activeVersion = index;
+			this.$store.commit( "setActiveVersion", { amount: null } );
+			this.$store.commit( "setActiveVersion", { amount: index } );
+		},
 	}
 }
 </script>
@@ -124,7 +132,6 @@ export default {
 <style scoped lang="scss">
 .container {
 	padding-top: 4rem;
-	/* text-align: center; */
 	margin-bottom: 2rem;
 	p { font-size: 1.2rem; color: $main; margin-top: 0; }
 	h1 { margin-bottom: 1rem; }
@@ -133,6 +140,20 @@ export default {
 .timeline {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
-	/* border: 1px solid red; */
+}
+
+.prodList {
+	display: flex;
+	font-size: 1.2rem;
+	.prod {
+		background: #eee;
+		padding: .5rem 1.5rem;
+		margin-right: 1px;
+		cursor: pointer;
+		&.active {
+			background: $dv-green;
+			color: #fff;
+		}
+	}
 }
 </style>
