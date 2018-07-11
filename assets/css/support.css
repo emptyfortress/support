@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'support';
-  src: url('../font/support.eot?43548272');
-  src: url('../font/support.eot?43548272#iefix') format('embedded-opentype'),
-       url('../font/support.woff2?43548272') format('woff2'),
-       url('../font/support.woff?43548272') format('woff'),
- 			 url('../font/support.ttf?43548272') format('truetype'),
-       url('../font/support.svg?43548272#support') format('svg');
+  src: url('../font/support.eot?69379414');
+  src: url('../font/support.eot?69379414#iefix') format('embedded-opentype'),
+       url('../font/support.woff2?69379414') format('woff2'),
+       url('../font/support.woff?69379414') format('woff'),
+       url('../font/support.ttf?69379414') format('truetype'),
+       url('../font/support.svg?69379414#support') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
-
+/*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'support';
-    src: url('../font/support.svg?43548272#support') format('svg');
+    src: url('../font/support.svg?69379414#support') format('svg');
   }
 }
-
+*/
  
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "support";
@@ -106,3 +106,4 @@
 .icon-done:before { content: '\e831'; } /* '' */
 .icon-oval:before { content: '\e832'; } /* '' */
 .icon-compass:before { content: '\e833'; } /* '' */
+.icon-new-window:before { content: '\e834'; } /* '' */

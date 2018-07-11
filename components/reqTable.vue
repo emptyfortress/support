@@ -20,6 +20,8 @@
 				td {{ row.content }}
 				td {{ row.num }}
 				td {{ row.partners }}
+				td 
+					i.icon-new-window
 	hr
 	br
 	nav.pagination.is-rounded
@@ -50,6 +52,7 @@ export default {
 				{ name: 'Название', class: 'has-text-weight-bold' },
 				{ name: 'Номер', class: '' },
 				{ name: 'Партнеры', class: '' },
+				{ name: '', class: '' },
 			],
 			allItems: [
 
