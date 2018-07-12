@@ -9,11 +9,20 @@ div
 				:class="index == activeVersion ? 'active' : ''" @click="setActiveVersion(index)") {{ item.name }}
 	.timeline
 		timeline(ref="timeline"
-			:items="activeVersion == 4 ? items1 : timelineItems"
-			:groups="activeVersion == 4 ? groups1 : groups"
+			:items="items1"
+			:groups="groups1"
 			:options="options"
 			:events="['select']"
 			@select='myClickEvent'
+			v-if="activeVersion === 4"
+			)
+		timeline(ref="timeline"
+			:items="timelineItems"
+			:groups="groups"
+			:options="options"
+			:events="['select']"
+			@select='myClickEvent'
+			v-else
 			)
 	reqTable/
 </template>
@@ -76,7 +85,7 @@ export default {
 					return moment(date).utcOffset('+03:00');
 				},
 				// align: 'center',
-				type: 'box',
+				// type: 'box',
 				// type: 'range',
 				// limitSize: false,
 					
@@ -88,6 +97,7 @@ export default {
 	},
 	updated() {
 		this.fitAll();
+
 	},
 	computed: {
 		timelineItems() {
@@ -128,7 +138,7 @@ export default {
 			}
 		},
 		fitAll() {
-			this.$refs.timeline.fit()
+				this.$refs.timeline.fit()
 		},
 		selectItem(id) {
 			let refTimeline = this.$refs.timeline;
@@ -165,7 +175,7 @@ export default {
 			document.querySelector('.vis-content').classList.add('support');
 			// this.fitAll();
 			// this.$refs.timeline.redraw();
-		}
+		},
 	}
 }
 </script>
