@@ -41,7 +41,18 @@
 	background: url( '~assets/img/chita1.jpg');
 	background-repeat: no-repeat;
 	background-size: auto 100%;
+	&.support {
+		background: linear-gradient(to left top, #93D5FF, #D6FFFD);
+		.vis-foreground .vis-group {
+			border-bottom: 1px solid #fff;
+		}
+	}
 }
 .vis-foreground .vis-group {
-	border-bottom: 1px solid #005982;
+	border-bottom: 1px solid #00476B;
+}
+
+.vis-item.support {
+	background: #fff;
+	color: $main;
 }

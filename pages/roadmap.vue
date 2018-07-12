@@ -9,12 +9,12 @@ div
 				:class="index == activeVersion ? 'active' : ''" @click="setActiveVersion(index)") {{ item.name }}
 	.timeline
 		timeline(ref="timeline"
-			:items="timelineItems"
-				:groups="groups"
-					:options="options"
-						:events="['select']"
-							@select='myClickEvent'
-							)
+			:items="activeVersion == 4 ? items1 : timelineItems"
+			:groups="activeVersion == 4 ? groups1 : groups"
+			:options="options"
+			:events="['select']"
+			@select='myClickEvent'
+			)
 	reqTable/
 </template>
 
@@ -37,28 +37,51 @@ export default {
 				{ id: 1, name: 'Десктоп',  active: false, to: '' },
 				{ id: 2, name: 'Веб',  active: false, to: ''},
 				{ id: 3, name: 'Пульс',  active: false, to: ''},
+				{ id: 4, name: 'Техподдержка',  active: false, to: ''},
 			],
 			groups: [
-				{ id: 1, content: 'Десктоп', className: 'desktop' },
-				{ id: 2, content: 'Веб' },
-				{ id: 3, content: 'Пульс' },
+				{ id: 1, content: 'Десктоп',    },
+				{ id: 2, content: 'Веб',        },
+				{ id: 3, content: 'Пульс',      },
+			],
+			groups1: [
+				{ id: 4, content: 'DV 5.3',     },
+				{ id: 5, content: 'DV 5.4',     },
+				{ id: 6, content: 'DV 5.5',     },
+				{ id: 7, content: 'Web-client', },
+				{ id: 8, content: 'Пульс',      },
 			],
 			items: [
-				{ id:  1, group: 1, start: '2018-06-02' , product: 1,  content: 'Item 1', },
-				{ id:  2, group: 1, start: '2018-06-04' , product: 1,  content: 'Item 1', },
-				{ id:  3, group: 3, start: '2018-06-05' , product: 3,  content: 'Item 1', },
-				{ id:  4, group: 2, start: '2018-06-08' , product: 2,  content: 'Item 1', },
-				{ id:  5, group: 2, start: '2018-06-12' , product: 2,  content: 'Item 1', },
-				{ id:  6, group: 3, start: '2018-06-12' , product: 3,  content: 'Item 1', },
-				{ id:  7, group: 2, start: '2018-06-11' , product: 2,  content: 'Item 1', },
-				{ id:  8, group: 1, start: '2018-06-11' , product: 1,  content: 'Item 1', },
+				{ id:  1, group: 1, start: '2018-07-02', content: 'Item 1', },
+				{ id:  2, group: 1, start: '2018-07-04', content: 'Item 2', },
+				{ id:  3, group: 3, start: '2018-07-05', content: 'Item 3', },
+				{ id:  4, group: 2, start: '2018-07-08', content: 'Item 4', },
+				{ id:  5, group: 2, start: '2018-07-12', content: 'Item 5', },
+				{ id:  6, group: 3, start: '2018-07-12', content: 'Item 6', },
+				{ id:  7, group: 2, start: '2018-07-11', content: 'Item 7', },
+				{ id:  8, group: 1, start: '2018-07-11', content: 'Item 8', },
 			],
+			items1: [
+				{ id:  9, group: 4, start: '2013-01-01', end: '2017-02-04', className: 'support', content: 'Техническая поддержка 5.3', },
+				{ id: 10, group: 5, start: '2014-01-01', end: '2018-04-01', className: 'support', content: 'Техническая поддержка 5.3', },
+				{ id: 11, group: 6, start: '2014-05-01', end: '2018-06-06', className: 'support', content: 'Техническая поддержка 5.3', },
+				{ id: 12, group: 7, start: '2016-01-01', end: '2019-10-09', className: 'support', content: 'Техническая поддержка 5.3', },
+				{ id: 13, group: 8, start: '2016-01-01', end: '2019-10-09', className: 'support', content: 'Техническая поддержка 5.3', },
+			],
+
 			options: {
 				editable: false,
 				orientation: 'top',
 				moment: function(date) {
 					return moment(date).utcOffset('+03:00');
 				},
+				// align: 'center',
+				type: 'box',
+				// type: 'range',
+				// limitSize: false,
+					
+				stack: true,
+				// stackSubgroups: true,
 				// locale: 'ru',
 			},
 		}
@@ -124,7 +147,25 @@ export default {
 			this.activeVersion = index;
 			this.$store.commit( "setActiveVersion", { amount: null } );
 			this.$store.commit( "setActiveVersion", { amount: index } );
+			// console.log(index);
+			if (index < 4) {
+				this.showMain()
+			} else {
+				this.showTP()
+			}
 		},
+		showMain() {
+			// this.$store.commit( "setActiveVersion", { amount: 4 } );
+			document.querySelector('.vis-content').classList.remove('support');
+			// this.$refs.timeline.redraw();
+			// this.fitAll();
+		},
+		showTP() {
+			// this.$store.commit( "setActiveVersion", { amount: 0 } );
+			document.querySelector('.vis-content').classList.add('support');
+			// this.fitAll();
+			// this.$refs.timeline.redraw();
+		}
 	}
 }
 </script>
@@ -144,7 +185,7 @@ export default {
 
 .prodList {
 	display: flex;
-	font-size: 1.2rem;
+	font-size: 1.0rem;
 	.prod {
 		background: #eee;
 		padding: .5rem 1.5rem;
