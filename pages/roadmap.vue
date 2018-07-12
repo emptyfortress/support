@@ -24,7 +24,9 @@ div
 			@select='myClickEvent'
 			v-else
 			)
-	reqTable/
+	.supText(v-if="activeVersion == 4") 
+			h3 Здесь какой-то текст про сроки техподдержки
+	reqTable(v-else)/
 </template>
 
 
@@ -71,11 +73,11 @@ export default {
 				{ id:  8, group: 1, start: '2018-07-11', content: 'Item 8', },
 			],
 			items1: [
-				{ id:  9, group: 4, start: '2013-01-01', end: '2017-02-04', className: 'support', content: 'Техническая поддержка 5.3', },
-				{ id: 10, group: 5, start: '2014-01-01', end: '2018-04-01', className: 'support', content: 'Техническая поддержка 5.3', },
-				{ id: 11, group: 6, start: '2014-05-01', end: '2018-06-06', className: 'support', content: 'Техническая поддержка 5.3', },
-				{ id: 12, group: 7, start: '2016-01-01', end: '2019-10-09', className: 'support', content: 'Техническая поддержка 5.3', },
-				{ id: 13, group: 8, start: '2016-01-01', end: '2019-10-09', className: 'support', content: 'Техническая поддержка 5.3', },
+				{ id:  9, group: 4, type: 'point', start: '2018-01-01', className: 'support', content: 'Прекращение поддержки', },
+				{ id: 10, group: 5, type: 'point', start: '2020-01-01', className: 'support', content: 'Прекращение поддержки', },
+				{ id: 11, group: 6, type: 'point', start: '2021-05-01', className: 'support', content: 'Прекращение поддержки', },
+				{ id: 12, group: 7, type: 'point', start: '2023-01-01', className: 'support', content: 'Прекращение поддержки', },
+				{ id: 13, group: 8, type: 'point', start: '2025-01-01', className: 'support', content: 'Прекращение поддержки', },
 			],
 
 			options: {
@@ -84,14 +86,8 @@ export default {
 				moment: function(date) {
 					return moment(date).utcOffset('+03:00');
 				},
-				// align: 'center',
-				// type: 'box',
-				// type: 'range',
-				// limitSize: false,
-					
 				stack: true,
-				// stackSubgroups: true,
-				// locale: 'ru',
+				// align: 'right',
 			},
 		}
 	},
@@ -138,18 +134,17 @@ export default {
 			}
 		},
 		fitAll() {
-				this.$refs.timeline.fit()
+			console.log(this.$refs.timeline);
+			this.$refs.timeline.fit({ animation: {duration: 2000} })
 		},
 		selectItem(id) {
 			let refTimeline = this.$refs.timeline;
 			if (id == []) {
 				return refTimeline.setSelection([]);
-				// this.fitAll();
+				this.fitAll();
 				} else if(id > 8) {
-				// refTimeline.focus(id);
 				return refTimeline.setSelection(id-5);
 			} else {
-				// refTimeline.focus(id);
 				return refTimeline.setSelection(id);
 			}
 		},
@@ -157,7 +152,6 @@ export default {
 			this.activeVersion = index;
 			this.$store.commit( "setActiveVersion", { amount: null } );
 			this.$store.commit( "setActiveVersion", { amount: index } );
-			// console.log(index);
 			if (index < 4) {
 				this.showMain()
 			} else {

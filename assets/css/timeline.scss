@@ -1,6 +1,4 @@
 .vis-timeline {
-	// border: none;
-	// background: #eee;
 }
 
 .vis-today {
@@ -18,17 +16,14 @@
 .vis-labelset .vis-label {
 	text-align:right;
 }
-.vis-item {
+.vis-item.vis-box {
 	background: #01547D;
 	border: 1px solid #028ED4;
-	// border: 1px solid #fff;
 	color: #fff;
 	&.vis-selected {
 		color: #000;
-	}
-}
-.desktop {
-	.vis-item {
+		background: #FDF993;
+		border: 1px solid #FDC43B;
 	}
 }
 .vis-panel.vis-center {
@@ -52,7 +47,9 @@
 	border-bottom: 1px solid #00476B;
 }
 
-.vis-item.support {
-	background: #fff;
-	color: $main;
+.vis-item.vis-point {
+	color: #000;
+}
+.vis-item.vis-dot.support {
+	border-color: red;
 }
