@@ -4,7 +4,7 @@
 		TheSign(v-if="!$store.state.login")/
 		ProductCarousel(v-if="$store.state.login")/
 		.navgrid
-			Section(v-for="section in ( $store.state.login ? $store.state.sections : defaultSections )" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to" :click="section.click")
+			Section(v-for="section in ( $store.state.login ? loggedSections : defaultSections )" :key="section.id" :icon="section.icon" :name="section.name" :to="section.to" :click="section.click")
 		section.lastlist(v-if="$store.state.login")
 			section.lastlist
 				Popular(:title="titleLast" :list="popular")/
@@ -63,6 +63,9 @@ export default {
 	computed: {
 		defaultSections() {
 			return this.$store.state.sections.filter( item => item.firstpage == true )
+		},
+		loggedSections() {
+			return this.$store.state.sections.filter( item => item.logged == true )
 		}
 
 	},
