@@ -1,7 +1,7 @@
 <template lang="pug">
 .container
 	h2
-		i.icon-map/ Путеводитель
+		i.icon-compass/ Путеводитель
 	ul.listP
 		li(v-for="item in $store.state.map")
 			nuxt-link(:to='item.to') {{item.title}}
