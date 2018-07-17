@@ -31,8 +31,9 @@ div
 
 
 <script>
+import * as moment from 'moment';
+import 'moment/locale/ru';
 import reqTable from '@/components/reqTable';
-import moment from 'moment';
 import { Timeline } from 'vue2vis';
 import "vue2vis/dist/vue2vis.css";
 import "@/assets/css/timeline.scss";
@@ -86,6 +87,7 @@ export default {
 				moment: function(date) {
 					return moment(date).utcOffset('+03:00');
 				},
+				locale: 'ru',
 				stack: true,
 				// align: 'right',
 			},
