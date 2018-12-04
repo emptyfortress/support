@@ -61,8 +61,117 @@ const createStore = () => {
 				{ id: 1, to: '/map/1', title: 'Регистрация и доступ на портал' },
 				{ id: 2, to: '/map/2', title: 'Путеводитель по порталу' },
 				{ id: 3, to: '/map/3', title: 'Работа с инциндентами на портале' },
+			],
+			
+			documentation: [
+				{
+					id: 1, expand: false, name: 'Платформа',
+					childs: [
+						{ id: 1, to: '/docs/platform/1', name: 'Установка и администрирование Docsvision 5.2.2450' },
+						{ id: 2, to: '/docs/platform/2', name: 'Конструктор согласований Docsvision 5.4.2642' },
+						{ id: 3, to: '/docs/platform/3', name: 'Установка и администрирование Docsvision 5.3.2559' },
+						{ id: 4, to: '/docs/platform/4', name: 'Установка и администрирование Docsvision 5.2.2542' },
+					]
+				},
+				{ 
+					id: 2, expand: false, name: 'Web-client',
+					childs: [
+						{ id: 1, to: '/docs/platform/1', name: 'Web-client, версия 9' },
+						{ id: 1, to: '/docs/platform/2', name: 'Web-client, версия 10' },
+					]
+				},
+				{
+					id: 3, expand: false, name: 'Пульс',
+					childs: [
+						{ id: 1, underconstruction: true,},
+					]
+				},
+				{ id: 4, expand: false, name: 'Накопительные обновления',
+					childs: [
+						{ id: 1, underconstruction: true,},
+					]
+				},
+				{ id: 5, expand: false, name: 'Договоры',
+					childs: [
+						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Договоры» v.5.4.3' },
+					]
+				},
+				{ id: 6, expand: false, name: 'Почтовый клиент',
+					childs: [
+						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Почтовый клиент»' },
+					]
+				},
+				{ id: 7, expand: false, name: 'Делопроизводство',
+					childs: [
+						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Делопроизводство» v.5.4.4' },
+					] 
+				}, 
+				{ id: 8, expand: false, name: 'Управление документами',
+					childs: [
+						{ id: 1, to: '/docs/platform/1', name: 'Приложение «Управление документами» Docsvision 5.4.2642' },
+						{ id: 1, to: '/docs/platform/2', name: 'Приложение «Управление документами» Docsvision 5.3.2559' },
+						{ id: 2, to: '/docs/platform/3', name: 'Приложение «Управление документами» Docsvision 5.3.2529' },
+						{ id: 3, to: '/docs/platform/4', name: 'Приложение «Управление документами» Docsvision 5.2.2450' },
+					]
+				},
+				{ id: 9,  expand: false, name: 'Открытое множество непредсказуемо',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 10, expand: false, name: 'Аксиома допускает многомерный предел функции',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 11, expand: false, name: 'В общем, дифференциальное исчисление соответствует',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 12, expand: false, name: 'Абстрактный предел функции',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 13, expand: false, name: 'Нечетная функция накладывает убывающий критерий сходимости Коши',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 14, expand: false, name: 'Таким образом сбылась мечта идиота',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 15, expand: false, name: 'Утверждение полностью доказано',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 16, expand: false, name: 'Интеграл от функции, имеющий конечный разрыв',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 17, expand: false, name: 'Однородно изменяет интеграл от функции',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 18, expand: false, name: 'Комплексной переменной',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 19, expand: false, name: 'Огибающая семейства прямых позиционирует',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 20, expand: false, name: 'Положительный тройной интеграл',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 21, expand: false, name: 'Скалярное поле, очевидно, отображает интеграл',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 22, expand: false, name: 'От функции комплексной переменной',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 23, expand: false, name: 'Математическое моделирование однозначно показывает',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 24, expand: false, name: 'Что двойной интеграл существенно обуславливает',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 25, expand: false, name: 'Изоморфный Наибольший Общий Делитель',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 26, expand: false, name: 'Длина вектора позиционирует Наибольший Общий Делитель',
+					childs: [ {id: 1, underconstruction: true} ]
+				},
+				{ id: 27, expand: false, name: 'Что несомненно приведет нас к истине',
+					childs: [ {id: 1, underconstruction: true} ]
+				}
 			]
-
 		},
 		mutations: {
 			showNav(state) {state.navigation = true},
